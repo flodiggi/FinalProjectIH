@@ -1,0 +1,66 @@
+// Place all the styles related to the site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+header {
+    background: url("http://i.telegraph.co.uk/multimedia/archive/00686/seal_686202c.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.navbar-default {
+    background-color: rgba(101, 108, 111, 0.56);
+    border-color: #e7e7e7;
+}
+.main-heading {
+margin-top: 100px;
+padding-bottom: 150px;
+text-align: center;
+color: #fff;
+}
+.organise{
+text-transform: uppercase;
+font-weight: 700;
+font-size: 75px;
+line-height: 75px;
+margin-bottom: 75px;
+text-shadow: 1px 1px 2px black;
+}
+
+.example {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  float:left;
+  background-color: #00f3ff;
+  background-image: url("https://www.allmystery.de/i/tXCb5T1_pin_enton_l.gif");
+}
+
+.fb-signup {
+  display: inline-block;
+  background-color: red;
+  width: 50%;
+  height: 100%;
+  padding: 250px;
+
+}
+
+.mid-row {
+  height: 500px;
+}
+
+.panel-footer{
+  background-color: #9a9de4;
+  display: flex;
+}
+
+.leftfooter {
+  float:left;
+  padding: 10px;
+}
+
+
+.rightfooter {
+  float:right;
+  padding: 10px;
+}

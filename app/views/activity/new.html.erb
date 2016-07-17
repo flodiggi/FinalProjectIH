@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Create new activity</h1>
+
+    <form action="/create" method="POST">
+        <label for="activity_name">What do you want to do?</label>
+        <input name="activity[name]"type="text" id="search" value="" class="form-control" placeholder="Literally Anything"/>
+        <label for="activity_number">How many participants</label>
+        <input name="activity[number]"type="number" id="number" value="" class="form-control">
+        <label for="activity_groups">Which groups do you want to invite?</label>
+        <input name="activity[groups]"type="dropdown" id="groups" value="" class="form-control">
+        <input type="submit" id="submit" class="btn btn-primary" value="Have Fun!" />
+        <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+    </form>
+</div>

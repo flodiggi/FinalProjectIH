@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get '/', to:'site#home'
+  root to: 'site#home'
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+  get '/profile' => 'users#show'
+  get '/users' => 'users#index'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
-  get '/start', to: 'activity#new'
+  resources :activity
 
-  post '/create', to: 'activity#create'
 
-  get '/activity', to: 'activity#activity'
 
 end

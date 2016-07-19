@@ -8,7 +8,10 @@
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Link</a></li>
+        <li><h1><%= @name %></h1></li>
+      <li><%= link_to "Sign up", "/signup" %></li>
+      <li><%= link_to "Log In", "/login" %></li>
+      <li><%= link_to "Log Out", "/logout", :method => :delete %></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -25,7 +28,7 @@
   <div class="container">
     <div class="main-heading">
       <div class="organise">   Decide What do to and with whom </div>
-      <a href="/start" class="btn btn-default">Start Now</a>
+      <a href="/activity/new" class="btn btn-default">Start Now</a>
     </div>
 
   </div>

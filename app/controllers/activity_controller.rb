@@ -1,4 +1,5 @@
 class ActivityController < ApplicationController
+before_action :authorize_user
 
 def new
 
@@ -16,14 +17,15 @@ def create
 
   redirect_to("/new")
   else
-  # activity.save
+  activity.users << current_user
+  activity.save
   redirect_to("/activity")
   end
 end
 
 
-def activity
-  
+def index
+
 
 end
 

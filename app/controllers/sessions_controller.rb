@@ -19,4 +19,6 @@ class SessionsController < ApplicationController
     redirect_to '/'
 
   end
+
+
 end

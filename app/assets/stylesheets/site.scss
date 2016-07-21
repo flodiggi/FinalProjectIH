@@ -3,19 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-header {
-    background: url("http://i.telegraph.co.uk/multimedia/archive/00686/seal_686202c.jpg") no-repeat center center;
-    background-size: cover;
-}
 
 .navbar-default {
     background-color: rgba(101, 108, 111, 0.56);
     border-color: #e7e7e7;
+    color: #fff;
+}
+
+.logo {
+  height: 50px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
 }
 .main-heading {
-margin-top: 100px;
-padding-bottom: 150px;
-text-align: center;
 color: #fff;
 }
 .organise{
@@ -27,14 +29,14 @@ margin-bottom: 75px;
 text-shadow: 1px 1px 2px black;
 }
 
-.example {
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-  float:left;
-  background-color: #00f3ff;
-  background-image: url("https://www.allmystery.de/i/tXCb5T1_pin_enton_l.gif");
+.btn-default {
+  font-size: 40px;
+  background-color: #ff5a5f;
+  color: #fff;
+
 }
+
+
 
 .fb-signup {
   display: inline-block;
@@ -46,21 +48,42 @@ text-shadow: 1px 1px 2px black;
 }
 
 .mid-row {
-  height: 500px;
+  height: 1000px;
+  margin: 200px 100px 100px 100px;
 }
 
-.panel-footer{
-  background-color: #9a9de4;
-  display: flex;
+.navbar-text > a {
+	color: inherit;
+	text-decoration: none;
 }
 
-.leftfooter {
-  float:left;
-  padding: 10px;
+.overlay {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 99;
+}
+.slider {
+    position: relative;
 }
 
 
-.rightfooter {
-  float:right;
-  padding: 10px;
+.col-sm-4 {
+  border-color: black;
+}
+
+p {
+  background-color: #bdc1c5;
+}
+
+
+
+
+
+.navbar-inverse {
+  background-color: #5b677d;
 }

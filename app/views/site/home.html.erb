@@ -1,10 +1,13 @@
 
-    <header>
+
+
+
+
       <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img alt="Brand" src="...">
+          <!-- <img class="logo" alt="Brand" src="http://www.cosplaydotexe.de/costumes/enton/pin_enton_l.gif"> -->
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
@@ -25,15 +28,68 @@
     </ul>
     </div>
   </nav>
-  <div class="container">
-    <div class="main-heading">
-      <div class="organise">   Some Amazing Heading </div>
+
+
+
+<div class="slider">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src= <%= asset_path("image1.jpeg")%> alt="...">
+      </div>
+      <div class="item">
+        <img src= <%= asset_path("image2.jpeg")%> alt="...">
+      </div>
+      <div class="item">
+        <img src= <%= asset_path("image3.jpeg")%> alt="...">
+      </div>
+      <div class="item">
+        <img src= <%= asset_path("image4.jpeg")%> alt="...">
+      </div>
+
+    </div>
+    </div>
+    <div class="overlay">
+      <div class="organise main-heading">   Some Amazing Heading </div>
       <a href="/activity/new" class="btn btn-default">Start Now</a>
     </div>
+</div>
+    <div class="row mid-row">
+			<div class="col-sm-4">
+				<a href="#" class="thumbnail home-thumb">
+					<img src="https://images.unsplash.com/photo-1421140702025-9bb9db769200?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6768d98efad81bbab5e1a73ea18eac5d" alt="Slate Bootstrap Admin Theme">
+				</a>
+				<h3>Example 1</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros</p>
+				<a href="#" class="btn btn-danger">View</a>
+			</div>
+			<div class="col-sm-4">
+				<a href="#" class="thumbnail home-thumb">
+					<img src="https://images.unsplash.com/photo-1420578509940-73e9f7232eae?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=346c600782b4257a6addbdaccf546eb6" alt="Appi Landing Page Template">
+				</a>
+				<h3>Example 2</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros</p>
+				<a href="#" class="btn btn-danger">View</a>
+			</div>
+			<div class="col-sm-4">
+				<a href="jiggy.html" class="thumbnail home-thumb">
+					<img src="https://images.unsplash.com/photo-1444694828841-5e4fa2f4ccfd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=7e37aa7df3309b2bdf42966f5071aedc" alt="Jiggy Portfolio Theme">
+				</a>
+				<h3>Example 3</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros</p>
+				<a href="#" class="btn btn-danger">View</a>
+			</div>
+		</div>
 
-  </div>
-    </header>
-    <section class="mid-row">
+
+
+
+
+
+    <!-- <section class="mid-row">
       <div class="example">
 
       </div>
@@ -42,21 +98,17 @@
 
       </div>
 
-    </section>
+    </section> -->
 
-      <div class="panel-footer">
-        <div class="leftfooter">
-          BY FLO
-
+     <div class="navbar navbar-inverse " role="navigation">
+        	<div class="container">
+        		<div class="navbar-text pull-left">
+        			<p>FLo</p>
+        		</div>
+        		<div class="navbar-text pull-right">
+        			<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+        			<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+        			<a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+        		</div>
+        	</div>
         </div>
-        <div class="rightfooter">
-          Ironhack Final Project
-
-        </div>
-
-
-      </div>
-
-
-
-  </body>

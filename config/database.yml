@@ -19,9 +19,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: my_app_test
+  database: my-app_test
 
-# production:
-#   <<: *default
-#   database: my_app_production
-#   password: <%= ENV['MY_APP_DATABASE_PASSWORD']%>
+production:
+  <<: *default
+  database: my-app_production
+  password: <%= ENV['MY_APP_DATABASE_PASSWORD']%>

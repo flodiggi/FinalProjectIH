@@ -80,6 +80,17 @@ p {
   background-color: #bdc1c5;
 }
 
+.carousel .item {
+  height: 100vh;
+}
+
+.item img {
+  position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+}
+
 
 
 

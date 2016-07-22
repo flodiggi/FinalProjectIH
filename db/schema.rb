@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720115440) do
+ActiveRecord::Schema.define(version: 20160722104148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 20160720115440) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "group_activities", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id"], name: "index_group_activities_on_activity_id", using: :btree
+    t.index ["group_id"], name: "index_group_activities_on_group_id", using: :btree
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_activities", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "activity_id"
@@ -30,6 +45,15 @@ ActiveRecord::Schema.define(version: 20160720115440) do
     t.datetime "updated_at",  null: false
     t.index ["activity_id"], name: "index_user_activities_on_activity_id", using: :btree
     t.index ["user_id"], name: "index_user_activities_on_user_id", using: :btree
+  end
+
+  create_table "user_groups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id", using: :btree
+    t.index ["user_id"], name: "index_user_groups_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

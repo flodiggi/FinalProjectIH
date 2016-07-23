@@ -8,6 +8,8 @@ end
 
 def create
   activity = Activity.new(activity_params)
+
+
   # activity = Activity.new(
   #   :name => params[:activity][:name].capitalize,
   #   :participants => params[:activity][:number],

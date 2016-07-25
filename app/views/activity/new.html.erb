@@ -1,15 +1,38 @@
-<div class="container">
+<!-- <div class="container">
     <h1>Create new activity</h1>
 
     <form action="/activity" method="POST">
-        <label for="activity_name">What do you want to do?</label>
+        <label for="activity_name">What is the name of your activity</label>
         <input name="activity[name]"type="text" id="search" value="" class="form-control" placeholder="Literally Anything"/>
-        <label for="activity_number">How many participants</label>
-        <input name="activity[participants]"type="number" id="participants" value="" class="form-control">
-        <!-- <label for="activity_groups">Which groups do you want to invite?</label>
-        <input name="activity[groups]"type="dropdown" id="groups" value="" class="form-control"> -->
+        <label for="activity_description">Describe it in more detail:</label>
+        <input name="activity[description]"type="text" id="search" value="" class="form-control" placeholder="Literally Anything"/>
+        <label for="activity_starts_at">When?</label>
+        <input name="activity[starts_at]"type="date" id="search" value="" class="form-control">
+        <label for="activity_ends_at">Until?</label>
+        <input name="activity[ends_at]"type="date" id="search" value="" class="form-control">
         <input type="submit" id="submit" class="btn btn-primary" value="Have Fun!" />
         <input type="hidden" name="authenticity_token"
            value="<%= form_authenticity_token %>">
     </form>
+</div> -->
+
+<div class="container">
+<%= form_for @activity, url: {action: "create"}, html: {class: "form", role: "form"} do |f| %>
+ <div class="form-group">
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+  <%= f.label :description, "Description:" %>
+  <%= f.text_field :description %>
+  </div>
+  <div class="form-group">
+  <%= f.label :starts_at, "Description:" %>
+  <%= f.date_select :starts_at %>
+  <%= f.time_select :starts_at %>
+  </div>
+  <%= f.submit "Have Fun", class: "btn btn-primary" %>
+
+<% end %>
+
 </div>

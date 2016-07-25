@@ -2,21 +2,17 @@ class ActivityController < ApplicationController
 before_action :authorize_user
 
 def new
-
 end
 
 
 def create
-  activity = Activity.new(activity_params)
 
+activity = Activity.new(activity_params)
 
-  # activity = Activity.new(
-  #   :name => params[:activity][:name].capitalize,
-  #   :participants => params[:activity][:number],
-  #   :groups => params[:activity][:groups])
 
   if
-  activity.name =~ /^$/ || activity.participants =~ /^$/
+  activity.name =~ /^$/
+  # || activity.participants =~ /^$/
 
   redirect_to("activity/new")
   else
@@ -35,7 +31,7 @@ end
 private
 
 def activity_params
-  params.require(:activity).permit(:name, :participants, :groups)
+  params.require(:activity).permit(:name, :description, :starts_at, :ends_at)
 end
 
 

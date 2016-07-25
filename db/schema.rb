@@ -17,9 +17,13 @@ ActiveRecord::Schema.define(version: 20160722104148) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
-    t.integer  "participants"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "location"
+    t.string   "description"
+    t.string   "category"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "group_activities", force: :cascade do |t|
@@ -33,8 +37,9 @@ ActiveRecord::Schema.define(version: 20160722104148) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "user_activities", force: :cascade do |t|

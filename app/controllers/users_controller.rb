@@ -17,8 +17,10 @@ end
 
   def show
     @user = current_user
-    @activity = @user.activities
+    @activities = @user.activities
     @groups = @user.groups
+
+
   end
 
   # receives form and creates a user from that data

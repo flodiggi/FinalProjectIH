@@ -4,4 +4,8 @@ class Activity < ApplicationRecord
   has_many :group_activities
   has_many :groups, through: :group_activities
 
+  def test
+
+  end
+
 end

@@ -1,5 +1,64 @@
-<ul>
-  <li>Name: <%= @activity.name%></li>
-  <li>Description: <%= @activity.description%></li>
-  <li>Datetime: <%= @activity.starts_at%></li>
-</ul>
+<div class="container-fluid">
+  <div class="col-md-3">
+    <h2>Members:</h2>
+    <ul>
+      <li>Member 1</li>
+      <li>Member 2</li>
+      <li>Member 3</li>
+      <li>Member 4</li>
+      <li>Member 5</li>
+      <li>Member 6</li>
+      <li>Member 7</li>
+      <a href="#" class="btn btn-success ">Add Participants</a>
+    </ul>
+  </div>
+  <div class="col-md-6 activity">
+    <img src="http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png" alt="" />
+    <ul>
+      <li>Name: <%= @activity.name%></li>
+      <li>Description: <%= @activity.description%></li>
+      <li>Date: <%= @activity.starts_at_date%></li>
+      <a href="#" class="btn btn-danger">Vote!</a>
+      <li>Time: <%= @activity.starts_at_time%>
+        <a href="#" class="btn btn-danger">Vote!</a>
+
+      </li>
+    </ul>
+    <a href="#" class="btn btn-default ">Change Details</a>
+    <a href="#" class="btn btn-info">Create Counter Activity!</a>
+    <a href="#" class="btn btn-success ">LIKE</a>
+    <a href="#" class="btn btn-warning">DISLIKE</a>
+
+  </div>
+  <div class="col-md-3">
+
+  </div>
+
+
+
+
+</div>
+<div class="row">
+<section class="comments">
+  <h3>Comments</h3>
+  <div class="comment">
+    <img class="avatar" src="<%= asset_path("nikel.jpeg")%> " alt="nikel"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quisquam totam atque nam velit repudiandae nostrum provident quae magnam possimus explicabo, saepe error voluptatum obcaecati perferendis corrupti? Asperiores dolorum, rerum?</p>
+  </div>
+  <div class="comment">
+    <img class="avatar" src="<%= asset_path("jake.jpeg")%>" alt="jake"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quisquam totam atque nam velit repudiandae nostrum provident quae magnam possimus explicabo, saepe error voluptatum obcaecati perferendis corrupti? Asperiores dolorum, rerum?</p>
+  </div>
+</section>
+<section class="form"> <br>
+  <form>
+    <label>Name</label>
+    <input type="" name="">
+    <label>Email</label>
+    <input type="" name="">
+    <label>Text</label>
+    <input type="" name="">
+    <button>Submit</button>
+  </form>
+</section>
+</div>

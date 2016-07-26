@@ -1,0 +1,32 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <% @activity.date_entries.each do |date| %>
+      <th><%= date.date %> </th>
+      <% end %>
+
+      <th> <%= form_for @date_entry, html: {id: "dateform", role: "form"} do |f| %>
+        <%= f.label :date, "Date:" %>
+      <%= f.date_field :date %>
+      <%= f.submit "Add", class: "btn btn-primary vote" %>
+    </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+
+      <% @activity.users.each do |user| %>
+      <tr>
+      <td><%= user.username %></td>
+      <td>
+        <div class="checkbox">
+          <label><input type="checkbox" value=""></label>
+        </div>
+      </td>
+      </tr>
+      <% end %>
+
+
+  </tbody>
+</table>

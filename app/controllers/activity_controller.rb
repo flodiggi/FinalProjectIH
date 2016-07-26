@@ -17,6 +17,8 @@ activity = Activity.new(activity_params)
   redirect_to("activity/new")
   else
   activity.users << current_user
+  datevote = DateEntry.create(:date => activity.starts_at)
+  activity.date_entries << datevote
   activity.save
   redirect_to ("/activity/#{activity.id}")
   end
@@ -25,6 +27,7 @@ end
 
 def show
 @activity = Activity.find_by(id: params[:id])
+@date_entry = DateEntry.new
 
 end
 

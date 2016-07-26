@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726075044) do
+ActiveRecord::Schema.define(version: 20160726110137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20160726075044) do
     t.datetime "image_updated_at"
   end
 
+  create_table "date_entries", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id"], name: "index_date_entries_on_activity_id", using: :btree
+  end
+
   create_table "group_activities", force: :cascade do |t|
     t.integer  "group_id"
     t.integer  "activity_id"
@@ -44,6 +52,14 @@ ActiveRecord::Schema.define(version: 20160726075044) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "time_entries", force: :cascade do |t|
+    t.time     "time"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id"], name: "index_time_entries_on_activity_id", using: :btree
   end
 
   create_table "user_activities", force: :cascade do |t|

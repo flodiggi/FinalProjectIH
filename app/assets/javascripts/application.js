@@ -14,3 +14,50 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+
+
+// $(document).ready(function(){
+//
+//   $("#dateform").submit(function(e) {
+//     $.ajax({
+//         type: "POST",
+//         url: "/data_entries"),
+//         data: ,
+//         dataType: "JSON"
+//     }).success(function(json){
+//         console.log("success", json);
+//     })
+//     e.preventDefault()
+//   });
+// })
+
+$(document).ready(function(){
+  $(document).on("submit", "#dateform", function (e){
+    console.log($('#dateform').serialize())
+  e.preventDefault()
+    $.ajax({
+        type: "POST",
+        url: "/date_entries",
+        data: $('#dateform').serialize(),
+        dataType: "JSON"
+    }).success(function(json){
+        console.log("success", json);
+    })
+  })
+
+})
+
+
+
+// $(document).on "submit", "#new_comment", (e) ->
+//   e.preventDefault()
+//   $form = $ this
+//
+//   $.post "#{$form.attr 'action'}.json", $form.serializeArray(), (comment) ->
+//     $text = $('<span>').date comment.date
+//     $createdAt = $('<span>').text comment.created_at
+//     $newComment = $('<div class="comment">').append($text).append $createdAt
+//     $('.comment:last').after $newComment

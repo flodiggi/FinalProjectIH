@@ -21,7 +21,7 @@
       <li>Name: <%= @activity.name%></li>
       <li>Description: <%= @activity.description%></li>
       <li>Date: <%= @activity.starts_at_date%></li>
-      <a href="#" class="btn btn-danger">Vote!</a>
+      <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">Vote!</a>
       <li>Time: <%= @activity.starts_at_time%>
         <a href="#" class="btn btn-danger">Vote!</a>
 
@@ -100,6 +100,29 @@
         <% end %>
 
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Vote it!</h4>
+      </div>
+      <div class="Intro"> </div>
+      <div class="modal-body">
+        <div class="container">
+  <h2>Vote Date!</h2>
+ <%= render "datevotes" %>
+</div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

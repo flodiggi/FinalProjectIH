@@ -3,6 +3,9 @@ class Activity < ApplicationRecord
   has_many :users, through: :user_activities
   has_many :group_activities
   has_many :groups, through: :group_activities
+  has_many :time_entries
+  has_many :date_entries
+
 
   extend TimeSplitter::Accessors
   split_accessor :starts_at, date_format: "%D", time_format: "%I:%M%p"

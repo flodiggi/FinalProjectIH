@@ -42,9 +42,11 @@ $(document).ready(function(){
         type: "POST",
         url: "/date_entries",
         data: $('#dateform').serialize(),
-        dataType: "JSON"
-    }).success(function(json){
-        console.log("success", json);
+
+        success: function (response) {
+          console.log("success")
+          $('.datecontent').replaceWith(response)
+        }
     })
   })
 

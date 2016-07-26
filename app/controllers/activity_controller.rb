@@ -31,7 +31,7 @@ end
 private
 
 def activity_params
-  params.require(:activity).permit(:name, :description, :starts_at, :ends_at)
+  params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image)
 end
 
 

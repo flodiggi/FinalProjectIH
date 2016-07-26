@@ -92,7 +92,8 @@
 
 
 <div class="container">
-<%= form_for @activity, url: "/activity", html: {class: "form", role: "form", method: :post} do |f| %> <div class="form-group">
+<%= form_for @activity, url: "/activity", html: {class: "form", role: "form", multipart: true, method: :post} do |f| %>
+  <div class="form-group">
   <%= f.label :name, "Name:" %>
   <%= f.text_field :name %>
   </div>
@@ -104,6 +105,10 @@
   <%= f.label :starts_at, "Description:" %>
   <%= f.date_select :starts_at %>
   <%= f.time_select :starts_at %>
+  </div>
+  <div class="form-group">
+  <%= f.label :image, "Image:" %>
+  <%= f.file_field :image %>
   </div>
   <%= f.submit "Have Fun", class: "btn btn-primary" %>
 

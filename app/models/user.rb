@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :username, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, uniqueness: true
 
   has_many :user_activities
   has_many :activities, through: :user_activities
@@ -27,7 +27,6 @@ class User < ApplicationRecord
    user.locale = auth.extra.raw_info.locale
    user.gender = auth.extra.raw_info.gender
    user.username = auth['info']['first_name']
-   user.email = "no email added yet"
    user.save!
 
    if User.exists?(user)

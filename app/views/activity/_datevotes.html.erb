@@ -9,12 +9,12 @@
   <%= submit_tag "Add", class: "btn btn-primary vote" %>
   </form>
 
-  <table class="table table-striped">
+  <table class="table table-striped" id="mytab1">
     <thead>
       <tr>
         <th>#</th>
-        <% @activity.date_entries.each do |date| %>
-        <th><%= date.date.strftime("%a %d.%m.") %> </th>
+        <% @activity.date_entries.each_with_index do |date, i| %>
+        <th col="<%=i%>"><%= date.date.strftime("%a %d.%m.") %> </th>
         <% end %>
       </tr>
     </thead>
@@ -22,18 +22,25 @@
 
         <% @activity.users.each do |user| %>
         <tr>
-        <td><%= user.username %></td>
+          <td row="<%=user.id%>" col="0"><%= user.username %></td>
 
-        <% for i in 1..@activity.date_entries.length %>
-        <td>
-          <div class="checkbox">
-            <label><input type="checkbox" value=""></label>
-          </div>
-        </td>
-        <% end %>
-
+          <% for i in 1..@activity.date_entries.length %>
+          <td row="<%=user.id%>" col="<%=i%>">
+            <div class="checkbox">
+              <label><input type="checkbox" value=""></label>
+            </div>
+          </td>
+          <% end %>
         </tr>
-        <% end %>
+          <% end %>
+        <tr>
+          <td row="count" col="0">Count</td>
+          <% for i in 1..@activity.date_entries.length %>
+          <td row="count" col="<%=i%>">
+            <%= i %>
+          </td>
+          <% end %>
+        </tr>
 
 
     </tbody>

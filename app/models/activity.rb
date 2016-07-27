@@ -5,6 +5,8 @@ class Activity < ApplicationRecord
   has_many :groups, through: :group_activities
   has_many :time_entries
   has_many :date_entries
+  has_many :location_entries
+
 
 
   extend TimeSplitter::Accessors

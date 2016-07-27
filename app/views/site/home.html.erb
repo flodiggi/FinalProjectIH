@@ -12,6 +12,11 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><h1><%= @name %></h1></li>
+        <% if current_user %>
+   Signed in as <strong><%= current_user.name %></strong>!
+ <% else %>
+   <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+ <% end %>
       <li><%= link_to "Profile", "/profile" %></li>
       <li><%= link_to "Sign up", "/signup" %></li>
       <li><%= link_to "Log In", "/login" %></li>

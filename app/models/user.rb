@@ -14,4 +14,35 @@ class User < ApplicationRecord
       user_activities.ownerships.map(&:activity)
     end
 
+
+    def self.create_with_omniauth(auth)
+
+   user = find_or_create_by(uid: auth['uid'], provider: auth['provider'])
+   user.password = auth['uid']
+   user.name = auth['info']['first_name']
+   user.surname = auth['info']['last_name']
+   user.age_range = auth.extra.raw_info.age_range
+   user.link = auth.extra.raw_info.link
+   user.picture = auth['info']['image']
+   user.locale = auth.extra.raw_info.locale
+   user.gender = auth.extra.raw_info.gender
+   user.username = auth['info']['first_name']
+   user.email = "no email added yet"
+   user.save!
+
+   if User.exists?(user)
+     user
+   else
+     user.save!
+     user
+   end
+ end
+
+ def largeimage
+   "http://graph.facebook.com/#{self.uid}/picture?type=large"
+ end
+ def normalimage
+  "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+  end
+
 end

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'omniauth'
+
 gem 'omniauth-facebook'
 
 gem 'time_splitter'

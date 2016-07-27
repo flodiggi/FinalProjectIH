@@ -33,5 +33,31 @@
 }
 
 .modal-content {
-  overflow-x: scroll;
+  overflow-x: auto;
+}
+
+
+.table>tbody>tr>td, {
+  vertical-align: middle;
+}
+
+.table td {
+   text-align: center;
+}
+
+.table th {
+   text-align: center;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+
+input[type='checkbox']:checked {
+    background: #c4ddaa;
 }

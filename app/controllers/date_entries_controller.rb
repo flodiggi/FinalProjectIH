@@ -9,6 +9,7 @@ class DateEntriesController < ApplicationController
     @activity = Activity.find_by(id: params[:id])
     @activity.date_entries << new_date_entry
     render "activity/_datevotes"
+    # link_to "activity/#{@activity.id}"
     end
   end
 end

@@ -24,6 +24,12 @@ activity = Activity.new(activity_params)
   end
 end
 
+def update
+  activity = Activity.find_by(id: params[:id])
+  activity.update_attributes!(activity_params)
+  redirect_to ("/activity/#{activity.id}")
+end
+
 
 def show
 @activity = Activity.find_by(id: params[:id])
@@ -34,7 +40,7 @@ end
 private
 
 def activity_params
-  params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image)
+  params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image, :location)
 end
 
 

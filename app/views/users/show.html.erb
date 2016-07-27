@@ -52,43 +52,33 @@
   </div>
 </div>
 
-<div class="container">
-    <h1>Create new activity</h1>
 
-    <form action="/activity" method="POST">
-        <label for="activity_name">What is the name of your activity</label>
-        <input name="activity[name]"type="text" id="search" value="" class="form-control" placeholder="Literally Anything"/>
-        <label for="activity_description">Describe it in more detail:</label>
-        <input name="activity[description]"type="text" id="search" value="" class="form-control" placeholder="Literally Anything"/>
-        <label for="activity_starts_at">When?</label>
-        <input name="activity[starts_at]"type="date" id="search" value="" class="form-control">
-        <label for="activity_ends_at">Until?</label>
-        <input name="activity[ends_at]"type="date" id="search" value="" class="form-control">
-        <input type="submit" id="submit" class="btn btn-primary" value="Have Fun!" />
-        <input type="hidden" name="authenticity_token"
-           value="<%= form_authenticity_token %>">
-    </form>
+
+
+
+<div class="col-xs-12 col-sm-8 activity-heading">
+<h2>Your Activities</h2>
 </div>
-
-
-
-<row class="activity-overview">
-
-<div class="activity-heading">
-  Your Activities:
-</div>
-<ul>
+<ul class="list-group">
   <% @activities.each do |activity| %>
-  <li>
-    <%= activity.name %>
-    <a href="/activity/<%=activity.id %>" class="btn btn-danger">Show Details</a>
+  <li class="list-group-item">
+    <span class="badge"><%= activity.users.length%></span>
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= activity.name %></h3>
+  </div>
+  <div class="panel-body">
+    <p>Name: <%= activity.name%></p>
+    <p>Location: <%= activity.location%></p>
+    <p>Date/Time: <%= activity.starts_at%></p>
+    <a href="/activity/<%=activity.id %>" class="btn btn-info btn-block"><span class="fa fa-user"></span>Show Details</a>
     <a href="" class="btn btn-danger">Invite more friends</a>
-
-
+  </div>
+</div>
   </li>
   <% end %>
 </ul>
-</row>
+
 
 
 <div class="container">

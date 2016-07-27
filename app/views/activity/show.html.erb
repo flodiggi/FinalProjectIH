@@ -14,12 +14,11 @@
   </div>
   <div class="col-md-6 activity">
     <%= image_tag @activity.image.url(:medium) %>
-    <%= form_for @activity, url: activity_path, html: { multipart: true } do |form| %>
-    <%= form.file_field :image %>
-    <% end %>
     <ul>
       <li>Name: <%= @activity.name%></li>
       <li>Description: <%= @activity.description%></li>
+      <li>Location: <%= @activity.location%></li>
+      <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal3">Vote!</a>
       <li>Date: <%= @activity.starts_at_date%></li>
       <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">Vote!</a>
       <li>Time: <%= @activity.starts_at_time%>
@@ -77,7 +76,7 @@
       <div class="Intro"> </div>
       <div class="modal-body">
         <div class="container">
-        <%= form_for @activity, url: "/activity", html: {class: "form", role: "form", multipart: true, method: :post} do |f| %>
+        <%= form_for @activity, url: "/activity/#{@activity.id}", html: {class: "form", role: "form", multipart: true, method: :patch} do |f| %>
           <div class="form-group">
           <%= f.label :name, "Name:" %>
           <%= f.text_field :name %>
@@ -85,6 +84,10 @@
           <div class="form-group">
           <%= f.label :description, "Description:" %>
           <%= f.text_field :description %>
+          </div>
+          <div class="form-group">
+          <%= f.label :location, "Location:" %>
+          <%= f.text_field :location %>
           </div>
           <div class="form-group">
           <%= f.label :starts_at, "Description:" %>
@@ -95,7 +98,7 @@
           <%= f.label :image, "Image:" %>
           <%= f.file_field :image %>
           </div>
-          <%= f.submit "Have Fun", class: "btn btn-primary" %>
+          <%= f.submit "Submit Changes", class: "btn btn-primary" %>
 
         <% end %>
 
@@ -109,10 +112,9 @@
 </div><!-- /.modal -->
 
 
-
 <div class="modal fade bs-example-modal-lg" tabindex="-1" id="myModal2" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content datecontent">  
+    <div class="modal-content datecontent">
       <%= render "datevotes" %>
     </div>
   </div>

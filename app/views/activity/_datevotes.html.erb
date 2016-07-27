@@ -2,22 +2,20 @@
 <div class="container">
   <h2>Vote Date!</h2>
 
+  <form id="dateform" >
+    <%= label_tag :date, "Date:" %>
+  <%= date_field_tag :date %>
+    <%= hidden_field_tag :id, @activity.id %>
+  <%= submit_tag "Add", class: "btn btn-primary vote" %>
+  </form>
+
   <table class="table table-striped">
     <thead>
       <tr>
         <th>#</th>
         <% @activity.date_entries.each do |date| %>
-        <th><%= date.date %> </th>
+        <th><%= date.date.strftime("%a %d.%m.") %> </th>
         <% end %>
-
-        <th>
-        <form id="dateform" >
-          <%= label_tag :date, "Date:" %>
-        <%= date_field_tag :date %>
-          <%= hidden_field_tag :id, @activity.id %>
-        <%= submit_tag "Add", class: "btn btn-primary vote" %>
-        </form>
-      </th>
       </tr>
     </thead>
     <tbody>

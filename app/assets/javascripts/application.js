@@ -18,22 +18,6 @@
 
 
 
-
-// $(document).ready(function(){
-//
-//   $("#dateform").submit(function(e) {
-//     $.ajax({
-//         type: "POST",
-//         url: "/data_entries"),
-//         data: ,
-//         dataType: "JSON"
-//     }).success(function(json){
-//         console.log("success", json);
-//     })
-//     e.preventDefault()
-//   });
-// })
-
 $(document).ready(function(){
   $(document).on("submit", "#dateform", function (e){
     console.log($('#dateform').serialize())
@@ -45,21 +29,18 @@ $(document).ready(function(){
 
         success: function (response) {
           console.log("success")
+          
+          // $('#myModal2').modal('hide')
+          //
+          // $("#myModal2").on("hidden.bs.modal", function(){
+          // $(".datecontent").html(response);
+          // $('#myModal2').modal('show')});
+
+
           $('.datecontent').replaceWith(response)
+          $('#myModal2').modal('show')
         }
     })
   })
 
 })
-
-
-
-// $(document).on "submit", "#new_comment", (e) ->
-//   e.preventDefault()
-//   $form = $ this
-//
-//   $.post "#{$form.attr 'action'}.json", $form.serializeArray(), (comment) ->
-//     $text = $('<span>').date comment.date
-//     $createdAt = $('<span>').text comment.created_at
-//     $newComment = $('<div class="comment">').append($text).append $createdAt
-//     $('.comment:last').after $newComment

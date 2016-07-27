@@ -29,16 +29,16 @@ $(document).ready(function(){
 
         success: function (response) {
           console.log("success")
-          
-          // $('#myModal2').modal('hide')
-          //
-          // $("#myModal2").on("hidden.bs.modal", function(){
-          // $(".datecontent").html(response);
-          // $('#myModal2').modal('show')});
 
+          $('#myModal2').modal('hide')
 
-          $('.datecontent').replaceWith(response)
-          $('#myModal2').modal('show')
+          $("#myModal2").on("hidden.bs.modal", function(){
+          $(".datecontent").html(response);
+          $('#myModal2').modal('show')});
+
+          // 
+          // $('.datecontent').replaceWith(response)
+          // $('#myModal2').modal('show')
         }
     })
   })

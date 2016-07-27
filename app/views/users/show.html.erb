@@ -38,7 +38,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
               <div class="row profilheader">
-              	<div class="col-md-6">
+              	<div class="col-md-6 col-xs-12 profilarea">
                   <div class="panel panel-default">
             			<div class="panel-body">
                           		<div class="row">
@@ -87,12 +87,11 @@
                 </div>
               </div>
 
-              <div class="col-xs-12 col-sm-8 activity-heading">
+
+              <div class="row">
               <h2>Your Activities</h2>
-              </div>
-              <ul class="list-group">
                 <% @activities.each do |activity| %>
-                <li class="list-group-item">
+                <div class="col-xs-12 col-sm-8 col-md-6">
                   <span class="badge"><%= activity.users.length%></span>
                   <div class="panel panel-default">
                 <div class="panel-heading">
@@ -106,12 +105,13 @@
                   <a href="" class="btn btn-danger">Invite more friends</a>
                 </div>
               </div>
-                </li>
+            </div>
                 <% end %>
-              </ul>
+              </div>
 
 
-
+              <div class="row">
+                <h2>Create New Activity</h2>
                 <div class="container">
                 <%= form_for @activity, url: "/activity", html: {class: "form", role: "form", multipart: true, method: :post} do |f| %>
                   <div class="form-group">
@@ -134,6 +134,11 @@
                   <%= f.submit "Have Fun", class: "btn btn-primary" %>
 
                 <% end %>
+                </div>
+                </div>
+
+                <div class="row">
+                  <h2>Join Public Activity</h2>
                 </div>
 
 

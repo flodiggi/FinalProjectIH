@@ -16,6 +16,7 @@ end
   end
 
   def show
+    @group = Group.new
     @activity = Activity.new
     @user = current_user
     @activities = @user.activities

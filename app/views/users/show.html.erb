@@ -28,7 +28,10 @@
                     <a href="#">Group3</a>
                 </li>
                 <li>
-                    <a href="#">Group4</a>
+                  <%= form_for @group, url: "/groups", html: {class: "", role: "form", method: :post} do |f| %>
+                    <%= f.text_field :name, placeholder: "Create new group" %>
+                    <%= f.submit "Add new group", class: "btn" %>
+                  <% end %>
                 </li>
             </ul>
         </div>

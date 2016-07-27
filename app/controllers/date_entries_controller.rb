@@ -12,4 +12,9 @@ class DateEntriesController < ApplicationController
     # link_to "activity/#{@activity.id}"
     end
   end
+
+  def update
+    date = DateEntry.find_by(id: params[:id])
+
+  end
 end

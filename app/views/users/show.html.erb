@@ -1,108 +1,147 @@
-<div class="container">
-  <div class="row">
-  	<div class="col-md-6">
 
-      <div class="panel panel-default">
-			<div class="panel-body">
-              		<div class="row">
-                        <div class="col-xs-12 col-sm-8">
-                            <h2> <%=current_user.username %></h2>
-                            <p><strong>About: </strong> Web Designer / UI. </p>
-                            <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
-                            <p><strong>Skills: </strong>
-                                <span class="label label-info tags">html5</span>
-                                <span class="label label-info tags">css3</span>
-                                <span class="label label-info tags">jquery</span>
-                                <span class="label label-info tags">bootstrap3</span>
-                            </p>
-                            <p><%= link_to "Log Out", "/logout", :method => :delete %></p>
-                        </div><!--/col-->
-                        <div class="col-xs-12 col-sm-4 text-center">
-                                <%= image_tag current_user.largeimage, :class => "center-block img-circle img-responsive"%>
-                                <ul class="list-inline ratings text-center" title="Ratings">
-                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                                </ul>
-                        </div><!--/col-->
+    <div id="wrapper">
 
-                        <div class="col-xs-12 col-sm-4">
-                            <h2><strong> 20,7K </strong></h2>
-                            <p><small>Followers</small></p>
-                            <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
-                        </div><!--/col-->
-                        <div class="col-xs-12 col-sm-4">
-                            <h2><strong>245</strong></h2>
-                            <p><small>Following</small></p>
-                            <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
-                        </div><!--/col-->
-                        <div class="col-xs-12 col-sm-4">
-                            <h2><strong>43</strong></h2>
-                            <p><small>Snippets</small></p>
-                            <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Options </button>
-                        </div><!--/col-->
-              		</div><!--/row-->
-              </div><!--/panel-body-->
-          </div><!--/panel-->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Welcome <%= current_user.name %>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Edit Profile</a>
+                </li>
+                <li>
+                    <a href="#">Logout</a>
+                </li>
+                <li>
+                    <a href="#">Group Overview:</a>
+                </li>
+                <li>
+                    <a href="#">Group1</a>
+                </li>
+                <li>
+                    <a href="#">Group2</a>
+                </li>
+                <li>
+                    <a href="#">Group3</a>
+                </li>
+                <li>
+                    <a href="#">Group4</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+              <div class="row profilheader">
+              	<div class="col-md-6">
+                  <div class="panel panel-default">
+            			<div class="panel-body">
+                          		<div class="row">
+                                    <div class="col-xs-12 col-sm-8">
+                                        <h2> <%=current_user.username %></h2>
+                                        <p><strong>About: </strong> Web Designer / UI. </p>
+                                        <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
+                                        <p><strong>Skills: </strong>
+                                            <span class="label label-info tags">html5</span>
+                                            <span class="label label-info tags">css3</span>
+                                            <span class="label label-info tags">jquery</span>
+                                            <span class="label label-info tags">bootstrap3</span>
+                                        </p>
+                                        <p><%= link_to "Log Out", "/logout", :method => :delete %></p>
+                                    </div><!--/col-->
+                                    <div class="col-xs-12 col-sm-4 text-center">
+                                            <%= image_tag current_user.largeimage, :class => "center-block img-circle img-responsive"%>
+                                            <ul class="list-inline ratings text-center" title="Ratings">
+                                              <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                              <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                              <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                              <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                              <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                            </ul>
+                                    </div><!--/col-->
+
+                                    <div class="col-xs-12 col-sm-4">
+                                        <h2><strong> 20,7K </strong></h2>
+                                        <p><small>Followers</small></p>
+                                        <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
+                                    </div><!--/col-->
+                                    <div class="col-xs-12 col-sm-4">
+                                        <h2><strong>245</strong></h2>
+                                        <p><small>Following</small></p>
+                                        <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+                                    </div><!--/col-->
+                                    <div class="col-xs-12 col-sm-4">
+                                        <h2><strong>43</strong></h2>
+                                        <p><small>Snippets</small></p>
+                                        <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Options </button>
+                                    </div><!--/col-->
+                          		</div><!--/row-->
+                          </div><!--/panel-body-->
+                      </div><!--/panel-->
+
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-8 activity-heading">
+              <h2>Your Activities</h2>
+              </div>
+              <ul class="list-group">
+                <% @activities.each do |activity| %>
+                <li class="list-group-item">
+                  <span class="badge"><%= activity.users.length%></span>
+                  <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%= activity.name %></h3>
+                </div>
+                <div class="panel-body">
+                  <p>Name: <%= activity.name%></p>
+                  <p>Location: <%= activity.location%></p>
+                  <p>Date/Time: <%= activity.starts_at%></p>
+                  <a href="/activity/<%=activity.id %>" class="btn btn-info btn-block"><span class="fa fa-user"></span>Show Details</a>
+                  <a href="" class="btn btn-danger">Invite more friends</a>
+                </div>
+              </div>
+                </li>
+                <% end %>
+              </ul>
 
 
+
+                <div class="container">
+                <%= form_for @activity, url: "/activity", html: {class: "form", role: "form", multipart: true, method: :post} do |f| %>
+                  <div class="form-group">
+                  <%= f.label :name, "Name:" %>
+                  <%= f.text_field :name %>
+                  </div>
+                  <div class="form-group">
+                  <%= f.label :description, "Description:" %>
+                  <%= f.text_field :description %>
+                  </div>
+                  <div class="form-group">
+                  <%= f.label :starts_at, "DateTime:" %>
+                  <%= f.date_select :starts_at %>
+                  <%= f.time_select :starts_at %>
+                  </div>
+                  <div class="form-group">
+                  <%= f.label :image, "Image:" %>
+                  <%= f.file_field :image %>
+                  </div>
+                  <%= f.submit "Have Fun", class: "btn btn-primary" %>
+
+                <% end %>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
 
     </div>
-  </div>
-</div>
-
-
-
-
-
-<div class="col-xs-12 col-sm-8 activity-heading">
-<h2>Your Activities</h2>
-</div>
-<ul class="list-group">
-  <% @activities.each do |activity| %>
-  <li class="list-group-item">
-    <span class="badge"><%= activity.users.length%></span>
-    <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= activity.name %></h3>
-  </div>
-  <div class="panel-body">
-    <p>Name: <%= activity.name%></p>
-    <p>Location: <%= activity.location%></p>
-    <p>Date/Time: <%= activity.starts_at%></p>
-    <a href="/activity/<%=activity.id %>" class="btn btn-info btn-block"><span class="fa fa-user"></span>Show Details</a>
-    <a href="" class="btn btn-danger">Invite more friends</a>
-  </div>
-</div>
-  </li>
-  <% end %>
-</ul>
-
-
-
-<div class="container">
-<%= form_for @activity, url: "/activity", html: {class: "form", role: "form", multipart: true, method: :post} do |f| %>
-  <div class="form-group">
-  <%= f.label :name, "Name:" %>
-  <%= f.text_field :name %>
-  </div>
-  <div class="form-group">
-  <%= f.label :description, "Description:" %>
-  <%= f.text_field :description %>
-  </div>
-  <div class="form-group">
-  <%= f.label :starts_at, "DateTime:" %>
-  <%= f.date_select :starts_at %>
-  <%= f.time_select :starts_at %>
-  </div>
-  <div class="form-group">
-  <%= f.label :image, "Image:" %>
-  <%= f.file_field :image %>
-  </div>
-  <%= f.submit "Have Fun", class: "btn btn-primary" %>
-
-<% end %>
-
-</div>
+    <!-- /#wrapper -->

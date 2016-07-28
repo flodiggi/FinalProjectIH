@@ -70,7 +70,7 @@ $(document).ready(function(){
         });
 
         userid = $('#userdatevotes td')[1].getAttribute("userid")
-        actid = $('#userdatevotes td')[1].getAttribute("userid")
+        actid = $('#userdatevotes td')[1].getAttribute("actid")
 
     e.preventDefault()
       $.ajax({

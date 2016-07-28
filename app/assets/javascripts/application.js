@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 
 
-  
+
     $(document).on("submit", "#new_comment", function (e){
       console.log($('#new_comment').serialize())
     e.preventDefault()
@@ -53,6 +53,41 @@ $(document).ready(function(){
           }
       })
     })
+
+
+    $(document).on("click", ".votesubmit", function (e){
+      
+
+      checkedboxes = []
+      uncheckedboxes = []
+
+      $('#userdatevotes input:checked').each(function(){
+        checkedboxes.push($(this).val());
+        });
+
+      $('#userdatevotes input:not(:checked)').each(function(){
+        uncheckedboxes.push($(this).val());
+        });
+
+        userid = $('#userdatevotes td')[1].getAttribute("userid")
+        actid = $('#userdatevotes td')[1].getAttribute("userid")
+
+    e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: "/vote",
+          data: {userid: userid, actid: actid, checkedboxes: checkedboxes, uncheckedboxes: uncheckedboxes },
+
+          success: function (response) {
+            console.log("success")
+            console.log(response)
+
+          }
+      })
+    })
+
+
+
 
 
   // $(function(){

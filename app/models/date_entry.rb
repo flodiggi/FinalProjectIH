@@ -1,3 +1,4 @@
 class DateEntry < ApplicationRecord
   belongs_to :activity
+  has_many :date_votes, dependent: :destroy
 end

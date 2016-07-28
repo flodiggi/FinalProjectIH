@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728135148) do
+ActiveRecord::Schema.define(version: 20160728181812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,18 @@ ActiveRecord::Schema.define(version: 20160728135148) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["activity_id"], name: "index_date_entries_on_activity_id", using: :btree
+  end
+
+  create_table "date_votes", force: :cascade do |t|
+    t.boolean  "check"
+    t.integer  "activity_id"
+    t.integer  "user_id"
+    t.integer  "date_entry_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["activity_id"], name: "index_date_votes_on_activity_id", using: :btree
+    t.index ["date_entry_id"], name: "index_date_votes_on_date_entry_id", using: :btree
+    t.index ["user_id"], name: "index_date_votes_on_user_id", using: :btree
   end
 
   create_table "group_activities", force: :cascade do |t|
@@ -121,4 +133,7 @@ ActiveRecord::Schema.define(version: 20160728135148) do
 
   add_foreign_key "comments", "activities"
   add_foreign_key "comments", "users"
+  add_foreign_key "date_votes", "activities"
+  add_foreign_key "date_votes", "date_entries"
+  add_foreign_key "date_votes", "users"
 end

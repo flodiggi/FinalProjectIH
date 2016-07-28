@@ -38,6 +38,21 @@ def show
 
 end
 
+
+
+def voting
+
+activity = Activity.find_by(params[:actid])
+byebug
+
+
+# @datevote = DateVote.new(checked: true)
+# @datevote.activity_id = activity.id
+# @datevote.user_id =
+# @datevote.date_entry_id =
+
+end
+
 private
 
 def activity_params

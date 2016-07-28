@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :groups, through: :user_groups
 
   has_many :comments, dependent: :destroy
+  has_many :date_votes, dependent: :destroy
 
     def owned_activities
       user_activities.ownerships.map(&:activity)

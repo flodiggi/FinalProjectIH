@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
+  post '/vote', to: 'activity#voting'
+
 
 
 

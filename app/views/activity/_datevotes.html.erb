@@ -21,20 +21,19 @@
     <tbody>
 
         <% @activity.users.each do |user| %>
-          <tr>
-            <form id="dateformvote">
-            <td row="<%=user.id%>" col="0"><%= user.username %> <%= submit_tag "Vote" %></td>
+
+          <tr <%='id=userdatevotes' if user == current_user%>>
+            <td row="<%=user.id%>" col="0"><%= user.username %> <%= submit_tag "Vote", :class => "votesubmit" %></td>
             <% for i in 1..@activity.date_entries.length %>
-              <td row="<%=user.id%>" col="<%=i%>">
+              <td userid="<%=user.id%>" col="<%=i%>" actid="<%=@activity.id%>">
                 <div class="checkbox">
 
-                    <label><%= check_box_tag 'vote', @activity.date_entries[i-1].date %></label>
+                    <label><%= check_box_tag 'vote', @activity.date_entries[i-1].id %></label>
                 </div>
               </td>
             <% end %>
 
 
-            </form>
           </tr>
         <% end %>
         <tr>

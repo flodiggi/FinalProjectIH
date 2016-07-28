@@ -56,7 +56,7 @@ $(document).ready(function(){
 
 
     $(document).on("click", ".votesubmit", function (e){
-      
+
 
       checkedboxes = []
       uncheckedboxes = []
@@ -65,7 +65,7 @@ $(document).ready(function(){
         checkedboxes.push($(this).val());
         });
 
-      $('#userdatevotes input:not(:checked)').each(function(){
+      $('#userdatevotes input[type=checkbox]:not(:checked)').each(function(){
         uncheckedboxes.push($(this).val());
         });
 

@@ -42,14 +42,35 @@ end
 
 def voting
 
-activity = Activity.find_by(params[:actid])
-byebug
+activity = Activity.find_by(id: params[:actid])
+unchecked = params[:uncheckedboxes]
+checked = params[:checkedboxes]
 
 
-# @datevote = DateVote.new(checked: true)
-# @datevote.activity_id = activity.id
-# @datevote.user_id =
-# @datevote.date_entry_id =
+
+checked.each do |vote|
+  if DateVote.exists?(activity_id: activity.id, user_id: current_user.id, date_entry_id: vote)
+  datevotechecked  = DateVote.find_by(activity_id: activity.id, user_id: current_user.id, date_entry_id: vote)
+  DateVote.update(datevotechecked.id, check: true)
+  else
+  @datevotechecked = DateVote.new(check: true)
+  @datevotechecked.activity_id = activity.id
+  @datevotechecked.user_id = current_user.id
+  @datevotechecked.date_entry_id = vote
+  @datevotechecked.save
+  end
+end
+unchecked.each do |vote|
+  if DateVote.exists?(activity_id: activity.id, user_id: current_user.id, date_entry_id: vote)
+  datevoteunchecked  = DateVote.find_by(activity_id: activity.id, user_id: current_user.id, date_entry_id: vote)
+  DateVote.update(datevoteunchecked.id,check: false)
+  end
+end
+
+
+redirect_to ("/activity/#{activity.id}")
+
+
 
 end
 

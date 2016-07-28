@@ -28,7 +28,7 @@
               <td userid="<%=user.id%>" col="<%=i%>" actid="<%=@activity.id%>">
                 <div class="checkbox">
 
-                    <label><%= check_box_tag 'vote', @activity.date_entries[i-1].id %></label>
+                    <label><%= check_box_tag 'vote', @activity.date_entries[i-1].id, ({checked: true} if @activity.date_votes.find_by(activity_id: @activity.id, user_id: user.id, date_entry_id: @activity.date_entries[i-1].id, check: true) ) %></label>
                 </div>
               </td>
             <% end %>

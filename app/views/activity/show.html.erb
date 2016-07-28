@@ -36,7 +36,7 @@
                     <li>Name: <%= @activity.name%></li>
                     <li>Description: <%= @activity.description%></li>
                     <li>Location: <%= @activity.location%></li>
-                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="btn btn-primary">
                       VOTE!
                     </a>
                     <li>Date: <%= @activity.starts_at_date%></li>
@@ -144,7 +144,7 @@
       </div>
       <div class="Intro"> </div>
       <div class="modal-body ">
-      <%= render "datevotes" %>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :username, presence: true
-  
+
   validates_uniqueness_of :email, :allow_blank => true, :case_sensitive => false
 
 
@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many :user_groups
   has_many :groups, through: :user_groups
+
+  has_many :comments, dependent: :destroy
 
     def owned_activities
       user_activities.ownerships.map(&:activity)

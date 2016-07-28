@@ -34,6 +34,7 @@ end
 def show
 @activity = Activity.find_by(id: params[:id])
 @date_entry = DateEntry.new
+@comment = Comment.new
 
 end
 

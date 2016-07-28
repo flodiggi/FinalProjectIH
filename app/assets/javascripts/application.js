@@ -29,13 +29,30 @@ $(document).ready(function(){
 
         success: function (response) {
           console.log("success")
+          $('.datecontent').html(response);
 
-          //
-          // $('.datecontent').replaceWith(response)
-          // $('#myModal2').modal('show')
         }
     })
   })
+
+
+
+  $(document).ready(function(){
+    $(document).on("submit", "#new_comment", function (e){
+      console.log($('#new_comment').serialize())
+    e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: "/comments",
+          data: $('#new_comment').serialize(),
+
+          success: function (response) {
+            console.log("success")
+            $('.commentcontainer').html(response);
+
+          }
+      })
+    })
 
 
   // $(function(){

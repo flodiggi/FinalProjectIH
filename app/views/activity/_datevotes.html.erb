@@ -2,7 +2,7 @@
 <div class="container">
   <h2>Vote Date!</h2>
 
-  <form id="dateform" >
+  <form id="dateform", data-remote = "true" >
     <%= label_tag :date, "Date:" %>
   <%= date_field_tag :date %>
     <%= hidden_field_tag :id, @activity.id %>

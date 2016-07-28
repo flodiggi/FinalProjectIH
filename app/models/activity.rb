@@ -3,9 +3,10 @@ class Activity < ApplicationRecord
   has_many :users, through: :user_activities
   has_many :group_activities
   has_many :groups, through: :group_activities
-  has_many :time_entries
-  has_many :date_entries
-  has_many :location_entries
+  has_many :time_entries, dependent: :destroy
+  has_many :date_entries, dependent: :destroy
+  has_many :location_entries, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 
 

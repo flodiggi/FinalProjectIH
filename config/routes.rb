@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :activity
   resources :date_entries
   resources :groups
+  resources :comments
 
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

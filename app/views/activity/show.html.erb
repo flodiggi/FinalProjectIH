@@ -56,35 +56,14 @@
                 </div>
               </div>
 
-              <div class="collapse" id="collapseExample">
-                <div class="well">
+              <div class="collapse " id="collapseExample">
+                <div class="well datecontent">
                   <%= render "datevotes" %>
                 </div>
               </div>
 
-              <div class="row">
-              <section class="comments">
-                <h3>Comments</h3>
-                <div class="comment">
-                  <img class="avatar" src="<%= asset_path("nikel.jpeg")%> " alt="nikel"/>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quisquam totam atque nam velit repudiandae nostrum provident quae magnam possimus explicabo, saepe error voluptatum obcaecati perferendis corrupti? Asperiores dolorum, rerum?</p>
-                </div>
-                <div class="comment">
-                  <img class="avatar" src="<%= asset_path("jake.jpeg")%>" alt="jake"/>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quisquam totam atque nam velit repudiandae nostrum provident quae magnam possimus explicabo, saepe error voluptatum obcaecati perferendis corrupti? Asperiores dolorum, rerum?</p>
-                </div>
-              </section>
-              <section class="form"> <br>
-                <form>
-                  <label>Name</label>
-                  <input type="" name="">
-                  <label>Email</label>
-                  <input type="" name="">
-                  <label>Text</label>
-                  <input type="" name="">
-                  <button>Submit</button>
-                </form>
-              </section>
+              <div class="row commentcontainer">
+                <%= render "comments" %>
               </div>
 
 
@@ -164,7 +143,7 @@
         <h4 class="modal-title">Vote</h4>
       </div>
       <div class="Intro"> </div>
-      <div class="modal-body datecontent">
+      <div class="modal-body ">
       <%= render "datevotes" %>
       </div>
       <div class="modal-footer">

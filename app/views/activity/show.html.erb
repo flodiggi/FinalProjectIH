@@ -18,6 +18,9 @@
                 <li>
                     <a href="#">User Overview:</a>
                 </li>
+                <%@activity.users.each do |user| %>
+                <li><%=user.name%></li>
+                <% end %>
 
             </ul>
         </div>
@@ -33,9 +36,13 @@
                     <li>Name: <%= @activity.name%></li>
                     <li>Description: <%= @activity.description%></li>
                     <li>Location: <%= @activity.location%></li>
-                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal3">Vote!</a>
+                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      VOTE!
+                    </a>
                     <li>Date: <%= @activity.starts_at_date%></li>
-                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">Vote!</a>
+                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      VOTE!
+                    </a>
                     <li>Time: <%= @activity.starts_at_time%>
                       <a href="#" class="btn btn-danger">Vote!</a>
 
@@ -44,8 +51,14 @@
                   <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
                   <a href="#" class="btn btn-info">Create Counter Activity!</a>
                   <a href="#" class="btn btn-success ">LIKE</a>
-                  <a href="#" class="btn btn-warning">DISLIKE</a>
 
+
+                </div>
+              </div>
+
+              <div class="collapse" id="collapseExample">
+                <div class="well">
+                  <%= render "datevotes" %>
                 </div>
               </div>
 

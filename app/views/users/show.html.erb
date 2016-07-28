@@ -18,17 +18,14 @@
                 <li>
                     <a href="#">Group Overview:</a>
                 </li>
+                <% @user.groups.each do |group| %>
                 <li>
-                    <a href="#">Group1</a>
+                    <%= group.name %>
                 </li>
+                <% end %>
+
                 <li>
-                    <a href="#">Group2</a>
-                </li>
-                <li>
-                    <a href="#">Group3</a>
-                </li>
-                <li>
-                  <%= form_for @group, url: "/groups", html: {class: "", role: "form", method: :post} do |f| %>
+                  <%= form_for @group, url: "/groups", html: {class: "form", role: "form", method: :post} do |f| %>
                     <%= f.text_field :name, placeholder: "Create new group" %>
                     <%= f.submit "Add new group", class: "btn" %>
                   <% end %>
@@ -40,8 +37,8 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-              <div class="row profilheader">
-              	<div class="col-md-6 col-xs-12 profilarea">
+              <div class="row row-centered profilheader">
+              	<div class="col-md-6 col-xs-12 col-centered profilarea">
                   <div class="panel panel-default">
             			<div class="panel-body">
                           		<div class="row">

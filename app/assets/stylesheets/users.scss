@@ -18,16 +18,31 @@
 
 
 .profilheader {
-  text-align: center;
-  margin: 0 auto!important;
+  // margin: 0 auto!important;
   background-image: url("https://unsplash.it/200/300/?random");
 }
 
+.row-centered {
+  text-align: center;
+}
 
-// .profilarea {
-//   margin: 20px;
-//   margin-left: 25%;
-// }
+
+
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.profilarea {
+  margin-top: 20px;
+  max-width:600px;
+
+}
 /* Toggle Styles */
 
 #wrapper {

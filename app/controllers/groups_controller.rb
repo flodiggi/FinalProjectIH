@@ -5,12 +5,18 @@ class GroupsController < ApplicationController
 
     if
     group.name =~ /^$/
-    # || activity.participants =~ /^$/
+    # zeichen verändern, stimmt nicht
     redirect_to("/profile")
     else
     group.users << current_user
     group.save
     redirect_to ("/profile")
     end
+  end
+
+  private
+
+  def group_params
+    params.require(:group).permit(:name, :description)
   end
 end

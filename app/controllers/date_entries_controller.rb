@@ -4,8 +4,8 @@ class DateEntriesController < ApplicationController
   def create
 
     if params[:date] != nil
-      
-    new_date_entry = DateEntry.create(date: params[:date])
+
+    new_date_entry = DateEntry.create(date: params[:date], votes: 0)
 
     @activity = Activity.find_by(id: params[:id])
     @activity.date_entries << new_date_entry

@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 
 
-  $(document).ready(function(){
+  
     $(document).on("submit", "#new_comment", function (e){
       console.log($('#new_comment').serialize())
     e.preventDefault()

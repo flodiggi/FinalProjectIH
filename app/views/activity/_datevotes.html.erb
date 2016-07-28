@@ -28,7 +28,7 @@
               <td row="<%=user.id%>" col="<%=i%>">
                 <div class="checkbox">
 
-                    <label><%= check_box_tag 'vote'%></label>
+                    <label><%= check_box_tag 'vote', @activity.date_entries[i-1].date %></label>
                 </div>
               </td>
             <% end %>
@@ -39,9 +39,9 @@
         <% end %>
         <tr>
           <td row="count" col="0">Count</td>
-          <% for i in 1..@activity.date_entries.length %>
+          <% @activity.date_entries.each_with_index do |d, i| %>
             <td row="count" col="<%=i%>">
-              <%= i %>
+              <%= d.votes || 0 %>
             </td>
           <% end %>
         </tr>

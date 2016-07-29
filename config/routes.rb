@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   get '/activity/:id/joinus', to: 'activity#access'
-  post '/activity/:id/login', to: 'activity#login'
+  post '/activity/login', to: 'activity#login'
   post '/votedate', to: 'activity#votingdate'
   post '/votetime', to: 'activity#votingtime'
   post '/votelocation', to: 'activity#votinglocation'

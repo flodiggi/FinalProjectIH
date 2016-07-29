@@ -1,5 +1,5 @@
 <h1>Hi, I See you want to join this activity, do you have a password?</h1>
-<%= form_tag '/activity/#{@activity.id}/login' do %>
+<%= form_tag '/activity/login' do %>
   Password: <%= password_field_tag :password %>
   <%= hidden_field_tag :id, @activity.id %>
   <%= submit_tag "Submit" %>

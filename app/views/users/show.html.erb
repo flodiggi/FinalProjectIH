@@ -89,7 +89,7 @@
 
 
               <div class="row">
-              <h2>Your Activities</h2>
+              <h2>All Your Options:</h2>
                 <% @activities.each do |activity| %>
                 <div class="col-xs-12 col-sm-8 col-md-6">
                   <span class="badge"><%= activity.users.length%></span>
@@ -131,6 +131,18 @@
                   <%= f.label :image, "Image:" %>
                   <%= f.file_field :image %>
                   </div>
+                  <p>
+                    Set an initial password so that later on you will be able to invite friends. You can change it anytime
+                  </p>
+                  <div class="form-group">
+                  <%= f.label :password, "Set activity password:" %>
+                  <%= f.password_field :password %>
+                  </div>
+                  <div class="form-group">
+                  <%= f.label :password_confirmation, "Password Confirmation:" %>
+                  <%= f.password_field :password_confirmation %>
+                  </div>
+
                   <%= f.submit "Have Fun", class: "btn btn-primary" %>
 
                 <% end %>
@@ -138,7 +150,7 @@
                 </div>
 
                 <div class="row">
-                  <h2>Join Public Activity</h2>
+                  <h2>Infinitive Public Options, Explore your City</h2>
                 </div>
 
 

@@ -7,30 +7,7 @@
   border: solid black;
 }
 
-.comments {
-  margin-top: 100px;
-  margin-left: 100px;
-}
 
-.comment {
-  display: flex;
-  padding-top: 20px;
-}
-
-.avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.comment p {
-  display: flex;
-  float: right;
-  justify-content: center;
-  align-items: center;
-
-}
 
 .modal-content {
   overflow-x: auto;

@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def authorize_activity(activity)
+    unless activity.users.find_by(id: current_user.id)
+      redirect_to '/signup'
+    end
+    end
+
   protected
   def authenticate_user!
     if current_user

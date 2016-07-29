@@ -37,6 +37,7 @@ before_action :authorize_user
 
   def show
   @activity = Activity.find_by(id: params[:id])
+  authorize_activity(@activity)
   @date_entry = DateEntry.new
   @time_entry = DateEntry.new
   @location_entry = DateEntry.new
@@ -177,7 +178,7 @@ before_action :authorize_user
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image, :location)
+    params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image, :location, :password, :password_confirmation)
   end
 
 

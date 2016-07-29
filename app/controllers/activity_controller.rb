@@ -1,5 +1,4 @@
 class ActivityController < ApplicationController
-before_action :authorize_user
 
   def new
   end
@@ -11,13 +10,22 @@ before_action :authorize_user
 
   def login
       activity = Activity.find_by(id: params[:id])
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        redirect_to 'profile'
+      if activity && activity.authenticate(params[:password])
+        if current_user
+        activity.users << current_user
+        redirect_to ("/activity/#{activity.id}")
+        else
+        redirect_to ("/activity/#{activity.id}/signup")
+        end
       else
-        redirect_to '/login'
+        redirect_to ("/activity/#{activity.id}/joinus")
       end
 
+  end
+
+
+  def signup
+    @activity = Activity.find_by(id: params[:id])
   end
 
 

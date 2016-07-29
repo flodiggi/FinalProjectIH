@@ -27,11 +27,29 @@ end
   def create
     user = User.new(user_params)
     if user.save
-      redirect_to '/'
+      redirect_to '/login'
     else
       redirect_to '/signup'
     end
   end
+
+
+  def createandlinktoactivity
+    @activity = Activity.find_by(id: params[:id])
+    user = User.new(user_params)
+    if user.save
+      redirect_to ("/activity/#{@activity.id}/join")
+    else
+      redirect_to ("/activity/#{@activity.id}/signup")
+    end
+  end
+
+  def join
+    @activity = Activity.find_by(id: params[:id])
+
+  end
+
+
 
   private
 

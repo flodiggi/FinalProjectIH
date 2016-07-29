@@ -1,0 +1,13 @@
+<h1>Sign up!</h1>
+
+<%= form_for :user, url: '/userslink' do |f| %>
+
+  Name: <%= f.text_field :username %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation:
+  <%= f.password_field :password_confirmation %>
+  <%= hidden_field_tag :id, @activity.id %>
+  <%= f.submit "Submit" %>
+
+<% end %>

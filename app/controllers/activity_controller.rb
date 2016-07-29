@@ -77,6 +77,12 @@ before_action :authorize_user
     d.save
     end
 
+    sorted = @activity.date_entries.sort_by &:votes
+    date = sorted.last.date
+    dt = DateTime.new(date.year, date.month, date.day, @activity.starts_at.hour, @activity.starts_at.min, @activity.starts_at.sec, @activity.starts_at.zone)
+
+    @activity.update(starts_at: dt)
+    @activity.save
     render "activity/_datevotes"
 
   end
@@ -111,6 +117,15 @@ before_action :authorize_user
     d.votes = d.time_votes.where(check: true).count
     d.save
     end
+
+    sorted = @activity.time_entries.sort_by &:votes
+    time = sorted.last.time
+
+    dt = DateTime.new(@activity.starts_at.year, @activity.starts_at.month, @activity.starts_at.day, time.hour, time.min, time.sec, time.zone)
+
+    @activity.update(starts_at: dt)
+    @activity.save
+
 
     render "activity/_timevotes"
 
@@ -147,6 +162,10 @@ before_action :authorize_user
     d.votes = d.location_votes.where(check: true).count
     d.save
     end
+
+    sorted = @activity.location_entries.sort_by &:votes
+    @activity.update(location: sorted.last.location)
+    @activity.save
 
     render "activity/_locationvotes"
 

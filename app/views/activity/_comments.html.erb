@@ -2,8 +2,8 @@
   <h3>Comments</h3>
   <% @activity.comments.each do |comment| %>
 
-  <div class="comment">
-      <%= image_tag current_user.normalimage, :class => "avatar"%>
+  <div class="comment <%= comment.category %>">
+      <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "avatar"%>
     <p><%=comment.text%></p>
   </div>
   <% end %>
@@ -15,6 +15,7 @@
 <section class="form"> <br>
   <%= form_for @comment, html: {class: "form", role: "form"} do |f| %>
     <%= f.text_area :text, placeholder: "Add your intelligence" %>
+    <%= f.select :category, [ 'General', 'Supportive', 'Objection', 'Counter'], :prompt => 'Choose Category' %>
     <%= hidden_field_tag :id, @activity.id %>
     <%= f.submit "Submit Comment", class: "btn" %>
   <% end %>

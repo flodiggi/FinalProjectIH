@@ -14,7 +14,7 @@
       <tr>
         <th>#</th>
         <% @activity.time_entries.each_with_index do |time, i| %>
-        <th col="<%=i%>"><%= time.time.strftime("%l:%M %p") %> </th>
+        <th col="<%=i%>"><%= time.time.strftime("%I:%M%p") %> </th>
         <% end %>
       </tr>
     </thead>

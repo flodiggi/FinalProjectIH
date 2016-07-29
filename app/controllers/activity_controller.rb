@@ -4,6 +4,22 @@ before_action :authorize_user
   def new
   end
 
+  def access
+    @activity = Activity.find_by(id: params[:id])
+
+  end
+
+  def login
+      activity = Activity.find_by(id: params[:id])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect_to 'profile'
+      else
+        redirect_to '/login'
+      end
+
+  end
+
 
   def create
 

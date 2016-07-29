@@ -13,8 +13,4 @@ class DateEntriesController < ApplicationController
     end
   end
 
-  def update
-    date = DateEntry.find_by(id: params[:id])
-
-  end
 end

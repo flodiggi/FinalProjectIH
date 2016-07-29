@@ -36,15 +36,15 @@
                     <li>Name: <%= @activity.name%></li>
                     <li>Description: <%= @activity.description%></li>
                     <li>Location: <%= @activity.location%></li>
-                    <a class="btn btn-primary">
+                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#locationvoting" aria-expanded="false" aria-controls="locationvoting">
                       VOTE!
                     </a>
                     <li>Date: <%= @activity.starts_at_date%></li>
-                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#datevoting" aria-expanded="false" aria-controls="datevoting">
                       VOTE!
                     </a>
                     <li>Time: <%= @activity.starts_at_time%>
-                      <a href="#" class="btn btn-danger">Vote!</a>
+                      <a class="btn btn-primary" role="button" data-toggle="collapse" href="#timevoting" aria-expanded="false" aria-controls="timevoting">Vote!</a>
 
                     </li>
                   </ul>
@@ -56,11 +56,25 @@
                 </div>
               </div>
 
-              <div class="collapse " id="collapseExample">
+
+              <div class="collapse " id="locationvoting">
+                <div class="well locationcontent">
+                  <%= render "locationvotes" %>
+                </div>
+              </div>
+
+              <div class="collapse " id="datevoting">
                 <div class="well datecontent">
                   <%= render "datevotes" %>
                 </div>
               </div>
+
+              <div class="collapse " id="timevoting">
+                <div class="well timecontent">
+                  <%= render "timevotes" %>
+                </div>
+              </div>
+
 
               <div class="row commentcontainer">
                 <%= render "comments" %>

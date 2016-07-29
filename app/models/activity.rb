@@ -4,9 +4,11 @@ class Activity < ApplicationRecord
   has_many :group_activities
   has_many :groups, through: :group_activities
   has_many :time_entries, dependent: :destroy
+  has_many :time_votes, dependent: :destroy
   has_many :date_entries, dependent: :destroy
   has_many :date_votes, dependent: :destroy
   has_many :location_entries, dependent: :destroy
+  has_many :location_votes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
 

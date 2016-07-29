@@ -12,13 +12,17 @@ Rails.application.routes.draw do
 
   resources :activity
   resources :date_entries
+  resources :location_entries
+  resources :time_entries
   resources :groups
   resources :comments
 
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
-  post '/vote', to: 'activity#voting'
+  post '/votedate', to: 'activity#votingdate'
+  post '/votetime', to: 'activity#votingtime'
+  post '/votelocation', to: 'activity#votinglocation'
 
 
 

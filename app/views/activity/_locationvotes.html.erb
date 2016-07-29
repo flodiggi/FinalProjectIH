@@ -1,0 +1,52 @@
+
+<div class="container">
+  <h2>Vote Location!</h2>
+
+  <form id="locationform", data-remote = "true" >
+    <%= label_tag :location, "Location:" %>
+  <%= text_field_tag :location %>
+    <%= hidden_field_tag :id, @activity.id %>
+  <%= submit_tag "Add", class: "btn btn-primary vote" %>
+  </form>
+
+  <table class="table table-striped" id="mytablocation">
+    <thead>
+      <tr>
+        <th>#</th>
+        <% @activity.location_entries.each_with_index do |location, i| %>
+        <th col="<%=i%>"><%= location.location %> </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+
+        <% @activity.users.each do |user| %>
+
+          <tr <%='id=userlocationvotes' if user == current_user%>>
+            <td row="<%=user.id%>" col="0"><%= user.username %> <%= submit_tag "Vote", :class => "votesubmitlocation" %></td>
+            <% for i in 1..@activity.location_entries.length %>
+              <td userid="<%=user.id%>" col="<%=i%>" actid="<%=@activity.id%>">
+                <div class="checkbox">
+
+                    <label><%= check_box_tag 'vote', @activity.location_entries[i-1].id, ({checked: true} if @activity.location_votes.find_by(activity_id: @activity.id, user_id: user.id, location_entry_id: @activity.location_entries[i-1].id, check: true) ) %></label>
+                </div>
+              </td>
+            <% end %>
+
+
+          </tr>
+        <% end %>
+        <tr>
+          <td row="count" col="0">Count</td>
+          <% @activity.location_entries.each_with_index do |d, i| %>
+            <td row="count" col="<%=i%>">
+              <%= d.votes || 0 %>
+            </td>
+          <% end %>
+        </tr>
+
+
+    </tbody>
+  </table>
+
+</div>

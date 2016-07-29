@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  check: false
+  activity: one
+  user: one
+  location_entry: one
+
+two:
+  check: false
+  activity: two
+  user: two
+  location_entry: two

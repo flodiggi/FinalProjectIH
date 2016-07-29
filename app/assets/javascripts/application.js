@@ -17,8 +17,12 @@
 
 
 
-
 $(document).ready(function(){
+
+
+
+  // datevoting:
+
   $(document).on("submit", "#dateform", function (e){
     console.log($('#dateform').serialize())
   e.preventDefault()
@@ -34,6 +38,146 @@ $(document).ready(function(){
         }
     })
   })
+
+
+
+    $(document).on("click", ".votesubmitdate", function (e){
+
+      checkedboxes = []
+      uncheckedboxes = []
+
+      $('#userdatevotes input:checked').each(function(){
+        checkedboxes.push($(this).val());
+        });
+
+      $('#userdatevotes input[type=checkbox]:not(:checked)').each(function(){
+        uncheckedboxes.push($(this).val());
+        });
+
+        userid = $('#userdatevotes td')[1].getAttribute("userid")
+        actid = $('#userdatevotes td')[1].getAttribute("actid")
+
+    e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: "/votedate",
+          data: {userid: userid, actid: actid, checkedboxes: checkedboxes, uncheckedboxes: uncheckedboxes },
+
+          success: function (response) {
+            console.log("success")
+            console.log(response)
+            $('.datecontent').html(response);
+
+          }
+      })
+    })
+
+
+
+
+    // timevoting
+    $(document).on("submit", "#timeform", function (e){
+      console.log($('#timeform').serialize())
+    e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: "/time_entries",
+          data: $('#timeform').serialize(),
+
+          success: function (response) {
+            console.log("success")
+            $('.timecontent').html(response);
+
+          }
+      })
+    })
+
+
+      $(document).on("click", ".votesubmittime", function (e){
+
+        checkedboxes = []
+        uncheckedboxes = []
+
+        $('#usertimevotes input:checked').each(function(){
+          checkedboxes.push($(this).val());
+          });
+
+        $('#usertimevotes input[type=checkbox]:not(:checked)').each(function(){
+          uncheckedboxes.push($(this).val());
+          });
+
+          userid = $('#usertimevotes td')[1].getAttribute("userid")
+          actid = $('#usertimevotes td')[1].getAttribute("actid")
+
+      e.preventDefault()
+        $.ajax({
+            type: "POST",
+            url: "/votetime",
+            data: {userid: userid, actid: actid, checkedboxes: checkedboxes, uncheckedboxes: uncheckedboxes },
+
+            success: function (response) {
+              console.log("success")
+              console.log(response)
+              $('.timecontent').html(response);
+
+            }
+        })
+      })
+
+
+      // locationvoting
+      $(document).on("submit", "#locationform", function (e){
+        console.log($('#locationform').serialize())
+      e.preventDefault()
+        $.ajax({
+            type: "POST",
+            url: "/location_entries",
+            data: $('#locationform').serialize(),
+
+            success: function (response) {
+              console.log("success")
+              $('.locationcontent').html(response);
+
+            }
+        })
+      })
+
+
+        $(document).on("click", ".votesubmitlocation", function (e){
+
+          checkedboxes = []
+          uncheckedboxes = []
+
+          $('#userlocationvotes input:checked').each(function(){
+            checkedboxes.push($(this).val());
+            });
+
+          $('#userlocationvotes input[type=checkbox]:not(:checked)').each(function(){
+            uncheckedboxes.push($(this).val());
+            });
+
+            userid = $('#userlocationvotes td')[1].getAttribute("userid")
+            actid = $('#userlocationvotes td')[1].getAttribute("actid")
+
+        e.preventDefault()
+          $.ajax({
+              type: "POST",
+              url: "/votelocation",
+              data: {userid: userid, actid: actid, checkedboxes: checkedboxes, uncheckedboxes: uncheckedboxes },
+
+              success: function (response) {
+                console.log("success")
+                console.log(response)
+                $('.locationcontent').html(response);
+
+              }
+          })
+        })
+
+
+
+
+
 
 
 
@@ -53,63 +197,6 @@ $(document).ready(function(){
           }
       })
     })
-
-
-    $(document).on("click", ".votesubmit", function (e){
-
-
-      checkedboxes = []
-      uncheckedboxes = []
-
-      $('#userdatevotes input:checked').each(function(){
-        checkedboxes.push($(this).val());
-        });
-
-      $('#userdatevotes input[type=checkbox]:not(:checked)').each(function(){
-        uncheckedboxes.push($(this).val());
-        });
-
-        userid = $('#userdatevotes td')[1].getAttribute("userid")
-        actid = $('#userdatevotes td')[1].getAttribute("actid")
-
-    e.preventDefault()
-      $.ajax({
-          type: "POST",
-          url: "/vote",
-          data: {userid: userid, actid: actid, checkedboxes: checkedboxes, uncheckedboxes: uncheckedboxes },
-
-          success: function (response) {
-            console.log("success")
-            console.log(response)
-
-          }
-      })
-    })
-
-
-
-
-
-  // $(function(){
-  // var numCols = 3;
-  // var numRows = 2;
-  //   for (var i = 0; i < numRows; i++) {
-  //     for (var j = 0; j < numCols; j++){
-
-  // table = $("#mytab1");
-  // for (var i = 0, row; row = $(".table").find("tbody").find("td")[0]; i++) {
-  //  //iterate through rows
-  //  //rows would be accessed using the "row" variable assigned in the for loop
-  //  for (var j = 0, col; col = row.cells[j]; j++) {
-  //    //iterate through columns
-  //    //columns would be accessed using the "col" variable assigned in the for loop
-  //     var cell = $("td");
-  //       cell.addClass('cell blue');
-  //       cell.attr("row", i);
-  //       cell.attr("col", j);
-  //     }
-  //   }
-  // })
 
 
 

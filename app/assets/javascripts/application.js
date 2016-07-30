@@ -218,6 +218,31 @@ $(document).ready(function(){
 
 
 
+    // $(".allowvotinglocation").click(function() {
+    //   console.log($(this))
+    // if($(this).is(":checked")) {
+    //   console.log("it is checked")
+    //     $("#buttonloc").show(300);
+    // } else {
+    //   console.log("it is not checked")
+    //     $("#buttonloc").hide(200);
+    // }
+    // });
+
+    $(document).on("click", ".copylink", function (){
+      var text = window.location.href
+      console.log("what")
+      window.prompt("Send this link to your friends, together with the access keyword", text);
+
+    })
+
+
+
+
+
+
+
+
 
 
 })

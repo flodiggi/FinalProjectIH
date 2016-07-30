@@ -4,9 +4,15 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
+              <li class="sidebar-brand">
+                  <a href="#">
+                      Welcome <%= current_user.name %>
+                  </a>
+              </li>
+
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Welcome <%= current_user.name %>
+                    <a href="#" id="#copylink" class="btn btn-primary copylink">
+                        Invite your friends!
                     </a>
                 </li>
                 <li>
@@ -19,7 +25,7 @@
                     <a href="#">User Overview:</a>
                 </li>
                 <%@activity.users.each do |user| %>
-                <li><%=user.name%></li>
+                <li><%=user.username%></li>
                 <% end %>
 
             </ul>
@@ -36,19 +42,31 @@
                     <li>Name: <%= @activity.name%></li>
                     <li>Description: <%= @activity.description%></li>
                     <li>Location: <%= @activity.location%></li>
-                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#locationvoting" aria-expanded="false" aria-controls="locationvoting">
+                    <% if @activity.locationvoting == true %>
+                    <a class="btn btn-primary" role="button" id="buttonloc" data-toggle="collapse" href="#locationvoting" aria-expanded="false" aria-controls="locationvoting">
                       VOTE!
                     </a>
+                    <% end %>
+                    <!-- <div class="checkboxhost">
+                      <label for="allowvotinglocation">Allow voting?</label>
+                      <input class="allowvotinglocation" type="checkbox" name="allowvotinglocation" value="1" checked />
+                    </div> -->
                     <li>Date: <%= @activity.starts_at_date%></li>
+                    <% if @activity.datevoting == true %>
                     <a class="btn btn-primary" role="button" data-toggle="collapse" href="#datevoting" aria-expanded="false" aria-controls="datevoting">
                       VOTE!
                     </a>
+                    <% end %>
                     <li>Time: <%= @activity.starts_at_time%>
+                      <% if @activity.timevoting == true %>
                       <a class="btn btn-primary" role="button" data-toggle="collapse" href="#timevoting" aria-expanded="false" aria-controls="timevoting">Vote!</a>
+                      <% end %>
 
                     </li>
                   </ul>
+                  <% if @activity.hosts.find_by(userid: current_user.id) %>
                   <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
+                  <% end %>
 
 
 
@@ -133,6 +151,17 @@
           <div class="form-group">
           <%= f.label :image, "Image:" %>
           <%= f.file_field :image %>
+          </div>
+          <div class="">
+            Allow Voting:
+          </div>
+          <div class="form-group">
+          <%= f.label :locationvoting, "Location:" %>
+          <%= f.check_box :locationvoting, {:class => "allowvoting", :style => "form"}, "true", "false"%>
+          <%= f.label :datevoting, "Date:" %>
+          <%= f.check_box :datevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
+          <%= f.label :timevoting, "Time:" %>
+          <%= f.check_box :timevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
           </div>
           <%= f.submit "Submit Changes", class: "btn btn-primary" %>
 

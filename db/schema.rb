@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730094413) do
+ActiveRecord::Schema.define(version: 20160730111022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,18 @@ ActiveRecord::Schema.define(version: 20160730094413) do
     t.string   "category"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "password_digest"
+    t.boolean  "namevoting",         default: true
+    t.boolean  "locationvoting",     default: true
+    t.boolean  "datevoting",         default: true
+    t.boolean  "timevoting",         default: true
+    t.boolean  "extravoting",        default: true
   end
 
   create_table "comments", force: :cascade do |t|

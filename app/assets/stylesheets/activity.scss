@@ -20,7 +20,7 @@
 
 
 
-input[type='checkbox'] {
+.checkbox input[type='checkbox'] {
     -webkit-appearance:none;
     width:30px;
     height:30px;
@@ -29,6 +29,6 @@ input[type='checkbox'] {
     border:2px solid #555;
 }
 
-input[type='checkbox']:checked {
+.checkbox input[type='checkbox']:checked {
     background: #c4ddaa;
 }

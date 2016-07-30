@@ -57,6 +57,9 @@ class ActivityController < ApplicationController
   def update
     activity = Activity.find_by(id: params[:id])
     activity.update_attributes!(activity_params)
+    activity.update(locationvoting: activity_params[:locationvoting] == "true" ? true : false)
+    activity.update(datevoting: activity_params[:datevoting] == "true" ? true : false)
+    activity.update(timevoting: activity_params[:timevoting] == "true" ? true : false)
     redirect_to ("/activity/#{activity.id}")
   end
 
@@ -204,7 +207,7 @@ class ActivityController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image, :location, :password, :password_confirmation)
+    params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image, :location, :password, :password_confirmation, :locationvoting, :datevoting, :timevoting)
   end
 
 

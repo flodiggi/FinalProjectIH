@@ -131,15 +131,26 @@
                   <%= f.label :image, "Image:" %>
                   <%= f.file_field :image %>
                   </div>
+                  <div class="">
+                    Allow Voting:
+                  </div>
+                  <div class="form-group">
+                  <%= f.label :locationvoting, "Location:" %>
+                  <%= f.check_box :locationvoting, {:class => "allowvoting", :style => "form"}, "true", "false"%>
+                  <%= f.label :datevoting, "Date:" %>
+                  <%= f.check_box :datevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
+                  <%= f.label :timevoting, "Time:" %>
+                  <%= f.check_box :timevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
+                  </div>
                   <p>
-                    Set an initial password so that later on you will be able to invite friends. You can change it anytime
+                    Set an access key to allow your friends to join your activity. You can change it anytime!
                   </p>
                   <div class="form-group">
-                  <%= f.label :password, "Set activity password:" %>
+                  <%= f.label :password, "Access Key:" %>
                   <%= f.password_field :password %>
                   </div>
                   <div class="form-group">
-                  <%= f.label :password_confirmation, "Password Confirmation:" %>
+                  <%= f.label :password_confirmation, "Confirm Access Key:" %>
                   <%= f.password_field :password_confirmation %>
                   </div>
 

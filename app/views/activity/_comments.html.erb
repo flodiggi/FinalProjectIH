@@ -5,12 +5,13 @@
   <div class="comment <%= comment.category %>">
       <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "avatar"%>
     <p><%=comment.text%></p>
-
+    <% if comment.user == current_user %>
     <form id="deletecomment", data-remote = "true", commtid="<%=comment.id%>"  >
       <%= hidden_field_tag :id, comment.id %>
       <%= hidden_field_tag :actid, @activity.id %>
     <%= submit_tag "Delete", class: "btn btn-primary vote" %>
     </form>
+    <% end %>
   </div>
   <% end %>
   <div class="comment">

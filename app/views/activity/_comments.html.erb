@@ -5,6 +5,12 @@
   <div class="comment <%= comment.category %>">
       <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "avatar"%>
     <p><%=comment.text%></p>
+
+    <form id="deletecomment", data-remote = "true", commtid="<%=comment.id%>"  >
+      <%= hidden_field_tag :id, comment.id %>
+      <%= hidden_field_tag :actid, @activity.id %>
+    <%= submit_tag "Delete", class: "btn btn-primary vote" %>
+    </form>
   </div>
   <% end %>
   <div class="comment">
@@ -13,7 +19,7 @@
   </div>
 </section>
 <section class="form"> <br>
-  <%= form_for @comment, html: {class: "form", role: "form"} do |f| %>
+  <%= form_for Comment.new, html: {class: "form", role: "form"} do |f| %>
     <%= f.text_area :text, placeholder: "Add your intelligence" %>
     <%= f.select :category, [ 'General', 'Supportive', 'Objection', 'Counter'], :prompt => 'Choose Category' %>
     <%= hidden_field_tag :id, @activity.id %>

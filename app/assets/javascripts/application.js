@@ -198,6 +198,25 @@ $(document).ready(function(){
       })
     })
 
+    $(document).on("submit", "#deletecomment", function (e){
+      $(this).closest('div').fadeOut();
+      id = $('#deletecomment').attr('commtid')
+      console.log($('#deletecomment').serialize())
+    e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: '/comments/'+ id + '/delete',
+          data: $('#deletecomment').serialize(),
+
+          success: function (response) {
+            console.log(response)
+            $('.commentcontainer').html(response);
+
+          }
+      })
+    })
+
+
 
 
 

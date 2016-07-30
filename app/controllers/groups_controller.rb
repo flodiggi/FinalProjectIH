@@ -4,8 +4,7 @@ class GroupsController < ApplicationController
   group = Group.new(group_params)
 
     if
-    group.name =~ /^$/
-    # zeichen verändern, stimmt nicht
+    group.name.blank?
     redirect_to("/profile")
     else
     group.users << current_user

@@ -25,7 +25,7 @@
                 <% end %>
 
                 <li>
-                  <%= form_for @group, url: "/groups", html: {class: "form", role: "form", method: :post} do |f| %>
+                  <%= form_for @group, url: "/groups", html: {class: "form groupinput", role: "form", method: :post} do |f| %>
                     <%= f.text_field :name, placeholder: "Create new group" %>
                     <%= f.submit "Add new group", class: "btn" %>
                   <% end %>

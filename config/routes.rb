@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   post '/votetime', to: 'activity#votingtime'
   post '/votelocation', to: 'activity#votinglocation'
 
+  post '/comments/:id/delete', to: 'comments#destroy'
+
 
 
 

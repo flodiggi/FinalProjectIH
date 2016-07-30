@@ -237,6 +237,24 @@ $(document).ready(function(){
 
 
 
+    $(document).on("submit", "#makehost", function (e){
+      // $(this).closest('.actcontainer').fadeOut();
+      id = $('#makehost').attr('userid')
+      console.log($('#makehost').serialize())
+    e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: '/hosts',
+          data: $('#makehost').serialize(),
+
+          success: function (response) {
+            console.log(response)
+          }
+      })
+    })
+
+
+
     // $(".allowvotinglocation").click(function() {
     //   console.log($(this))
     // if($(this).is(":checked")) {

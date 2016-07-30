@@ -87,65 +87,13 @@
                 </div>
               </div>
 
+              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#activitycreation">Change Details</a>
+
 
               <div class="row activitycontainer">
                 <%= render "useractivities" %>
               </div>
 
-
-              <div class="row">
-                <h2>Create New Activity</h2>
-                <div class="container">
-                <%= form_for @activity, url: "/activity", html: {class: "form", role: "form", multipart: true, method: :post} do |f| %>
-                  <div class="form-group">
-                  <%= f.label :name, "Name:" %>
-                  <%= f.text_field :name %>
-                  </div>
-                  <div class="form-group">
-                  <%= f.label :description, "Description:" %>
-                  <%= f.text_field :description %>
-                  </div>
-                  <div class="form-group">
-                  <%= f.label :starts_at, "DateTime:" %>
-                  <%= f.date_select :starts_at %>
-                  <%= f.time_select :starts_at %>
-                  </div>
-                  <div class="form-group">
-                  <%= f.label :image, "Image:" %>
-                  <%= f.file_field :image %>
-                  </div>
-                  <div class="">
-                    Allow Voting:
-                  </div>
-                  <div class="form-group">
-                  <%= f.label :locationvoting, "Location:" %>
-                  <%= f.check_box :locationvoting, {:class => "allowvoting", :style => "form"}, "true", "false"%>
-                  <%= f.label :datevoting, "Date:" %>
-                  <%= f.check_box :datevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
-                  <%= f.label :timevoting, "Time:" %>
-                  <%= f.check_box :timevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
-                  </div>
-                  <p>
-                    Set an access key to allow your friends to join your activity. You can change it anytime!
-                  </p>
-                  <div class="form-group">
-                  <%= f.label :password, "Access Key:" %>
-                  <%= f.password_field :password %>
-                  </div>
-                  <div class="form-group">
-                  <%= f.label :password_confirmation, "Confirm Access Key:" %>
-                  <%= f.password_field :password_confirmation %>
-                  </div>
-
-                  <%= f.submit "Have Fun", class: "btn btn-primary" %>
-
-                <% end %>
-                </div>
-                </div>
-
-                <div class="row">
-                  <h2>Infinitive Public Options, Explore your City</h2>
-                </div>
 
 
 
@@ -156,3 +104,70 @@
 
     </div>
     <!-- /#wrapper -->
+
+
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="activitycreation">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create Something New!</h4>
+          </div>
+          <div class="Intro"> </div>
+          <div class="modal-body">
+            <h2>Create New Activity</h2>
+            <div class="container">
+            <%= form_for @activity, url: "/activity", html: {class: "form", role: "form", multipart: true, method: :post} do |f| %>
+              <div class="form-group">
+              <%= f.label :name, "Name:" %>
+              <%= f.text_field :name %>
+              </div>
+              <div class="form-group">
+              <%= f.label :description, "Description:" %>
+              <%= f.text_field :description %>
+              </div>
+              <div class="form-group">
+              <%= f.label :starts_at, "DateTime:" %>
+              <%= f.date_select :starts_at %>
+              <%= f.time_select :starts_at %>
+              </div>
+              <div class="form-group">
+              <%= f.label :image, "Image:" %>
+              <%= f.file_field :image %>
+              </div>
+              <div class="">
+                Allow Voting:
+              </div>
+              <div class="form-group">
+              <%= f.label :locationvoting, "Location:" %>
+              <%= f.check_box :locationvoting, {:class => "allowvoting", :style => "form"}, "true", "false"%>
+              <%= f.label :datevoting, "Date:" %>
+              <%= f.check_box :datevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
+              <%= f.label :timevoting, "Time:" %>
+              <%= f.check_box :timevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
+              </div>
+              <p>
+                Set an access key to allow your friends to join your activity. You can change it anytime!
+              </p>
+              <div class="form-group">
+              <%= f.label :password, "Access Key:" %>
+              <%= f.password_field :password %>
+              </div>
+              <div class="form-group">
+              <%= f.label :password_confirmation, "Confirm Access Key:" %>
+              <%= f.password_field :password_confirmation %>
+              </div>
+
+              <%= f.submit "Have Fun", class: "btn btn-primary" %>
+
+            <% end %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->

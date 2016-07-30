@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   post '/votelocation', to: 'activity#votinglocation'
 
   post '/comments/:id/delete', to: 'comments#destroy'
+  post '/activity/:id/delete', to: 'activity#destroy'
 
 
 

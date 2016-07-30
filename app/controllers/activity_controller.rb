@@ -74,6 +74,14 @@ class ActivityController < ApplicationController
 
   end
 
+  def destroy
+    @user = current_user
+    @activities = @user.activities
+    activity = Activity.find_by(id: params[:activityid])
+    activity.destroy
+    render "users/_useractivities"
+  end
+
 
 
   def votingdate

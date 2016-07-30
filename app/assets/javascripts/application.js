@@ -217,6 +217,25 @@ $(document).ready(function(){
     })
 
 
+    $(document).on("submit", "#deleteactivity", function (e){
+      $(this).closest('.actcontainer').fadeOut();
+      id = $('#deleteactvity').attr('actid')
+      console.log($('#deleteactivity').serialize())
+    e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: '/activity/'+ id + '/delete',
+          data: $('#deleteactivity').serialize(),
+
+          success: function (response) {
+            console.log(response)
+            $('.activitycontainer').html(response);
+
+          }
+      })
+    })
+
+
 
     // $(".allowvotinglocation").click(function() {
     //   console.log($(this))

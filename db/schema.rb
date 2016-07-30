@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729200536) do
+ActiveRecord::Schema.define(version: 20160730094413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(version: 20160729200536) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
+  end
+
+  create_table "hosts", force: :cascade do |t|
+    t.integer  "userid"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id"], name: "index_hosts_on_activity_id", using: :btree
   end
 
   create_table "location_entries", force: :cascade do |t|
@@ -165,6 +173,7 @@ ActiveRecord::Schema.define(version: 20160729200536) do
   add_foreign_key "date_votes", "date_entries"
   add_foreign_key "date_votes", "users"
   add_foreign_key "groups", "users"
+  add_foreign_key "hosts", "activities"
   add_foreign_key "location_votes", "activities"
   add_foreign_key "location_votes", "location_entries"
   add_foreign_key "location_votes", "users"

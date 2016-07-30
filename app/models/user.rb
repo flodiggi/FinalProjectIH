@@ -15,9 +15,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :date_votes, dependent: :destroy
 
-    def owned_activities
-      user_activities.ownerships.map(&:activity)
-    end
 
 
     def self.create_with_omniauth(auth)

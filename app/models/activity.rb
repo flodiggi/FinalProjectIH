@@ -11,6 +11,7 @@ class Activity < ApplicationRecord
   has_many :location_entries, dependent: :destroy
   has_many :location_votes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :hosts, dependent: :destroy
 
 
 

@@ -41,9 +41,11 @@ class ActivityController < ApplicationController
     redirect_to("activity/new")
     else
     activity.users << current_user
+    host = Host.create(:userid => current_user.id)
     dateentry = DateEntry.create(:date => activity.starts_at)
     timeentry = TimeEntry.create(:time => activity.starts_at)
     locationentry = LocationEntry.create(:location => activity.location)
+    activity.hosts << host
     activity.date_entries << dateentry
     activity.time_entries << timeentry
     activity.location_entries << locationentry

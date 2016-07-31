@@ -68,6 +68,8 @@ GEM
     ffi (1.9.14)
     figaro (1.1.1)
       thor (~> 0.14)
+    font-awesome-sass (4.6.2)
+      sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.4)
@@ -202,6 +204,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   figaro
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

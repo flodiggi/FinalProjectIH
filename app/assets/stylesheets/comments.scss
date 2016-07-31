@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.commentcontainer {
+  max-width: 100%;
+}
 .comments {
-  margin-top: 100px;
-  margin-left: 100px;
+
 }
 
 .comment {
@@ -29,15 +30,58 @@
 }
 
 
-.Objection p {
-  background-color: red;
+.Objection {
+  background-color: rgba(208, 155, 155, 0.78) !important;
 }
-.Supportive p {
-  background-color: green;
+.Supportive {
+  background-color: rgba(175, 208, 155, 0.78) !important;
 }
-.Objection p {
-  background-color: red;
+
+.Counter  {
+  background-color: rgba(155, 176, 208, 0.78) !important;
 }
-.Counter p {
-  background-color: blue;
+
+.rightpanelheader {
+  display: inline-block;
 }
+
+
+
+
+.thumbnail {
+    padding:0px;
+    border: none;
+}
+
+
+.panel.commentpanel {
+	position:relative;
+  margin-top: 15px;
+}
+.panel.commentpanel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel.commentpanel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel.commentpanel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+
+
+// .commentsection {
+//   max-width: 100%;
+// }

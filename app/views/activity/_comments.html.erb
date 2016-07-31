@@ -2,28 +2,51 @@
   <h3>Comments</h3>
   <% @activity.comments.each do |comment| %>
 
-  <div class="comment <%= comment.category %>">
-      <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "avatar"%>
-    <p><%=comment.text%></p>
+  <div class="row">
+    <div class="col-sm-2">
+    <div class="thumbnail">
+      <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "img-responsive user-photo avatar"%>
+    </div><!-- /thumbnail -->
+    </div><!-- /col-sm-1 -->
+    <div class="col-sm-7">
+  <div class="panel commentpanel panel-default">
+  <div class="panel-heading <%= comment.category %>">
+    <strong> <%=comment.user.name %></strong> <span class="rightpanelheader pull-right">
     <% if comment.user == current_user %>
     <form id="deletecomment", data-remote = "true", commtid="<%=comment.id%>"  >
       <%= hidden_field_tag :id, comment.id %>
       <%= hidden_field_tag :actid, @activity.id %>
-    <%= submit_tag "Delete", class: "btn btn-primary vote" %>
+    <%= submit_tag "Delete" %>
     </form>
     <% end %>
+    </span>
+    </div>
+    <div class="panel-body">
+      <div class="comment">
+    <p><%=comment.text%></p>
+  </div>
+  </div>
+  </div>
+  </div>
   </div>
   <% end %>
-  <div class="comment">
-    <img class="avatar" src="<%= asset_path("jake.jpeg")%>" alt="jake"/>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quisquam totam atque nam velit repudiandae nostrum provident quae magnam possimus explicabo, saepe error voluptatum obcaecati perferendis corrupti? Asperiores dolorum, rerum?</p>
+
+</section>
+
+<div class="container col-xs-12 col-md-10">
+    <div class="row">
+      <div class="form-group">
+        <%= form_for Comment.new, html: {class: "form", role: "form"} do |f| %>
+        <%= f.text_area :text, placeholder: "Add your intelligence", class:"form-control input-lg" %>
+        <%= hidden_field_tag :id, @activity.id %>
+      </div>
   </div>
-</section>
-<section class="form"> <br>
-  <%= form_for Comment.new, html: {class: "form", role: "form"} do |f| %>
-    <%= f.text_area :text, placeholder: "Add your intelligence" %>
-    <%= f.select :category, [ 'General', 'Supportive', 'Objection', 'Counter'], :prompt => 'Choose Category' %>
-    <%= hidden_field_tag :id, @activity.id %>
-    <%= f.submit "Submit Comment", class: "btn" %>
+    <div class="row">
+    <%= f.select :category, [ 'General', 'Supportive', 'Objection', 'Counter'], class:"btn btn-primary dropdown-toggle" , :prompt => 'Choose Category'%>
+    </div>
+  <br>
+    <div class="row">
+      <%= f.submit "Submit Comment", class:"btn btn-default" %>
+    </div>
   <% end %>
-</section>
+</div>

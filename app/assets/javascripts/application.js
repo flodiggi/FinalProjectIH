@@ -144,7 +144,7 @@ $(document).ready(function(){
 
 
         $(document).on("click", ".votesubmitlocation", function (e){
-
+          
           checkedboxes = []
           uncheckedboxes = []
 
@@ -199,7 +199,7 @@ $(document).ready(function(){
     })
 
     $(document).on("submit", "#deletecomment", function (e){
-      $(this).closest('div').fadeOut();
+      $(this).closest('row').fadeOut();
       id = $('#deletecomment').attr('commtid')
       console.log($('#deletecomment').serialize())
     e.preventDefault()

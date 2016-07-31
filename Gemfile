@@ -12,6 +12,8 @@ gem 'aws-sdk', '~> 2.3'
 
 gem 'figaro'
 
+gem 'font-awesome-sass'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

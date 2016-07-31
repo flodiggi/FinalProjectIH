@@ -41,35 +41,24 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
+        <div class="activitybackground">
         <div id="page-content-wrapper">
             <div class="container-fluid">
-              <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+              <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
               <div class="row row-centered">
-                <div class="col-md-6  col-centered activity">
+
+              <%= render "activitycard" %>
+                  <!-- <div class="activity">
                   <%= image_tag @activity.image.url(:medium) %>
                   <ul>
                     <li>Name: <%= @activity.name%></li>
                     <li>Description: <%= @activity.description%></li>
                     <li>Location: <%= @activity.location%></li>
-                    <% if @activity.locationvoting == true %>
-                    <a class="btn btn-primary" role="button" id="buttonloc" data-toggle="collapse" href="#locationvoting" aria-expanded="false" aria-controls="locationvoting">
-                      VOTE!
-                    </a>
-                    <% end %>
-                    <!-- <div class="checkboxhost">
-                      <label for="allowvotinglocation">Allow voting?</label>
-                      <input class="allowvotinglocation" type="checkbox" name="allowvotinglocation" value="1" checked />
-                    </div> -->
+
+
                     <li>Date: <%= @activity.starts_at_date%></li>
-                    <% if @activity.datevoting == true %>
-                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#datevoting" aria-expanded="false" aria-controls="datevoting">
-                      VOTE!
-                    </a>
-                    <% end %>
+
                     <li>Time: <%= @activity.starts_at_time%>
-                      <% if @activity.timevoting == true %>
-                      <a class="btn btn-primary" role="button" data-toggle="collapse" href="#timevoting" aria-expanded="false" aria-controls="timevoting">Vote!</a>
-                      <% end %>
 
                     </li>
                   </ul>
@@ -78,9 +67,37 @@
                   <% end %>
 
 
+                </div> -->
 
-                </div>
               </div>
+
+              <div class="row row-centered">
+                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
+
+                <div class="buttonrow">
+                <% if @activity.locationvoting == true %>
+                <div class="votebutton">
+                <a class="btn btn-lg btn-primary" role="button" id="buttonloc" data-toggle="collapse" href="#locationvoting" aria-expanded="false" aria-controls="locationvoting">
+                  VOTE Location!
+                </a>
+                </div>
+                <% end %>
+                <% if @activity.datevoting == true %>
+                <div class="votebutton">
+                <a class="btn btn-lg btn-primary" role="button" data-toggle="collapse" href="#datevoting" aria-expanded="false" aria-controls="datevoting">
+                  VOTE Date!
+                </a>
+                </div>
+                <% end %>
+                <% if @activity.timevoting == true %>
+                <div class="votebutton">
+                <a class="btn btn-lg btn-primary" role="button" data-toggle="collapse" href="#timevoting" aria-expanded="false" aria-controls="timevoting">Vote Time!</a>
+                </div>
+
+                <% end %>
+              </div>
+            </div>
+
 
 
               <div class="collapse " id="locationvoting">
@@ -116,6 +133,7 @@
     <!-- /#wrapper -->
 
 
+  </div>
 
 
 

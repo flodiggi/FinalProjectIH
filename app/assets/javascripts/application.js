@@ -144,7 +144,7 @@ $(document).ready(function(){
 
 
         $(document).on("click", ".votesubmitlocation", function (e){
-          
+
           checkedboxes = []
           uncheckedboxes = []
 

@@ -43,6 +43,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+              <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
               <div class="row row-centered">
                 <div class="col-md-6  col-centered activity">
                   <%= image_tag @activity.image.url(:medium) %>
@@ -202,3 +203,10 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>

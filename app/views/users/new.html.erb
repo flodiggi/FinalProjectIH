@@ -23,42 +23,43 @@
   <div class="tab-content">
     <div id="signup">
       <div class="field-wrap">
-        <span class="fb-login"><%= link_to image_tag("facebook-login.png"), '#'%></span>
+        <span class="fb-login"><%= link_to image_tag("facebook-login.png"), "/auth/facebook"%></span>
       </div>
       <div class="or"></div>
       <h1 class="signupheading">Or Sign Up for Free</h1>
 
-      <form action="/" method="post">
+      <form action='/users' method="post">
 
         <div class="field-wrap">
           <label class="signuplabel">
             Username<span class="req">*</span>
           </label>
-          <input class="signupinput" type="email"required autocomplete="off"/>
+          <input name="user[username]" class="signupinput" type="text"required autocomplete="off"/>
         </div>
 
         <div class="field-wrap">
           <label class="signuplabel">
             Email Address<span class="req">*</span>
           </label>
-          <input class="signupinput" type="email"required autocomplete="off"/>
+          <input name="user[email]" class="signupinput" type="email"required autocomplete="off"/>
         </div>
 
       <div class="field-wrap">
         <label class="signuplabel">
           Set Password<span class="req">*</span>
         </label>
-        <input class="signupinput" type="email"required autocomplete="off"/>
+        <input name="user[password]" class="signupinput" type="password"required autocomplete="off"/>
       </div>
 
       <div class="field-wrap">
         <label class="signuplabel">
           Confirm Password<span class="req">*</span>
         </label>
-        <input class="signupinput" type="password"required autocomplete="off"/>
+        <input name="user[password_confirmation]" class="signupinput" type="password"required autocomplete="off"/>
       </div>
+      <input  type="hidden" name="authenticity_token" placeholder="<%= form_authenticity_token %>">
 
-      <button type="submit" class="button button-block"/>Get Started</button>
+      <button type="submit" class="buttonsignup button-block"/>Get Started</button>
 
       </form>
 
@@ -68,31 +69,32 @@
       <h1 class="signupheading">Welcome Back!</h1>
 
       <div class="field-wrap">
-        <span class="fb-login"><%= link_to image_tag("facebook-login.png"), '#'%></span>
+        <span class="fb-login"><%= link_to image_tag("facebook-login.png"), "/auth/facebook"%></span>
       </div>
       <div class="or"></div>
 
       <h1 class="signupheading">Or Use Your Email</h1>
 
-      <form action="/" method="post">
+      <form action="/login" method="post">
 
         <div class="field-wrap">
         <label class="signuplabel">
           Email Address<span class="req">*</span>
         </label>
-        <input class="signupinput" type="email"required autocomplete="off"/>
+        <input name="user[email]" class="signupinput" type="email"required autocomplete="off"/>
       </div>
 
       <div class="field-wrap">
         <label class="signuplabel">
           Password<span class="req">*</span>
         </label>
-        <input class="signupinput" type="password"required autocomplete="off"/>
+        <input name="user[password]" class="signupinput" type="password"required autocomplete="off"/>
       </div>
 
-      <p class="forgot"><a href="#" class="signupa">Forgot Password?</a></p>
+      <input  type="hidden" name="authenticity_token" placeholder="<%= form_authenticity_token %>">
 
-      <button class="button button-block"/>Log In</button>
+
+      <button type="submit" class="buttonsignup button-block"/>Log In</button>
 
       </form>
 

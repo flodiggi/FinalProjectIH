@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_action :authorize_user, only: [:show]
-  before_action :admin_only, only: [:index]
-
   # renders the home page
 def home
   @name = current_user ? @current_user.username : "test: not logged in"
@@ -27,7 +25,8 @@ end
   def create
     user = User.new(user_params)
     if user.save
-      redirect_to '/login'
+        session[:user_id] = user.id
+        redirect_to '/profile'
     else
       redirect_to '/signup'
     end

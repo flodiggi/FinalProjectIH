@@ -42,13 +42,17 @@ class ActivityController < ApplicationController
     else
     activity.users << current_user
     host = Host.create(:userid => current_user.id)
-    dateentry = DateEntry.create(:date => activity.starts_at)
-    timeentry = TimeEntry.create(:time => activity.starts_at)
-    locationentry = LocationEntry.create(:location => activity.location)
     activity.hosts << host
-    activity.date_entries << dateentry
-    activity.time_entries << timeentry
-    activity.location_entries << locationentry
+      if activity.starts_at != nil
+        dateentry = DateEntry.create(:date => activity.starts_at)
+        timeentry = TimeEntry.create(:time => activity.starts_at)
+        activity.date_entries << dateentry
+        activity.time_entries << timeentry
+      end
+      if activity.location != nil
+        locationentry = LocationEntry.create(:location => activity.location)
+        activity.location_entries << locationentry
+      end
     activity.save
     redirect_to ("/activity/#{activity.id}")
     end

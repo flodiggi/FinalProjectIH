@@ -13,8 +13,42 @@
 
 
 
-.modal-content {
-  overflow-x: auto;
+
+.table-container
+{
+	width: 100%;
+	overflow-y: auto;
+	_overflow: auto;
+	margin: 0 0 1em;
+}
+
+.table-container::-webkit-scrollbar
+{
+	-webkit-appearance: none;
+	width: 14px;
+	height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb
+{
+	border-radius: 8px;
+	border: 3px solid #fff;
+	background-color: rgba(0, 0, 0, .3);
+}
+
+.table-container-outer { position: relative; }
+
+.table-container-fade
+{
+	position: absolute;
+	right: 0;
+	width: 30px;
+	height: 100%;
+	background-image: -webkit-linear-gradient(0deg, rgba(255,255,255,.5), #fff);
+	background-image: -moz-linear-gradient(0deg, rgba(255,255,255,.5), #fff);
+	background-image: -ms-linear-gradient(0deg, rgba(255,255,255,.5), #fff);
+	background-image: -o-linear-gradient(0deg, rgba(255,255,255,.5), #fff);
+	background-image: linear-gradient(0deg, rgba(255,255,255,.5), #fff);
 }
 
 
@@ -35,4 +69,11 @@
 
 .checkbox input[type='checkbox']:checked {
     background: #c4ddaa;
+}
+
+
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
 }

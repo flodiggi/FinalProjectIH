@@ -23,7 +23,7 @@
 
         <% @activity.users.each do |user| %>
 
-          <tr <%='id=usertimevotes' if user == current_user%>>
+          <tr class="timevoterow"<%='id=usertimevotes' if user == current_user%>>
             <td row="<%=user.id%>" col="0"><%= user.username %> <%= submit_tag "Vote", :class => "votesubmittime" %></td>
             <% for i in 1..@activity.time_entries.length %>
               <td userid="<%=user.id%>" col="<%=i%>" actid="<%=@activity.id%>">

@@ -18,6 +18,9 @@ $size: 200px;
   &.gt-50 {
     background-color: #81CE97;
   }
+
+
+
 }
 .ppc-progress {
   @include circle($size);

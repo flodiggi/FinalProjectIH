@@ -267,10 +267,12 @@ $(document).ready(function(){
 
     $(document).on("click", ".copylink", function (){
       var text = window.location.href
-      console.log("what")
       window.prompt("Send this link to your friends, together with the access keyword", text);
 
     })
+
+
+
 
 
 

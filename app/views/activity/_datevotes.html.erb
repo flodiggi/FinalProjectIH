@@ -23,7 +23,7 @@
 
         <% @activity.users.each do |user| %>
 
-          <tr <%='id=userdatevotes' if user == current_user%>>
+          <tr class="datevoterow" <%='id=userdatevotes' if user == current_user%>>
             <td row="<%=user.id%>" col="0"><%= user.username %> <%= submit_tag "Vote", :class => "votesubmitdate" %></td>
             <% for i in 1..@activity.date_entries.length %>
               <td userid="<%=user.id%>" col="<%=i%>" actid="<%=@activity.id%>">

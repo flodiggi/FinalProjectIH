@@ -13,7 +13,7 @@
                     <a href="#">Edit Profile</a>
                 </li>
                 <li>
-                    <a href="#">Logout</a>
+                  <%= link_to "Log Out", "/logout", :method => :delete %>
                 </li>
                 <li>
                     <a href="#">Group Overview:</a>
@@ -44,7 +44,7 @@
                       <h2 class="username"><%= current_user.name %> </h2>
                     </div>
                     <div class="row row-centered activitycountrow">
-                      <h3 class="activitycount"><%= current_user.activities.count %>&nbsp activities</h3>
+                      <h3 class="activitycount"><%= current_user.activities.count %>&nbsp Options</h3>
                     </div>
 
                 </div>

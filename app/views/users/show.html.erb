@@ -23,7 +23,7 @@
                 <li>
                   <%= link_to "Log Out", "/logout", :method => :delete %>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#">Group Overview:</a>
                 </li>
                 <% @user.groups.each do |group| %>
@@ -37,7 +37,7 @@
                     <%= f.text_field :name, placeholder: "Create new group" %>
                     <%= f.submit "Add new group", class: "btn" %>
                   <% end %>
-                </li>
+                </li> -->
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -68,7 +68,7 @@
 
 
               <div class="row activitycontainer ">
-                <%= render "useractivities" %>
+                <%= render "activitycardoverview" %>
               </div>
 
 

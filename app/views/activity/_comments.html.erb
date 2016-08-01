@@ -1,52 +1,57 @@
-<section class="comments">
   <h3>Comments</h3>
   <% @activity.comments.each do |comment| %>
 
-  <div class="row">
-    <div class="col-sm-2">
+  <div class="row row-centered">
+    <div class="col-md-1"> </div>
+    <div class="col-xs-12 col-md-2">
     <div class="thumbnail">
-      <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "img-responsive user-photo avatar"%>
-    </div><!-- /thumbnail -->
-    </div><!-- /col-sm-1 -->
-    <div class="col-sm-7">
-  <div class="panel commentpanel panel-default">
-  <div class="panel-heading <%= comment.category %>">
-    <strong> <%=comment.user.name %></strong> <span class="rightpanelheader pull-right">
-    <% if comment.user == current_user %>
-    <form id="deletecomment", data-remote = "true", commtid="<%=comment.id%>"  >
-      <%= hidden_field_tag :id, comment.id %>
-      <%= hidden_field_tag :actid, @activity.id %>
-    <%= submit_tag "Delete" %>
-    </form>
-    <% end %>
-    </span>
+      <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "avatar"%>
     </div>
-    <div class="panel-body">
-      <div class="comment">
-    <p><%=comment.text%></p>
-  </div>
-  </div>
-  </div>
-  </div>
+    </div>
+    <div class="col-xs-12 col-md-8 commentsection">
+      <div class="panel commentpanel panel-default">
+        <div class="panel-heading <%= comment.category %>">
+          <strong> <%=comment.user.name %></strong> <span class="rightpanelheader pull-right">
+          <% if comment.user == current_user %>
+          <form id="deletecomment", data-remote = "true", commtid="<%=comment.id%>"  >
+            <%= hidden_field_tag :id, comment.id %>
+            <%= hidden_field_tag :actid, @activity.id %>
+          <%= submit_tag "Delete" %>
+          </form>
+          <% end %>
+          </span>
+          </div>
+          <div class="panel-body">
+            <div class="comment">
+              <p><%=comment.text%></p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-1"> </div>
   </div>
   <% end %>
 
-</section>
-
-<div class="container col-xs-12 col-md-10">
-    <div class="row">
+<div class="row row-centered">
+  <div class="col-md-1"></div>
+  <div class="col-xs-12 col-md-2">
+  <div class="thumbnail">
+    <%= image_tag current_user.normalimage, :class => "img-responsive user-photo avatar"%>
+  </div>
+  </div>
+<div class="container col-xs-12 col-md-8">
+    <div class="row commentform">
       <div class="form-group">
         <%= form_for Comment.new, html: {class: "form", role: "form"} do |f| %>
         <%= f.text_area :text, placeholder: "Add your intelligence", class:"form-control input-lg" %>
         <%= hidden_field_tag :id, @activity.id %>
       </div>
   </div>
-    <div class="row">
+    <div class="row commentbuttons">
     <%= f.select :category, [ 'General', 'Supportive', 'Objection', 'Counter'], class:"btn btn-primary dropdown-toggle" , :prompt => 'Choose Category'%>
-    </div>
-  <br>
-    <div class="row">
       <%= f.submit "Submit Comment", class:"btn btn-default" %>
     </div>
   <% end %>
+</div>
+<div class="col-md-1"></div>
 </div>

@@ -22,6 +22,12 @@
                         Invite your friends!
                     </a>
                 </li>
+
+                <% if @activity.hosts.find_by(userid: current_user.id) %>
+                <li class="sidebar-brand">
+                  <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
+                </li>
+                <% end %>
                 <li>
                     <a href="/profile">Back to Profile</a>
                 </li>
@@ -66,154 +72,177 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div class="">
+        <div class="pagecontent">
 
         <div class="row-centered">
         <%= render "activitycard" %>
-        <!-- <div class="piecharts">
-        <div class="progress-pie-chart datepie" data-percent="0">
-          <div class="ppc-progress datepie">
-            <div class="ppc-progress-fill datepie"></div>
+      </div>
+
+
+
+
+
+        <div class="row row-centered">
+          <% if @activity.location_entries.where(votes: @activity.location_entries.maximum(:votes)).count > 1 %>
+          <div class="votingresults">
+            <% @activity.location_entries.each do |d| %>
+            <% sorted = @activity.location_entries.sort_by &:votes %>
+            <% if d.votes == sorted.last.votes %>
+            <i class="fa fa-map-marker fa-fw"></i>
+            <span class="event-location"><%= d.location %></span>
+            <!-- <a class="btn btn-default"><%=d.location%></a> -->
+              <% end %>
+            <% end %>
           </div>
-          <div class="ppc-percents datepie">
-            <div class="pcc-percents-wrapper datepie">
-              <span>%</span>
-            </div>
+          <% end %>
+
+          <% if @activity.date_entries.where(votes: @activity.date_entries.maximum(:votes)).count > 1 %>
+          <div class="votingresults">
+            <% @activity.date_entries.each do |d| %>
+            <% sorted = @activity.date_entries.sort_by &:votes %>
+            <% if d.votes == sorted.last.votes %>
+            <i class="icon-calendar"></i>
+            <span class="event-time"><%= d.date.strftime("%a %d.%m.")%></span>
+              <% end %>
+            <% end %>
           </div>
+          <% end %>
+
+          <% if @activity.time_entries.where(votes: @activity.time_entries.maximum(:votes)).count > 1 %>
+          <div class="votingresults">
+            <% @activity.time_entries.each do |d| %>
+            <% sorted = @activity.time_entries.sort_by &:votes %>
+            <% if d.votes == sorted.last.votes %>
+            <i class="fa fa-clock-o fa-fw"></i>
+            <span class="event-time"><%= d.time.strftime("%I:%M%p")%></span>
+              <% end %>
+            <% end %>
+          </div>
+          <% end %>
         </div>
 
-        <div class="progress-pie-chart timepie" data-percent="0">
-          <div class="ppc-progress timepie">
-            <div class="ppc-progress-fill timepie"></div>
-          </div>
-          <div class="ppc-percents timepie">
-            <div class="pcc-percents-wrapper timepie">
-              <span>%</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-pie-chart locpie" data-percent="0">
-          <div class="ppc-progress locpie">
-            <div class="ppc-progress-fill locpie"></div>
-          </div>
-          <div class="ppc-percents locpie">
-            <div class="pcc-percents-wrapper locpie">
-              <span>%</span>
-            </div>
-          </div>
-        </div>
-      </div> -->
-        </div>
-
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-              <div class="row row-centered">
-
-                  <!-- <div class="activity">
-                  <%= image_tag @activity.image.url(:medium) %>
-                  <ul>
-                    <li>Name: <%= @activity.name%></li>
-                    <li>Description: <%= @activity.description%></li>
-                    <li>Location: <%= @activity.location%></li>
 
 
-                    <li>Date: <%= @activity.starts_at_date%></li>
-
-                    <li>Time: <%= @activity.starts_at_time%>
-
-                    </li>
-                  </ul>
-                  <% if @activity.hosts.find_by(userid: current_user.id) %>
-                  <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
-                  <% end %>
 
 
-                </div> -->
 
+
+        <div class="row row-centered">
+          <div class="col-xs-12 col-md-4">
+              <% if @activity.locationvoting == true %>
+                <div class="votebutton">
+                  <a class="btn btn-lg btn-primary" role="button" id="buttonloc" data-toggle="collapse" href="#locationvoting" aria-expanded="false" aria-controls="locationvoting">
+                    VOTE Location!
+                  </a>
+                </div>
+                <% end %>
               </div>
 
 
+          <div class="col-xs-12 col-md-4">
+              <% if @activity.datevoting == true %>
+              <div class="votebutton">
+              <a class="btn btn-lg btn-primary" role="button" data-toggle="collapse" href="#datevoting" aria-expanded="false" aria-controls="datevoting">
+                VOTE Date!
+              </a>
+              </div>
+              <% end %>
+          </div>
 
-              <div class="row row-centered">
-                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
-                <% if @activity.location_entries.where(votes: @activity.location_entries.maximum(:votes)).count > 1 %>
+          <div class="col-xs-12 col-md-4">
+              <% if @activity.timevoting == true %>
+              <div class="votebutton">
+              <a class="btn btn-lg btn-primary" role="button" data-toggle="collapse" href="#timevoting" aria-expanded="false" aria-controls="timevoting">Vote Time!</a>
+              </div>
+              <% end %>
+          </div>
 
-                <div class="votingresults">
-                  <% @activity.location_entries.each do |d| %>
-                  <% sorted = @activity.location_entries.sort_by &:votes %>
-                  <% if d.votes == sorted.last.votes %>
-                  <a class="btn btn-default"><%=d.location%></a>
-                    <% end %>
-                  <% end %>
+        </div>
+
+        <div class="collapse " id="locationvoting">
+          <div class="well locationcontent">
+            <%= render "locationvotes" %>
+          </div>
+        </div>
+
+        <div class="collapse " id="datevoting">
+          <div class="well datecontent">
+            <%= render "datevotes" %>
+          </div>
+        </div>
+
+        <div class="collapse " id="timevoting">
+          <div class="well timecontent">
+            <%= render "timevotes" %>
+          </div>
+        </div>
+
+
+
+        <div class="row row-centered">
+
+          <div class="col-xs-4 col-md-4">
+          <% if @activity.locationvoting == true %>
+            <div class="progress-pie-chart locpiechart" data-percent="0">
+              <div class="ppc-progress locpieprogress">
+                <div class="ppc-progress-fill locpiefill"></div>
+              </div>
+              <div class="ppc-percents locpiepercents">
+                <div class="pcc-percents-wrapper locpiewrapper">
+                  <span>%</span>
                 </div>
-                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </div>
 
-                <% if @activity.date_entries.where(votes: @activity.date_entries.maximum(:votes)).count > 1 %>
-                <div class="votingresults">
-                  <% @activity.date_entries.each do |d| %>
-                  <% sorted = @activity.date_entries.sort_by &:votes %>
-                  <% if d.votes == sorted.last.votes %>
-                  <a class="btn btn-default"><%=d.date.strftime("%a %d.%m.")%></a>
-                    <% end %>
-                  <% end %>
-                </div>
-                <% end %>
 
-                <% if @activity.time_entries.where(votes: @activity.time_entries.maximum(:votes)).count > 1 %>
-                <div class="votingresults">
-                  <% @activity.time_entries.each do |d| %>
-                  <% sorted = @activity.time_entries.sort_by &:votes %>
-                  <% if d.votes == sorted.last.votes %>
-                  <a class="btn btn-default"><%=d.time.strftime("%I:%M%p")%></a>
-                    <% end %>
-                  <% end %>
-                </div>
-                <% end %>
 
-                <div class="buttonrow">
-                <% if @activity.locationvoting == true %>
-                <div class="votebutton">
-                <a class="btn btn-lg btn-primary" role="button" id="buttonloc" data-toggle="collapse" href="#locationvoting" aria-expanded="false" aria-controls="locationvoting">
-                  VOTE Location!
-                </a>
-                </div>
-                <% end %>
+
+
+              <div class="col-xs-4 col-md-4">
                 <% if @activity.datevoting == true %>
-                <div class="votebutton">
-                <a class="btn btn-lg btn-primary" role="button" data-toggle="collapse" href="#datevoting" aria-expanded="false" aria-controls="datevoting">
-                  VOTE Date!
-                </a>
+                <div class="progress-pie-chart datepiechart" data-percent="0">
+                  <div class="ppc-progress datepieprogress">
+                    <div class="ppc-progress-fill datepiefill"></div>
+                  </div>
+                  <div class="ppc-percents datepiepercents">
+                    <div class="pcc-percents-wrapper datepiewrapper">
+                      <span>%</span>
+                    </div>
+                  </div>
                 </div>
                 <% end %>
+              </div>
+
+              <div class="col-xs-4 col-md-4">
                 <% if @activity.timevoting == true %>
-                <div class="votebutton">
-                <a class="btn btn-lg btn-primary" role="button" data-toggle="collapse" href="#timevoting" aria-expanded="false" aria-controls="timevoting">Vote Time!</a>
+                <div class="progress-pie-chart timepiechart" data-percent="0">
+                  <div class="ppc-progress timepieprogress">
+                    <div class="ppc-progress-fill timepiefill"></div>
+                  </div>
+                  <div class="ppc-percents timepiepercents">
+                    <div class="pcc-percents-wrapper timepiewrapper">
+                      <span>%</span>
+                    </div>
+                  </div>
                 </div>
-
                 <% end %>
               </div>
-            </div>
 
 
 
-              <div class="collapse " id="locationvoting">
-                <div class="well locationcontent">
-                  <%= render "locationvotes" %>
-                </div>
+
+
+
+
+
               </div>
 
-              <div class="collapse " id="datevoting">
-                <div class="well datecontent">
-                  <%= render "datevotes" %>
-                </div>
-              </div>
 
-              <div class="collapse " id="timevoting">
-                <div class="well timecontent">
-                  <%= render "timevotes" %>
-                </div>
-              </div>
+
+              <div class="container-fluid">
+
 
               <div class="container">
               <div class="row commentcontainer">
@@ -221,10 +250,8 @@
               </div>
                 </div>
 
+              </div>
 
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
 
     </div>
     <!-- /#wrapper -->

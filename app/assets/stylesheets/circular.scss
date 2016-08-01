@@ -1,3 +1,6 @@
+$size: 200px;
+$mobilesize: 80px;
+
 @mixin circle($size) {
   content: "";
   position: absolute;
@@ -6,15 +9,26 @@
   top: calc(50% - #{$size/2});
   width: $size;
   height: $size;
+  @media(max-width:684px){
+    left: calc(50% - #{$mobilesize/2});
+    top: calc(50% - #{$mobilesize/2});
+    width: $mobilesize;
+    height: $mobilesize;
+  }
 }
 
-$size: 200px;
+
 .progress-pie-chart {
   width: $size;
   height: $size;
+  @media(max-width:684px){
+    width: $mobilesize;
+    height: $mobilesize;
+  }
   border-radius: 50%;
   background-color: #E5E5E5;
   position: relative;
+    display: inline-block;
   &.gt-50 {
     background-color: #81CE97;
   }
@@ -25,22 +39,41 @@ $size: 200px;
 .ppc-progress {
   @include circle($size);
   clip: rect(0, $size, $size, #{$size/2});
+  @media(max-width:684px){
+    @include circle($mobilesize);
+    clip: rect(0, $mobilesize, $mobilesize, #{$mobilesize/2});
+  }
   .ppc-progress-fill {
     @include circle($size);
     clip: rect(0, #{$size/2}, $size, 0);
+    @media(max-width:684px){
+      @include circle($mobilesize);
+      clip: rect(0, #{$mobilesize/2}, $mobilesize, 0);
+    }
     background: #81CE97;
     transform: rotate(60deg);
+
   }
   .gt-50 & {
     clip: rect(0, #{$size/2}, $size, 0);
+    @media(max-width:684px){
+      clip: rect(0, #{$mobilesize/2}, $mobilesize, 0);
+    }
     .ppc-progress-fill {
       clip: rect(0, $size, $size, #{$size/2});
+      @media(max-width:684px){
+        clip: rect(0, $mobilesize, $mobilesize, #{$mobilesize/2});
+      }
       background: #E5E5E5;
     }
   }
 }
+
 .ppc-percents {
   @include circle(#{$size/1.15});
+  @media(max-width:684px){
+    @include circle(#{$mobilesize/1.15});
+  }
   background: #fff;
   text-align: center;
   display: table;

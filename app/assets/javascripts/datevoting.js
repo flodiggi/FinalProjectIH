@@ -9,18 +9,19 @@ $(document).ready(function(){
     });
     console.log(count)
     var percentage = (count / $('.datevoterow').length) * 100
-    $('.progress-pie-chart .datepie').attr("data-percent", percentage)
+    $('.datepiechart').attr("data-percent", percentage)
 
-    $(function(){
-      var $ppc = $('.progress-pie-chart .datepie'),
-    percent = parseInt($ppc.data('percent')),
-    deg = 360 * percentage/100;
+
+  $(function(){
+    var $ppc = $('.datepiechart'),
+      percent = parseInt($ppc.data('percent')),
+      deg = 360*percent/100;
     if (percent > 50) {
-    $ppc.addClass('gt-50');
-  }
-  $('.ppc-progress-fill .datepie').css('transform','rotate('+ deg +'deg)');
-  $('.ppc-percents .datepie span').html(percent+'%');
-});
+      $ppc.addClass('gt-50');
+    }
+    $('.datepiefill').css('transform','rotate('+ deg +'deg)');
+    $('.datepiepercents span').html(percent+'%');
+  });
 
 
 });

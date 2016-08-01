@@ -3,7 +3,7 @@ class LocationEntriesController < ApplicationController
 
   def create
 
-    if params[:location] != nil
+    if params[:location] != "" && params[:location] != nil
 
     new_location_entry = LocationEntry.create(location: params[:location], votes: 0)
 

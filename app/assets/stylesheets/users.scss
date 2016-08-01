@@ -12,6 +12,21 @@
     overflow-x: hidden;
  }
 
+ .fa.fa-bars{
+     display: inline-block;
+     font: normal normal normal 14px/1 FontAwesome;
+     font-size: 32px;
+     text-rendering: auto;
+     -webkit-font-smoothing: antialiased;
+   }
+
+  .navbutton {
+    background-color:transparent;
+  }
+
+
+
+
 .activity-heading {
   margin-top: 50px;
 }

@@ -15,8 +15,10 @@
       <tr>
         <th>#</th>
         <% @activity.location_entries.each_with_index do |location, i| %>
+				<% if location.location != nil %>
         <th col="<%=i%>"><%= location.location %> </th>
         <% end %>
+				<% end %>
       </tr>
     </thead>
     <tbody>

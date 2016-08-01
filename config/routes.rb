@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
-  get '/activity/:id/signup', to: 'activity#signup'
+
+  patch '/activity/:id/password', to: 'activity#updatepasswort'
   get '/activity/:id/joinus', to: 'activity#access'
   get '/activity/:id/join', to: 'users#join'
   post '/activity/login', to: 'activity#login'

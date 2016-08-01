@@ -13,12 +13,17 @@ $green: #c7c741;
 //   padding: 0;
 // }
 //
+
+
+
+
 .activitycardcontainer {
   background-color: #fff;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin: 2rem auto;
+  margin-top: 80px;
   max-width: 960px;
   padding: 0;
   width: 100%;
@@ -84,7 +89,7 @@ $green: #c7c741;
   position: absolute;
   bottom: 20px;
   left: 20px;
-  width: 80%;
+  width: 100%;
 }
 
 .event-name {

@@ -68,6 +68,19 @@ class ActivityController < ApplicationController
   end
 
 
+  def updatepasswort
+    activity = Activity.find_by(id: params[:id])
+    activity.update_attributes!(activity_params)
+    redirect_to ("/activity/#{activity.id}")
+
+
+  end
+
+
+
+
+
+
   def show
   @activity = Activity.find_by(id: params[:id])
   authorize_activity(@activity)

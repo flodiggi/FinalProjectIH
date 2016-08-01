@@ -17,14 +17,59 @@
 }
 
 
+.profilecard {
+    top: 50%;
+    margin-top: -150px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.68);
+    padding: 70px;
+    float: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+.img-circle {
+    border-radius: 50%;
+    /* border: solid 5px #fff; */
+    box-shadow: 0 0 28px rgba(0, 0, 0, 0.58);
+}
+.profile-overlay {
+    margin-top: -170px;
+    /* border: 5px solid #fff; */
+    border-radius: 50%;
+    padding: 0;
+    /* margin: 0 auto; */
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+
 .profilheader {
   // margin: 0 auto!important;
-  background-image: url("https://unsplash.it/200/300/?random");
+  background-image: url("https://hd.unsplash.com/photo-1451431487663-470c5380d27c");
+  background-size: cover;
+  height: 700px;
 }
 
 .row-centered {
   text-align: center;
 }
+.username {
+  color: white;
+}
+
+.activitycount {
+  color:white
+
+}
+
+
 
 
 

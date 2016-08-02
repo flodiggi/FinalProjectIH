@@ -10,7 +10,7 @@ $(document).ready(function(){
     console.log(count)
     var percentage = (count / $('.datevoterow').length) * 100
     var $ppc = $('.datepiechart')
-    $ppc.attr("data-percent", percentage)
+    // $ppc.attr("data-percent", percentage)
     // var $ppc = $('.datepiechart'),
     // percent = parseInt($ppc.data('percent')),
     deg = 360*percentage/100;

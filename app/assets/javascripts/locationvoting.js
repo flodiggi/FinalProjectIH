@@ -9,23 +9,16 @@ $(document).ready(function(){
     });
     console.log(count)
     var percentage = (count / $('.locvoterow').length) * 100
-    $('.locpiechart').attr("data-percent", percentage)
-
-    $(function(){
-      var $ppc = $('.locpiechart'),
-        percent = parseInt($ppc.data('percent')),
-        deg = 360*percent/100;
-      if (percent > 50) {
-        $ppc.addClass('gt-50');
-      }
-      $('.locpiefill').css('transform','rotate('+ deg +'deg)');
-      $('.locpiepercents span').html(percent+'%');
-    });
-
-
-
-
-
+    var $ppc = $('.locpiechart')
+    $ppc.attr("data-percent", percentage)
+    // var $ppc = $('.datepiechart'),
+    // percent = parseInt($ppc.data('percent')),
+    deg = 360*percentage/100;
+    if (percentage > 50) {
+      $ppc.addClass('gt-50');
+    }
+    $('.locpiefill').css('transform','rotate('+ deg +'deg)');
+    $('.locpiepercents span').html(percentage+'%');
 
 
 });

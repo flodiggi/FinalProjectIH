@@ -28,6 +28,12 @@
                   <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
                 </li>
                 <% end %>
+                <li>Add Friends to Your Groups:</li>
+                <% current_user.groups.each do |group| %>
+                <li class="sidebar-brand">
+                  <a href="#" class="btn btn-default" data-toggle="modal" data-target="#group<%=group.id%>"><%= group.name %></a>
+                </li>
+                <% end %>
                 <li>
                     <a href="/profile">Back to Profile</a>
                 </li>
@@ -62,6 +68,8 @@
                 <%= submit_tag "Make Host", class: "btn btn-primary" %>
                 </form>
                 <% end %>
+
+
                 <% end %>
                 <li>
                     <a href="#">Logout</a>
@@ -330,16 +338,31 @@
 </div><!-- /.modal -->
 
 
-<div class="modal fade" tabindex="-1" role="dialog" id="myModal2">
-  <div class="modal-dialog modal-lg ">
+
+<% current_user.groups.each do |group| %>
+<div class="modal fade" tabindex="-1" role="dialog" id="group<%=group.id%>">
+  <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Vote</h4>
+        <h4 class="modal-title">Add Friends to Your Group</h4>
       </div>
       <div class="Intro"> </div>
-      <div class="modal-body ">
+      <div class="modal-body">
+        <div class="container">
+          <%= form_for group, url: "/groups/#{group.id}", html: {class: "form", role: "form", multipart: true, method: :patch} do |f| %>
+          <%@activity.users.each do |user| %>
+          <li>   <%= image_tag user.normalimage, class: (user == current_user ? 'avatar mypicture' : 'avatar') %>
+            <span> <%=user.username%> </span></li>
+            <span class="checkbox">
+                <%= f.check_box(:users, { :multiple => true }, user.id) %>
+            </span>
+          <% end %>
+          <%= hidden_field_tag :actid, @activity.id %>
+          <%= f.submit "Add Them!", class: "btn btn-primary" %>
+          <% end %>
 
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -347,6 +370,8 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<% end %>
+
 
 <script>
 $("#menu-toggle").click(function(e) {

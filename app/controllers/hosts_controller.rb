@@ -6,6 +6,5 @@ class HostsController < ApplicationController
     user = User.find_by(id: params[:userid])
     host = Host.create(:userid => user.id)
     activity.hosts << host
-
   end
 end

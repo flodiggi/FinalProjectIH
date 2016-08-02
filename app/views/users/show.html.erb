@@ -23,12 +23,19 @@
                 <li>
                   <%= link_to "Log Out", "/logout", :method => :delete %>
                 </li>
-                <!-- <li>
+                <li>
                     <a href="#">Group Overview:</a>
                 </li>
                 <% @user.groups.each do |group| %>
                 <li>
                     <%= group.name %>
+                    <% group.users.each do |user| %>
+                    <p><%=user.username %> </p> <span> <form action="/groups/<%=group.id%>/deleteuser" method="post" id="deletegroup", userid="<%=user.id%>"  >
+                      <%= hidden_field_tag :userid, user.id %>
+                      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <%= submit_tag "Delete" %>
+                    </form></span>
+                    <% end %>
                 </li>
                 <% end %>
 
@@ -37,7 +44,7 @@
                     <%= f.text_field :name, placeholder: "Create new group" %>
                     <%= f.submit "Add new group", class: "btn" %>
                   <% end %>
-                </li> -->
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -124,6 +131,12 @@
               <%= f.check_box :datevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
               <%= f.label :timevoting, "Time:" %>
               <%= f.check_box :timevoting, {:class => "allowvoting", :style => "form"}, "true", "false" %>
+              </div>
+              <div class="form-group">
+                <% current_user.groups.each do |group| %>
+              <%= f.label :groups, "#{group.name}" %>
+              <%= f.check_box :groups, {:class => "allowvoting", :style => "form"}, "true", "false"%>
+              <% end %>
               </div>
               <p>
                 Set an access key to allow your friends to join your activity. You can change it anytime!

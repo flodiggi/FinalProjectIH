@@ -22,6 +22,11 @@
     <div class="event-details">
 
       <p><%= activity.description%></p>
+      <a href="/activity/<%=activity.id %>" class="btn btn-info btn-block"><span class="fa fa-user"></span>Show Details</a>
+      <form id="deleteactivity", data-remote = "true", actid="<%=activity.id%>"  >
+        <%= hidden_field_tag :activityid, activity.id %>
+      <%= submit_tag "Delete", class: "btn btn-primary" %>
+      </form>
 
     </div>
 

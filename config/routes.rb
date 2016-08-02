@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
 
   patch '/activity/:id/password', to: 'activity#updatepasswort'
+  patch '/activity/:id/groups/:id', to: 'groups#update'
   get '/activity/:id/joinus', to: 'activity#access'
   get '/activity/:id/join', to: 'users#join'
   post '/activity/login', to: 'activity#login'
@@ -35,6 +36,8 @@ Rails.application.routes.draw do
 
   post '/comments/:id/delete', to: 'comments#destroy'
   post '/activity/:id/delete', to: 'activity#destroy'
+
+  post '/groups/:id/deleteuser', to: 'groups#deleteuser'
 
 
 

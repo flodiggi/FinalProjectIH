@@ -350,17 +350,27 @@
       <div class="Intro"> </div>
       <div class="modal-body">
         <div class="container">
+          <% checker = 0 %>
           <%= form_for group, url: "/groups/#{group.id}", html: {class: "form", role: "form", multipart: true, method: :patch} do |f| %>
           <%@activity.users.each do |user| %>
+          <% if user != current_user  && group.users.find_by(id: user.id) == nil%>
           <li class="addpeople">   <%= image_tag user.normalimage, class: (user == current_user ? 'avatar mypicture' : 'avatar') %>
             <span> <h3 class="groupname"><%=user.username%> </h3></span>
             <div class="checkboxgroup">
                 <%= f.check_box(:users, { :multiple => true }, user.id) %>
             </div>
             </li>
+            <% checker += 1 %>
           <% end %>
+            <% end %>
+            <% if checker == 0 %>
+            <p>
+              All participants are already members of this group!
+            </p>
+            <% else %>
           <%= hidden_field_tag :actid, @activity.id %>
           <%= f.submit "Add Them!", class: "btn btn-primary groupconfirm" %>
+          <% end %>
           <% end %>
 
         </div>

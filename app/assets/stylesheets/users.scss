@@ -76,12 +76,12 @@
 
 
 .profilecard {
-    top: 50%;
-    margin-top: -150px;
+    top: 33%;
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(255, 255, 255, 0.68);
     padding: 70px;
+    padding-bottom: 30px;
     float: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     border-radius: 5px;
@@ -112,20 +112,29 @@
   // margin: 0 auto!important;
   background-image: url("https://hd.unsplash.com/photo-1451431487663-470c5380d27c");
   background-size: cover;
-  height: 700px;
+  height: 600px;
 }
 
 .row-centered {
   text-align: center;
 }
 .username {
-  color: #48A9A6;
+  color: black;
+  margin-bottom: 30px;
 }
 
 .activitycount {
   color:#9e8585;
+  margin: 10px;
+  font-size: 18px;
 
 }
+
+.newactivitybutton {
+  background-color: #48A9A6;
+  border-color: #48A9A6;
+}
+
 
 
 
@@ -143,7 +152,7 @@
 
 .profilarea {
   margin-top: 20px;
-  max-width:600px;
+  max-width:400px;
 
 }
 /* Toggle Styles */
@@ -195,7 +204,7 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    max-width: 200px;
     margin: 0;
     padding: 0;
     list-style: none;

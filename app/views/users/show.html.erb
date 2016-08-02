@@ -34,6 +34,7 @@
                   <%= group.name %>
                   <ul>
                     <% group.users.each do |user| %>
+                    <% if user != current_user %>
                     <li class="grouplisting">
                       <p class="inline-block"><%=user.username %> </p> <span class="inline-block"> <form action="/groups/<%=group.id%>/deleteuser" method="post" id="deletegroup", userid="<%=user.id%>"  >
                         <%= hidden_field_tag :userid, user.id %>
@@ -41,6 +42,7 @@
                       <%= button_tag "", type: 'submit', class: "glyphbutton glyphicon glyphicon-remove-circle " %>
                       </form></span>
                     </li>
+                    <% end %>
                     <% end %>
                     </ul>
                 </li>
@@ -68,8 +70,11 @@
                     <div class="row row-centered">
                       <h2 class="username">Welcome <%= current_user.name %> </h2>
                     </div>
-                    <div class="row row-centered activitycountrow">
+                    <!-- <div class="row row-centered activitycountrow">
                       <h3 class="activitycount">You have <%= current_user.activities.count %> Options</h3>
+                    </div> -->
+                    <div class="row-centered">
+                    <a href="#" class="newactivitybutton btn btn-lg btn-primary" data-toggle="modal" data-target="#activitycreation">Create new Aktivity!</a>
                     </div>
 
                 </div>
@@ -77,9 +82,7 @@
               </div>
               <div id="page-content-wrapper">
               <div class="container-fluid">
-              <div class="row-centered">
-              <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#activitycreation">Create new Aktivity!</a>
-              </div>
+
 
 
               <div class="row activitycontainer ">

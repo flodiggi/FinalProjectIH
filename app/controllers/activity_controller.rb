@@ -112,7 +112,11 @@ class ActivityController < ApplicationController
     @user = current_user
     @activities = @user.activities
     activity = Activity.find_by(id: params[:activityid])
-    activity.destroy
+    if activity.users.length == 1
+      activity.destroy
+    else
+      activity.users.delete(@user)
+    end
     render "users/_activitycardoverview"
   end
 

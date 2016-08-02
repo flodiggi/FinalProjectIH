@@ -3,6 +3,9 @@
 
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="navcontainer">
+          <a class="navbar-brand" href="#">
+            <img alt="Brand" src="<%= asset_path("alyopwblong.png")%>">
+          </a>
           <button type="button" href="#menu-toggle" id="menu-toggle"class="navbutton btn btn-lg navbar-right navbar-btn"><i class="fa fa-bars" aria-hidden="true"></i>
           </button>
         </div>
@@ -28,14 +31,18 @@
                 </li>
                 <% @user.groups.each do |group| %>
                 <li>
-                    <%= group.name %>
+                  <%= group.name %>
+                  <ul>
                     <% group.users.each do |user| %>
-                    <p><%=user.username %> </p> <span> <form action="/groups/<%=group.id%>/deleteuser" method="post" id="deletegroup", userid="<%=user.id%>"  >
-                      <%= hidden_field_tag :userid, user.id %>
-                      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-                    <%= submit_tag "Delete" %>
-                    </form></span>
+                    <li class="grouplisting">
+                      <p class="inline-block"><%=user.username %> </p> <span class="inline-block"> <form action="/groups/<%=group.id%>/deleteuser" method="post" id="deletegroup", userid="<%=user.id%>"  >
+                        <%= hidden_field_tag :userid, user.id %>
+                        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                      <%= button_tag "", type: 'submit', class: "glyphbutton glyphicon glyphicon-remove-circle " %>
+                      </form></span>
+                    </li>
                     <% end %>
+                    </ul>
                 </li>
                 <% end %>
 
@@ -49,6 +56,7 @@
         </div>
         <!-- /#sidebar-wrapper -->
         <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+
 
 
         <!-- Page Content -->
@@ -161,6 +169,39 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+
+    <% current_user.activities.each do |activity| %>
+    <div class="modal fade" tabindex="-1" role="dialog" id="activity<%=activity.id%>">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Add Groups To: <b> <%= activity.name %> </b></h4>
+          </div>
+          <div class="Intro"> </div>
+          <div class="modal-body">
+            <div class="container">
+              <%= form_for activity, url: "/activity/#{activity.id}/groups", html: {class: "form", role: "form", multipart: true, method: :patch} do |f| %>
+              <%current_user.groups.each do |group| %>
+              <li class="addpeople"> <h3 class="groupname"><%=group.name%> </h3>
+                <div class="checkboxgroup">
+                    <%= f.check_box(:groups, { :multiple => true }, group.id) %>
+                </div>
+                </li>
+              <% end %>
+              <%= f.submit "Add Them!", class: "btn btn-primary groupconfirm" %>
+              <% end %>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <% end %>
 
 
 

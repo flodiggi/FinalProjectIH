@@ -5,13 +5,18 @@
 
 
 .navbar-default {
-    background-color: rgba(101, 108, 111, 0.56);
+    background-color: black;
     border-color: #e7e7e7;
     color: #fff;
 }
 
 .navcontainer {
   margin-right: 40px;
+}
+
+.navbar-brand>img {
+    display: block;
+    max-width: 220px;
 }
 
 .logo {

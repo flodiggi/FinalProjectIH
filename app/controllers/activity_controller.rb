@@ -72,8 +72,25 @@ class ActivityController < ApplicationController
     activity = Activity.find_by(id: params[:id])
     activity.update_attributes!(activity_params)
     redirect_to ("/activity/#{activity.id}")
+  end
 
 
+  def addgroups
+    @activity = Activity.find_by(id: params[:id])
+    grouparray = activity_params[:groups]
+
+    grouparray.each do |id|
+      if id != "0"
+        group = Group.find_by(id: id)
+        group.users.each do |user|
+          if @activity.users.find_by(id: user.id) == nil
+          @activity.users << user
+          end
+        end
+      end
+    end
+    @activity.save
+    redirect_to ("/activity/#{@activity.id}")
   end
 
 
@@ -96,8 +113,10 @@ class ActivityController < ApplicationController
     @activities = @user.activities
     activity = Activity.find_by(id: params[:activityid])
     activity.destroy
-    render "users/_useractivities"
+    render "users/_activitycardoverview"
   end
+
+
 
 
 
@@ -232,7 +251,7 @@ class ActivityController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image, :location, :password, :password_confirmation, :locationvoting, :datevoting, :timevoting)
+    params.require(:activity).permit(:name, :description, :starts_at, :ends_at, :image, :location, :password, :password_confirmation, :locationvoting, :datevoting, :timevoting, :groups => [])
   end
 
 

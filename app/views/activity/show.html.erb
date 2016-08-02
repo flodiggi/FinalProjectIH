@@ -345,21 +345,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Friends to Your Group</h4>
+        <h4 class="modal-title">Add Friends To: <b> <%= group.name %> </b></h4>
       </div>
       <div class="Intro"> </div>
       <div class="modal-body">
         <div class="container">
           <%= form_for group, url: "/groups/#{group.id}", html: {class: "form", role: "form", multipart: true, method: :patch} do |f| %>
           <%@activity.users.each do |user| %>
-          <li>   <%= image_tag user.normalimage, class: (user == current_user ? 'avatar mypicture' : 'avatar') %>
-            <span> <%=user.username%> </span></li>
-            <span class="checkbox">
+          <li class="addpeople">   <%= image_tag user.normalimage, class: (user == current_user ? 'avatar mypicture' : 'avatar') %>
+            <span> <h3 class="groupname"><%=user.username%> </h3></span>
+            <div class="checkboxgroup">
                 <%= f.check_box(:users, { :multiple => true }, user.id) %>
-            </span>
+            </div>
+            </li>
           <% end %>
           <%= hidden_field_tag :actid, @activity.id %>
-          <%= f.submit "Add Them!", class: "btn btn-primary" %>
+          <%= f.submit "Add Them!", class: "btn btn-primary groupconfirm" %>
           <% end %>
 
         </div>

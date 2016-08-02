@@ -39,6 +39,33 @@
   float: right;
 }
 
+#deletecomment button {
+
+    background: transparent;
+    border: 0;
+}
+
+
+.glyphicon-trash {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.7;
+    font-size: 25px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.panel-heading {
+    text-align: -webkit-left;
+}
+
+.commentusername {
+  font-size: 20px;
+}
 
 .Objection {
   background-color: rgba(208, 155, 155, 0.78) !important;

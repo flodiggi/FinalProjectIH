@@ -11,12 +11,14 @@
     <div class="col-xs-12 col-md-8 commentsection">
       <div class="panel commentpanel panel-default">
         <div class="panel-heading <%= comment.category %>">
-          <strong> <%=comment.user.name %></strong> <span class="rightpanelheader pull-right">
+          <strong class="commentusername"> <%=comment.user.name %></strong> <span class="rightpanelheader pull-right">
           <% if comment.user == current_user %>
           <form id="deletecomment", data-remote = "true", commtid="<%=comment.id%>"  >
             <%= hidden_field_tag :id, comment.id %>
             <%= hidden_field_tag :actid, @activity.id %>
-          <%= submit_tag "Delete" %>
+          <%= button_tag "", type: 'submit', class: "glyphicon glyphicon-trash " %>
+
+
           </form>
           <% end %>
           </span>

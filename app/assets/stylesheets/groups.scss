@@ -4,3 +4,35 @@
 .groupinput {
   color: black;
 }
+
+.addpeople {
+  list-style-type: none;
+  margin-bottom: 10px
+}
+.groupname {
+  display: inline-block;
+}
+
+.groupconfirm {
+  position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.checkboxgroup {
+    margin-top: 10px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.checkboxgroup input[type='checkbox'] {
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+    display: inline-block;
+}
+
+.checkboxgroup input[type='checkbox']:checked {
+    background: #c4ddaa;
+}

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   patch '/activity/:id/password', to: 'activity#updatepasswort'
   patch '/activity/:id/groups/:id', to: 'groups#update'
+  patch '/activity/:id/groups', to: 'activity#addgroups'
   get '/activity/:id/joinus', to: 'activity#access'
   get '/activity/:id/join', to: 'users#join'
   post '/activity/login', to: 'activity#login'

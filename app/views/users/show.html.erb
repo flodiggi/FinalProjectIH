@@ -6,7 +6,7 @@
           <a class="navbar-brand" href="#">
             <img alt="Brand" src="<%= asset_path("alyopwblong.png")%>">
           </a>
-          <button type="button" href="#menu-toggle" id="menu-toggle"class="navbutton btn btn-lg navbar-right navbar-btn"><i class="fa fa-bars" aria-hidden="true"></i>
+          <button type="button" href="#menu-toggle" id="menu-toggle"class="navbutton btn btn-lg pull-right navbar-right navbar-btn"><i class="fa fa-bars" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -15,23 +15,20 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
+                <!-- <li class="sidebar-brand">
                     <a href="#">
                         Welcome <%= current_user.name %>
                     </a>
-                </li>
+                </li> -->
                 <li>
-                    <a href="#">Edit Profile</a>
-                </li>
-                <li>
-                  <%= link_to "Log Out", "/logout", :method => :delete %>
-                </li>
-                <li>
-                    <a href="#">Group Overview:</a>
+                    <p> Group Overview</p>
                 </li>
                 <% @user.groups.each do |group| %>
                 <li>
-                  <%= group.name %>
+                  <a id="groupoverview" data-toggle="collapse" href="#profilegroup<%=group.id%>" aria-expanded="false" aria-controls="showmembers">
+                    <%= group.name %> </a>
+
+                  <div class="collapse" id="profilegroup<%=group.id%>">
                   <ul>
                     <% group.users.each do |user| %>
                     <% if user != current_user %>
@@ -45,14 +42,20 @@
                     <% end %>
                     <% end %>
                     </ul>
+                  </div>
                 </li>
                 <% end %>
 
                 <li>
                   <%= form_for @group, url: "/groups", html: {class: "form groupinput", role: "form", method: :post} do |f| %>
+                    <span class="pull-left groupspan inline-block">
                     <%= f.text_field :name, placeholder: "Create new group" %>
-                    <%= f.submit "Add new group", class: "btn" %>
+                    <%= button_tag "", type: 'submit', class: "glyphbutton glyphicon glyphicon-plus-sign " %>
+                    </span>
                   <% end %>
+                </li>
+                <li>
+                  <%= link_to "Log Out", "/logout", :method => :delete %>
                 </li>
             </ul>
         </div>
@@ -80,12 +83,12 @@
                 </div>
 
               </div>
-              <div id="page-content-wrapper">
-              <div class="container-fluid">
+              <div id="page-content-wrapper wrapperprofile">
+              <div class="container-fluid wrapperprofile">
 
 
 
-              <div class="row activitycontainer ">
+              <div class="row row-centered activitycontainer wrapperprofile ">
                 <%= render "activitycardoverview" %>
               </div>
 

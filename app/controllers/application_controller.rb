@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
   def authorize_activity(activity)
     if current_user.nil?
-      redirect_to ("/activity/#{activity.id}/signup")
+      redirect_to ("/signup")
     else
       unless activity.users.find_by(id: current_user.id)
         redirect_to ("/activity/#{activity.id}/joinus")

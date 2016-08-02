@@ -15,7 +15,7 @@ class ActivityController < ApplicationController
         activity.users << current_user
         redirect_to ("/activity/#{activity.id}")
         else
-        redirect_to ("/activity/#{activity.id}/signup")
+        redirect_to ("/activity/#{activity.id}/join")
         end
       else
         redirect_to ("/activity/#{activity.id}/joinus")

@@ -16,6 +16,10 @@ gem 'font-awesome-sass'
 
 gem 'rails_12factor', group: :production
 
+gem 'momentjs-rails', '>= 2.9.0'
+
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

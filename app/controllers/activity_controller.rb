@@ -33,7 +33,6 @@ class ActivityController < ApplicationController
 
   activity = Activity.new(activity_params)
 
-
     if
     activity.name =~ /^$/
     # || activity.participants =~ /^$/

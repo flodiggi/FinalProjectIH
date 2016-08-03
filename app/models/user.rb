@@ -45,9 +45,15 @@ class User < ApplicationRecord
 
  def largeimage
    "http://graph.facebook.com/#{self.uid}/picture?type=large"
+
  end
+
  def normalimage
+   if self.picture != nil
   "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+    else
+      "dummy.png"
+    end
   end
 
 end

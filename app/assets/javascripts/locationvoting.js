@@ -2,6 +2,10 @@ $(document).ready(function(){
 evaluateLocVote()
 });
 
+
+
+
+
 var evaluateLocVote = function() {
 
 var count = 0

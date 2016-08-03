@@ -39,6 +39,10 @@ class User < ApplicationRecord
    end
  end
 
+ def smallimage
+   "http://graph.facebook.com/#{self.uid}/picture?type=small"
+ end
+
  def largeimage
    "http://graph.facebook.com/#{self.uid}/picture?type=large"
  end

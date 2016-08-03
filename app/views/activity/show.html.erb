@@ -11,29 +11,26 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-              <li class="sidebar-brand">
-                  <a href="#">
-                      Welcome <%= current_user.name %>
-                  </a>
-              </li>
 
-                <li class="sidebar-brand">
-                    <a href="#" id="#copylink" class="btn btn-primary copylink">
+                <li>
+                    <a href="#" id="#copylink" class="copylink">
                         Invite your friends!
                     </a>
                 </li>
 
                 <% if @activity.hosts.find_by(userid: current_user.id) %>
-                <li class="sidebar-brand">
-                  <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Change Details</a>
+                <li >
+                  <a href="#" data-toggle="modal" data-target="#addtogroups">Change Details</a>
                 </li>
                 <% end %>
-                <li>Add Friends to Your Groups:</li>
+                <li><a data-toggle="collapse" href="#addtogroups" aria-expanded="false" aria-controls="addtogroups">Add Participants To Your Groups</li>
+                <div class="collapse" id="addtogroups">
                 <% current_user.groups.each do |group| %>
-                <li class="sidebar-brand">
-                  <a href="#" class="btn btn-default" data-toggle="modal" data-target="#group<%=group.id%>"><%= group.name %></a>
+                <li>
+                  <a href="#"  data-toggle="modal" data-target="#group<%=group.id%>"><%= group.name %></a>
                 </li>
                 <% end %>
+                </div>
                 <li>
                     <a href="/profile">Back to Profile</a>
                 </li>
@@ -55,25 +52,25 @@
                   <% end %>
                 </li>
                 </div>
-                <li>
-                    <a href="#">User Overview:</a>
-                </li>
+                
                 <%@activity.users.each do |user| %>
-                <%= image_tag user.normalimage, class: (user == current_user ? 'avatar mypicture' : 'avatar') %>
-                <li><%=user.username%></li>
-                <% if @activity.hosts.find_by(userid: current_user.id) && @activity.hosts.find_by(userid: user.id) == nil %>
-                <form id="makehost", data-remote = "true" >
-                  <%= hidden_field_tag :userid, user.id %>
-                  <%= hidden_field_tag :actid, @activity.id %>
-                <%= submit_tag "Make Host", class: "btn btn-primary" %>
-                </form>
+                <li class="addpeople">   <%= image_tag user.normalimage, class: (user == current_user ? 'avatar mypicture' : 'avatar') %>
+                  <span> <h3 class="userlistname"><%=user.username%> </h3></span>
+                  <div class="">
+                    <% if @activity.hosts.find_by(userid: current_user.id) && @activity.hosts.find_by(userid: user.id) == nil %>
+                    <form id="makehost", data-remote = "true" >
+                      <%= hidden_field_tag :userid, user.id %>
+                      <%= hidden_field_tag :actid, @activity.id %>
+                    <%= submit_tag "Make Host", class: "btn btn-primary" %>
+                    </form>
+                  </div>
+                  </li>
+
                 <% end %>
 
 
                 <% end %>
-                <li>
-                    <a href="#">Logout</a>
-                </li>
+
 
             </ul>
         </div>

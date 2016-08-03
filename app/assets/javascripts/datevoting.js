@@ -1,4 +1,10 @@
 $(document).ready(function(){
+evaluateDateVote()
+});
+
+
+
+var evaluateDateVote = function() {
   var count = 0
   $('.datevoterow').each(function(){
     if ($(this).find('input:checked').length >= 1) {
@@ -15,8 +21,10 @@ $(document).ready(function(){
     if (percentage > 50) {
       $ppc.addClass('gt-50');
     }
+    if (percentage < 50) {
+      $ppc.removeClass('gt-50');
+    }
+
     $('.datepiefill').css('transform','rotate('+ deg +'deg)');
     $('.datepiepercents span').html(percentage+'%');
-
-
-});
+}

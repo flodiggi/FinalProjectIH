@@ -69,8 +69,11 @@ class ActivityController < ApplicationController
 
   def updatepasswort
     activity = Activity.find_by(id: params[:id])
-    activity.update_attributes!(activity_params)
+    if activity.update_attributes(activity_params)
     redirect_to ("/activity/#{activity.id}")
+    else
+      redirect_to ("/profile")
+    end
   end
 
 

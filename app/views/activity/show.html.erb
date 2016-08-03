@@ -95,6 +95,15 @@
 
 
         <div class="row row-centered">
+            <div class="inline-block topvotes">
+          <% if @activity.location_entries.where(votes: @activity.location_entries.maximum(:votes)).count > 1 || @activity.date_entries.where(votes: @activity.date_entries.maximum(:votes)).count > 1 || @activity.time_entries.where(votes: @activity.time_entries.maximum(:votes)).count > 1 %>
+          <div class="votingresults">
+            All Your Top Votes:
+          </div>
+          <% end %>
+
+
+
           <% if @activity.location_entries.where(votes: @activity.location_entries.maximum(:votes)).count > 1 %>
           <div class="votingresults">
             <% @activity.location_entries.each do |d| %>
@@ -131,6 +140,7 @@
             <% end %>
           </div>
           <% end %>
+        </div>
         </div>
 
 

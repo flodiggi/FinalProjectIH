@@ -37,11 +37,12 @@
                 <li>
                     <a href="/profile">Back to Profile</a>
                 </li>
+                <% if @activity.hosts.find_by(userid: current_user.id) %>
+
                 <li>
                   <a id="buttonloc" data-toggle="collapse" href="#updatepassword" aria-expanded="false" aria-controls="updatepassword">
                     Set new access key </a>
                 </li>
-                <% if @activity.hosts.find_by(userid: current_user.id) %>
                 <div class="collapse" id="updatepassword">
                 <li>
                   <%= form_for @activity, url: "/activity/#{@activity.id}/password", html: {class: "", role: "form", method: :patch} do |f| %>

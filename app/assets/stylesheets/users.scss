@@ -80,6 +80,9 @@
   .allyouroptions {
     max-width: 500px;
     margin: 30px;
+    @media(max-width:684px){
+      max-width: 80%;
+    }
   }
 
 

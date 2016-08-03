@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  console.log("test")
-
   var count = 0
   $('.datevoterow').each(function(){
     if ($(this).find('input:checked').length >= 1) {

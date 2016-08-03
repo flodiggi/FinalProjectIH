@@ -36,6 +36,15 @@ class GroupsController < ApplicationController
     redirect_to '/profile'
   end
 
+  def delete
+    group = Group.find_by(name: params[:group][:name])
+    if group != nil
+    group.delete
+    end
+    redirect_to '/profile'
+
+  end
+
   private
 
   def group_params

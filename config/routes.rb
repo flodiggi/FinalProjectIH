@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get '/activity/:id/joinus', to: 'activity#access'
   get '/activity/:id/join', to: 'users#join'
   post '/activity/login', to: 'activity#login'
+  post '/activity/:id/removeuser', to: 'activity#removeuser'
   post '/votedate', to: 'activity#votingdate'
   post '/votetime', to: 'activity#votingtime'
   post '/votelocation', to: 'activity#votinglocation'
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   post '/activity/:id/delete', to: 'activity#destroy'
 
   post '/groups/:id/deleteuser', to: 'groups#deleteuser'
+  post '/groups/delete', to: 'groups#delete'
 
 
 

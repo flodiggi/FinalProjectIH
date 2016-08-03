@@ -121,6 +121,14 @@ class ActivityController < ApplicationController
   end
 
 
+  def removeuser
+    user = User.find_by(id: params[:userid])
+    @activity = Activity.find_by(id: params[:id])
+    @activity.users.delete(user)
+    redirect_to :back
+  end
+
+
 
 
 

@@ -55,6 +55,14 @@
                   <% end %>
                 </li>
                 <li>
+                  <%= form_for @group, url: "/groups/delete", html: {class: "form groupinput", role: "form", method: :post} do |f| %>
+                    <span class="pull-left groupspan inline-block">
+                    <%= f.text_field :name, placeholder: "Remove A Group" %>
+                    <%= button_tag "", type: 'submit', class: "glyphbutton glyphicon glyphicon-minus-sign " %>
+                    </span>
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to "Log Out", "/logout", :method => :delete %>
                 </li>
             </ul>

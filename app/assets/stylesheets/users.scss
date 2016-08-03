@@ -9,7 +9,8 @@
  */
 
  body {
-    overflow-x: hidden;
+   overflow-x: hidden;
+
  }
 
  .fa.fa-bars{
@@ -69,6 +70,7 @@
 
   .groupinput {
     line-height: 20px;
+    display: block;
 
   }
   .groupspan {
@@ -213,6 +215,8 @@
 }
 /* Toggle Styles */
 
+
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -258,8 +262,7 @@
 
 .sidebar-nav {
     position: absolute;
-    top: 0;
-    max-width: 250px;
+    width: 100%;
     margin: 0;
     margin-top: 100px;
     padding: 0;
@@ -330,4 +333,9 @@
         position: relative;
         margin-right: 0;
     }
+}
+
+
+.logoutbutton {
+  bottom: 5px;
 }

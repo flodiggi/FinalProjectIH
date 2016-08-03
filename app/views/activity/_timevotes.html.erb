@@ -15,8 +15,11 @@
       <tr>
         <th>#</th>
         <% @activity.time_entries.each_with_index do |time, i| %>
+				<% if time.time != nil %>
         <th col="<%=i%>"><%= time.time.strftime("%I:%M%p") %> </th>
         <% end %>
+				<% end %>
+
       </tr>
     </thead>
     <tbody>

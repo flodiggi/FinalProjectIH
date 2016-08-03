@@ -15,7 +15,9 @@
       <tr>
         <th>#</th>
         <% @activity.date_entries.each_with_index do |date, i| %>
+				<% if date.date != nil %>
         <th col="<%=i%>"><%= date.date.strftime("%a %d.%m.") %> </th>
+				<% end %>
         <% end %>
       </tr>
     </thead>

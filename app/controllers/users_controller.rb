@@ -11,6 +11,7 @@ end
 
   # renders the signup form
   def new
+    authenticate_user!
   end
 
   def show

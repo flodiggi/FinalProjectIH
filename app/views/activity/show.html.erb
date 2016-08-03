@@ -59,7 +59,7 @@
                 <%@activity.users.each do |user| %>
                 <li class="addpeople">   <%= image_tag user.normalimage, class: (user == current_user ? 'avatar mypicture' : 'avatar') %>
                   <p class="inline-block"><%=user.username %> </p> <span class="inline-block">
-                    <% if user != current_user %>
+                    <% if user != current_user && @activity.hosts.find_by(userid: current_user.id) %>
                     <form action="/activity/<%=@activity.id%>/removeuser" method="post" >
                     <%= hidden_field_tag :userid, user.id %>
                     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">

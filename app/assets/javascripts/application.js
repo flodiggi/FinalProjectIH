@@ -179,10 +179,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
     $(document).on("submit", "#new_comment", function (e){
       console.log($('#new_comment').serialize())
     e.preventDefault()
@@ -201,13 +197,13 @@ $(document).ready(function(){
 
     $(document).on("submit", "#deletecomment", function (e){
       $(this).closest('row').fadeOut();
-      id = $('#deletecomment').attr('commtid')
-      console.log($('#deletecomment').serialize())
+      id = $(this).closest('.rightpanelheader').find('form').data('commtid')
+      console.log(id)
     e.preventDefault()
       $.ajax({
           type: "POST",
           url: '/comments/'+ id + '/delete',
-          data: $('#deletecomment').serialize(),
+          data: $(this).closest('.rightpanelheader').find('form').serialize(),
 
           success: function (response) {
             console.log(response)
@@ -219,14 +215,15 @@ $(document).ready(function(){
 
 
     $(document).on("submit", "#deleteactivity", function (e){
+      id = $(this).closest('.actcontainer').find('form').data('actid')
       $(this).closest('.actcontainer').fadeOut();
-      id = $('#deleteactvity').attr('actid')
-      console.log($('#deleteactivity').serialize())
+
+      console.log(id)
     e.preventDefault()
       $.ajax({
           type: "POST",
           url: '/activity/'+ id + '/delete',
-          data: $('#deleteactivity').serialize(),
+          data: $(this).closest('.actcontainer').find('form').serialize(),
 
           success: function (response) {
             console.log(response)

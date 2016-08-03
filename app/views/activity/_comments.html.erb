@@ -12,7 +12,7 @@
         <div class="panel-heading <%= comment.category %>">
           <strong class="commentusername"> <%=comment.user.name %></strong> <span class="rightpanelheader pull-right">
           <% if comment.user == current_user %>
-          <form id="deletecomment", data-remote = "true", commtid="<%=comment.id%>"  >
+          <form id="deletecomment", data-remote = "true", data-commtid="<%=comment.id%>"  >
             <%= hidden_field_tag :id, comment.id %>
             <%= hidden_field_tag :actid, @activity.id %>
           <%= button_tag "", type: 'submit', class: "glyphicon glyphicon-trash " %>

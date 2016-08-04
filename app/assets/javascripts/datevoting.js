@@ -13,6 +13,7 @@ var evaluateDateVote = function() {
     });
     console.log(count)
     var percentage = (count / $('.datevoterow').length) * 100
+    var rounded = Math.round(percentage)
     var $ppc = $('.datepiechart')
     // $ppc.attr("data-percent", percentage)
     // var $ppc = $('.datepiechart'),
@@ -26,5 +27,5 @@ var evaluateDateVote = function() {
     }
 
     $('.datepiefill').css('transform','rotate('+ deg +'deg)');
-    $('.datepiepercents span').html(percentage+'%');
+    $('.datepiepercents span').html(rounded+'%');
 }

@@ -14,6 +14,7 @@ $('.timevoterow').each(function(){
   });
   console.log(count)
   var percentage = (count / $('.timevoterow').length) * 100
+  var rounded = Math.round(percentage)
   var $ppc = $('.timepiechart')
   // $ppc.attr("data-percent", percentage)
   // var $ppc = $('.datepiechart'),
@@ -26,5 +27,5 @@ $('.timevoterow').each(function(){
     $ppc.removeClass('gt-50');
   }
   $('.timepiefill').css('transform','rotate('+ deg +'deg)');
-  $('.timepiepercents span').html(percentage+'%');
+  $('.timepiepercents span').html(rounded+'%');
 }

@@ -16,6 +16,7 @@ $('.locvoterow').each(function(){
   });
   console.log(count)
   var percentage = (count / $('.locvoterow').length) * 100
+  var rounded = Math.round(percentage)
   var $ppc = $('.locpiechart')
   // var $ppc = $('.datepiechart'),
   // percent = parseInt($ppc.data('percent')),
@@ -27,5 +28,5 @@ $('.locvoterow').each(function(){
     $ppc.removeClass('gt-50');
   }
   $('.locpiefill').css('transform','rotate('+ deg +'deg)');
-  $('.locpiepercents span').html(percentage+'%');
+  $('.locpiepercents span').html(rounded+'%');
 }

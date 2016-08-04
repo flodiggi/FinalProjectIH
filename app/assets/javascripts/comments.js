@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 
 
-$(document).on("submit", ".postcommentform", function (e){
+$(document).on("submit", "#new_comment", function (e){
   console.log($('#new_comment').serialize())
 e.preventDefault()
   $.ajax({
@@ -14,7 +14,6 @@ e.preventDefault()
       success: function (response) {
         console.log("success")
         $('.commentcontainer').html(response);
-        return false;
 
       }
   })
@@ -22,8 +21,7 @@ e.preventDefault()
 
 $(document).on("submit", "#deletecomment", function (e){
   $(this).closest('.commentsection').fadeOut(400);
-  id = $(this).closest('.rightpanelheader').find('form').data('commtid')
-  console.log(id)
+  var id = $(this).closest('.rightpanelheader').find('form').data('commtid')
 e.preventDefault()
   $.ajax({
       type: "POST",
@@ -31,12 +29,21 @@ e.preventDefault()
       data: $(this).closest('.rightpanelheader').find('form').serialize(),
 
       success: function (response) {
-        console.log(response)
         $('.commentcontainer').html(response);
 
       }
   })
 })
+
+
+  setTimeout(function () {
+    $('.flash-message').fadeOut()
+
+
+  },2000)
+
+
+
 
 
 });

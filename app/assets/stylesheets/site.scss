@@ -153,3 +153,12 @@ width: 100%;
 .navbar-inverse {
   background-color: #5b677d;
 }
+
+
+.flash-message {
+  position: fixed;
+  z-index: 1031;
+  background-color: #E01A4F;
+  width: 100%;
+  padding: 10px 20px;
+}

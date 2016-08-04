@@ -68,12 +68,14 @@ class ActivityController < ApplicationController
 
 
   def updatepasswort
-    activity = Activity.find_by(id: params[:id])
-    if activity.update_attributes(activity_params)
-    redirect_to ("/activity/#{activity.id}")
+    @activity = Activity.find_by(id: params[:id])
+    if @activity.update_attributes(activity_params)
+      flash[:success] = "Access Key was updated!"
     else
-      redirect_to ("/profile")
+      flash[:error] = "Access Key Update Failed!"
     end
+    redirect_to ("/activity/#{@activity.id}")
+
   end
 
 
@@ -171,7 +173,7 @@ class ActivityController < ApplicationController
 
     @activity.update(starts_at: dt)
     @activity.save
-    render "activity/_datevotes"
+    render "activity/_datevotes", layout: false
 
   end
 
@@ -255,7 +257,7 @@ class ActivityController < ApplicationController
     @activity.update(location: sorted.last.location)
     @activity.save
 
-    render "activity/_locationvotes"
+    render "activity/_locationvotes", layout: false
 
   end
 

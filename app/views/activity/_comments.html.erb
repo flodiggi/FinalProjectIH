@@ -44,9 +44,9 @@
   </div>
   </div>
 <div class="container col-xs-12 col-md-7">
+  <%= form_for Comment.new, html: {class: "postcommentform", role: "form"} do |f| %>
     <div class="row commentform">
       <div class="form-group">
-        <%= form_for Comment.new, html: {class: "postcommentform", role: "form"} do |f| %>
         <%= f.text_area :text, placeholder: "Say Something", class:"form-control input-lg" %>
         <%= hidden_field_tag :id, @activity.id %>
       </div>

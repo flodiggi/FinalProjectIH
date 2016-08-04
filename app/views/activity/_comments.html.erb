@@ -1,16 +1,17 @@
   <% @activity.comments.each do |comment| %>
 
   <div class="row row-centered">
-    <div class="col-md-1"> </div>
-    <div class="col-xs-12 col-md-2">
+    <div class="container">
+    <div class="col-sm-1"> </div>
+    <div class="col-xs-12 col-sm-2">
     <div class="thumbnail">
       <%= image_tag User.find_by(id: comment.user_id).normalimage, :class => "avatar"%>
     </div>
     </div>
-    <div class="col-xs-12 col-md-7 commentsection">
+    <div class="col-xs-12 col-sm-7 commentsection">
       <div class="panel commentpanel panel-default">
         <div class="panel-heading <%= comment.category %>">
-          <strong class="commentusername"> <%=comment.user.name %></strong> <span class="rightpanelheader pull-right">
+          <strong class="commentusername"> <%=comment.user.username %></strong> <span class="rightpanelheader pull-right">
           <% if comment.user == current_user %>
           <form id="deletecomment", data-remote = "true", data-commtid="<%=comment.id%>"  >
             <%= hidden_field_tag :id, comment.id %>
@@ -29,7 +30,7 @@
           </div>
       </div>
     </div>
-    <div class="col-md-2"> </div>
+    <div class="col-sm-2"> </div>
   </div>
   <% end %>
 
@@ -55,4 +56,6 @@
   <% end %>
 </div>
 <div class="col-md-2"></div>
+</div>
+
 </div>

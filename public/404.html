@@ -4,255 +4,69 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  @import url(https://fonts.googleapis.com/css?family=Snowburst+One);
-$color_emerald_approx: #152c3e;
-$white_10: rgba(255,255,255,0.1);
-$white: #ffffff;
-$black: #000;
-$color_outer_space_approx: #2f343e;
-$color_chateau_green_approx: rgba(52,172,108,1);
-
-@keyframes bounce {
-  from {
-    transform: translateY(0px);
-     transform: translateX(0px);
-  } to {
-    transform: translateY(-8px);
-      transform: translateX(-16px);
-  }
+  body {
+	background-color: #000;
+	background-image: url(http://line25.com/wp-content/uploads/2012/404/demo/images/static.gif);
+	font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.3em;
+	font-size: 62.5%;
 }
 
-
-
-
-
-* {
-	//Instead of the line below you could use @include box-sizing($bs)
-	box-sizing: border-box;
-}
-body {
-	background: $color_emerald_approx;
-
+body, html, div {
+	height: 100%;
 }
 
-.container {
-	width: 680px;
-	margin-left:200px;
-	position: absolute;
-	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-	transform: scale(0.6);
-
-}
-h1
-{
-  font-size:24px;
-text-align:center;
-
-  font-family: 'Snowburst One', cursive;
-  color:#3e0;
-}
-.laptop {
-	width: 535px;
-	height: 355px;
-	background-image:url("https://d13yacurqjgara.cloudfront.net/users/2098/screenshots/1710183/2014-09-allisonhouse-404.gif");
-  background-position:center;
-	border: 12px solid #111;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-	border-radius: 10px 10px 0 0;
-	position: absolute;
-	top: calc(40%);
-	left: calc(30% );
-  transform:scale(0.6);
-  > div {
-		position: absolute;
-	}
-
+#tv {
+	background-image: url(http://line25.com/wp-content/uploads/2012/404/demo/images/tv.png), url(http://line25.com/wp-content/uploads/2012/404/demo/images/shading.png);
+	background-size: 100% 100%;
 }
 
-
-.btm {
-	width: 706px;
-	height: 23px;
-	bottom: -35px;
-	left: 50%;
-	margin-left: -358px;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-	border-radius: 0 0 20px 20px;
-	background: #111;
-	z-index: 1;
-
+#content {
+	width: 60%; height: 65%; position: relative; top: 20%; left: 10%;
+	text-align: center; color: #fff;
 }
-#cloud1 {
-        z-index: 2;
-        position: absolute;
-        top: 20%;
-        right: 4%;
-        animation: bounce 2s ease-in-out 0s infinite alternate;
-    }
+#logo {
+	display: block;
+	width: 20%; 	margin: 0 auto 2em auto;
+}
+	#logo img {
+		max-width: 100%;
+	}
 
-    #cloud2 {
-        z-index: 1;
-        position: absolute;
-        top: 22%;
-        right: 56%;
-        animation: bounce 3.5s ease-in-out 2s infinite alternate;
-    }
-
-@-webkit-keyframes "lamps" {
-	0% {
-		box-shadow: 0px 0px 0px 0px #00d1ff, 0px 0px 4px 2px rgba(0, 209, 255, 0.9), -45px 2px 0px 0px #00d1ff, -45px 2px 4px 2px rgba(0, 209, 255, 0.9), -82px 7px 0px 0px #00d1ff, -82px 7px 4px 2px rgba(0, 209, 255, 0.9), -71px 18px 0px 0px #00d1ff, -71px 18px 4px 2px rgba(0, 209, 255, 0.9), 45px 2px 0px 0px #00d1ff, 45px 2px 4px 2px rgba(0, 209, 255, 0.9), 82px 7px 0px 0px #00d1ff, 82px 7px 4px 2px rgba(0, 209, 255, 0.9), 71px 18px 0px 0px #00d1ff, 71px 18px 4px 2px rgba(0, 209, 255, 0.9), 1px 50px 60px 20px rgba(255, 255, 255, 0.9), 1px 70px 30px 20px rgba(255, 255, 255, 0.3), 1px 95px 30px 20px rgba(255, 255, 255, 0.3), 1px 105px 50px 20px rgba(255, 255, 255, 0.3), 1px 115px 50px 20px rgba(255, 255, 255, 0.2), 1px 125px 50px 20px rgba(255, 255, 255, 0.1), 1px 155px 50px 20px rgba(255, 255, 255, 0.1), 1px 115px 120px 80px rgba(255, 255, 255, 0.2);
-	}
-	100% {
-		box-shadow: 0px 0px 0px 0px #00d1ff, 0px 0px 4px 2px rgba(0, 209, 255, 0), -45px 2px 0px 0px #00d1ff, -45px 2px 4px 2px rgba(0, 209, 255, 0), -82px 7px 0px 0px #00d1ff, -82px 7px 4px 2px rgba(0, 209, 255, 0), -71px 18px 0px 0px #00d1ff, -71px 18px 4px 2px rgba(0, 209, 255, 0), 45px 2px 0px 0px #00d1ff, 45px 2px 4px 2px rgba(0, 209, 255, 0), 82px 7px 0px 0px #00d1ff, 82px 7px 4px 2px rgba(0, 209, 255, 0), 71px 18px 0px 0px #00d1ff, 71px 18px 4px 2px rgba(0, 209, 255, 0), 1px 50px 60px 20px rgba(255, 255, 255, 0.9), 1px 70px 30px 20px rgba(255, 255, 255, 0.3), 1px 95px 30px 20px rgba(255, 255, 255, 0.3), 1px 105px 50px 20px rgba(255, 255, 255, 0.3), 1px 115px 50px 20px rgba(255, 255, 255, 0.2), 1px 125px 50px 20px rgba(255, 255, 255, 0.1), 1px 155px 50px 20px rgba(255, 255, 255, 0.1), 1px 115px 120px 80px rgba(255, 255, 255, 0.2);
-	}
-}
-@keyframes "lamps" {
-	0% {
-		box-shadow: 0px 0px 0px 0px #00d1ff, 0px 0px 4px 2px rgba(0, 209, 255, 0.9), -45px 2px 0px 0px #00d1ff, -45px 2px 4px 2px rgba(0, 209, 255, 0.9), -82px 7px 0px 0px #00d1ff, -82px 7px 4px 2px rgba(0, 209, 255, 0.9), -71px 18px 0px 0px #00d1ff, -71px 18px 4px 2px rgba(0, 209, 255, 0.9), 45px 2px 0px 0px #00d1ff, 45px 2px 4px 2px rgba(0, 209, 255, 0.9), 82px 7px 0px 0px #00d1ff, 82px 7px 4px 2px rgba(0, 209, 255, 0.9), 71px 18px 0px 0px #00d1ff, 71px 18px 4px 2px rgba(0, 209, 255, 0.9), 1px 50px 60px 20px rgba(255, 255, 255, 0.9), 1px 70px 30px 20px rgba(255, 255, 255, 0.3), 1px 95px 30px 20px rgba(255, 255, 255, 0.3), 1px 105px 50px 20px rgba(255, 255, 255, 0.3), 1px 115px 50px 20px rgba(255, 255, 255, 0.2), 1px 125px 50px 20px rgba(255, 255, 255, 0.1), 1px 155px 50px 20px rgba(255, 255, 255, 0.1), 1px 115px 120px 80px rgba(255, 255, 255, 0.2);
-	}
-	100% {
-		box-shadow: 0px 0px 0px 0px #00d1ff, 0px 0px 4px 2px rgba(0, 209, 255, 0), -45px 2px 0px 0px #00d1ff, -45px 2px 4px 2px rgba(0, 209, 255, 0), -82px 7px 0px 0px #00d1ff, -82px 7px 4px 2px rgba(0, 209, 255, 0), -71px 18px 0px 0px #00d1ff, -71px 18px 4px 2px rgba(0, 209, 255, 0), 45px 2px 0px 0px #00d1ff, 45px 2px 4px 2px rgba(0, 209, 255, 0), 82px 7px 0px 0px #00d1ff, 82px 7px 4px 2px rgba(0, 209, 255, 0), 71px 18px 0px 0px #00d1ff, 71px 18px 4px 2px rgba(0, 209, 255, 0), 1px 50px 60px 20px rgba(255, 255, 255, 0.9), 1px 70px 30px 20px rgba(255, 255, 255, 0.3), 1px 95px 30px 20px rgba(255, 255, 255, 0.3), 1px 105px 50px 20px rgba(255, 255, 255, 0.3), 1px 115px 50px 20px rgba(255, 255, 255, 0.2), 1px 125px 50px 20px rgba(255, 255, 255, 0.1), 1px 155px 50px 20px rgba(255, 255, 255, 0.1), 1px 115px 120px 80px rgba(255, 255, 255, 0.2);
-	}
-}
-@-webkit-keyframes "floating" {
-	0% {
-		-webkit-transform: rotate(-2deg) scale(0.98) translate(20px, 6px);
-		transform: rotate(-2deg) scale(0.98) translate(2px, 6px);
-	}
-	50% {
-		-webkit-transform: rotate(0deg) scale(1.01) translate(-6px, 2px);
-		transform: rotate(0deg) scale(1.01) translate(-6px, 2px);
-	}
-	100% {
-		-webkit-transform: rotate(2deg) scale(1) translate(1px, 4px);
-		transform: rotate(2deg) scale(1) translate(1px, 4px);
-	}
-}
-@keyframes "floating" {
-	0% {
-		-webkit-transform: rotate(-2deg) scale(0.98) translate(2px, 6px);
-		transform: rotate(-2deg) scale(0.98) translate(2px, 6px);
-	}
-	50% {
-		-webkit-transform: rotate(0deg) scale(1.01) translate(-6px, 2px);
-		transform: rotate(0deg) scale(1.01) translate(-6px, 2px);
-	}
-	100% {
-		-webkit-transform: rotate(20deg) scale(1) translate(1px, 4px);
-		transform: rotate(2deg) scale(1) translate(1px, 4px);
-	}
+h1 {
+	font-family: Serif; font-size: 10em;
+	margin: 0 0 0.1em 0;
 }
 
-.saucer {
-	position: absolute;
-	top: calc(20%);
-	left: calc(50% );
-	border-radius: 50%;
-	height: 10px;
-	width: 60px;
-	z-index: 2;
-	background: red;
-	-webkit-animation: floating 5s infinite alternate;
-	animation: floating 5s infinite alternate;
-	background: transparent;
-	box-shadow: 0px 0px 30px 20px #313131, 0px 0px 0px 30px #7C7C7C, 0px 0px 40px 30px rgba(255, 255, 255, 0.4);
-	&:before {
-		width: 8px;
-		height: 3px;
-		left: 30px;
-		top: 16px;
-		border-radius: 50%;
-		content: '';
-		display: block;
-		z-index: 1;
-		background: #00D1FF;
-		position: absolute;
-		-webkit-animation: lamps 1s infinite alternate;
-		animation: lamps 1s infinite alternate;
-	}
-	&:after {
-		width: 200px;
-		position: absolute;
-		content: '';
-		border-radius: 50%;
-		width: 240px;
-		left: -90px;
-		height: 44px;
-		background: #272727;
-		opacity: 1;
-		background: radial-gradient(ellipse at center, #fdfcfd 0%, #fdfcfd 10%, #444444 10%, #444444 7%, #444444 11%, #1c1c1c 100%);
-		background-position-y: 135px;
-		background-position-x: -20px;
-		background-size: 120% 140%;
-		box-shadow: 1px -2px 10px 0px #8B8B8B, 1px -3px 0px 0px #222222, 1px -5px 0px 0px #8B8B8B, 1px -5px 60px -2px rgba(255, 255, 255, 0.4);
-	}
+h2 {
+	font-size: 3em; text-transform: uppercase; line-height: 1.5em;  margin: 0 0 1.3em 0;
 }
+	h2 span {
+		font-size: 2.05em; display: block;
+	}
+
+p {
+	font-size: 2em;
+}
+
+a {
+ color: #ded7bd; text-decoration: none;
+}
+	a:hover {
+		color: #af9a77;
+	}
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <h1 class="title">OOPS! page not found </h1>
-  <svg height="347" width="168" id="cloud1">
-          <g>
-              <polygon points="0,30 8,19 27,18 22,36 9,37" fill="#d5d6e2" />
-              <polygon points="0,30 9,37 3,50" fill="#c7c2d1" />
-              <polygon points="3,50 9,37 22,36 33,44 14,55" fill="#a8a9b7" />
-              <polygon points="14,55 33,44 36,52 23,58" fill="#7a7789" />
-              <polygon points="27,18 22,36 33,44" fill="#acabb9" />
+  <div id="tv">
+ 	<div id="content">
 
-              <polygon points="31,11 51,4 66,1 83,13 83,23 78,23" fill="#fff6e7" />
-              <polygon points="27,18 31,11 54,6 56,32 33,40 29,36" fill="#d0d0dc" />
-              <polygon points="29,36 58,65 42,67 31,57" fill="#9694a3" />
-              <polygon points="33,40 56,32 75,37 58,65" fill="#a2a1b1" />
-              <polygon points="58,65 75,37 82,57" fill="#9897a7" />
-              <polygon points="56,32 54,6 80,14 82,57 75,37" fill="#d7d6e2" />
-
-              <polygon points="80,15 84,17 88,30 85,50 81,51" fill="#9d9da9" />
-              <polygon points="90,16 82,20 81,31 95,35" fill="#cdcdda" />
-              <polygon points="81,31 82,47 95,35" fill="#a2a2b0" />
-              <polygon points="82,47 95,35 105,45 91,53" fill="#878892" />
-              <polygon points="105,45 95,35 106,22" fill="#fbe5d5" />
-              <polygon points="106,22 95,35 90,16" fill="#dbd6dd" />
-          </g>
-      </svg>
-
-      <svg height="347" width="168" id="cloud2">
-          <g transform="scale(0.5)">
-              <polygon points="0,30 8,19 27,18 22,36 9,37" fill="#d5d6e2" />
-              <polygon points="0,30 9,37 3,50" fill="#c7c2d1" />
-              <polygon points="3,50 9,37 22,36 33,44 14,55" fill="#a8a9b7" />
-              <polygon points="14,55 33,44 36,52 23,58" fill="#7a7789" />
-              <polygon points="27,18 22,36 33,44" fill="#acabb9" />
-
-              <polygon points="31,11 51,4 66,1 83,13 83,23 78,23" fill="#fff6e7" />
-              <polygon points="27,18 31,11 54,6 56,32 33,40 29,36" fill="#d0d0dc" />
-              <polygon points="29,36 58,65 42,67 31,57" fill="#9694a3" />
-              <polygon points="33,40 56,32 75,37 58,65" fill="#a2a1b1" />
-              <polygon points="58,65 75,37 82,57" fill="#9897a7" />
-              <polygon points="56,32 54,6 80,14 82,57 75,37" fill="#d7d6e2" />
-
-              <polygon points="80,15 84,17 88,30 85,50 81,51" fill="#9d9da9" />
-              <polygon points="90,16 82,20 81,31 95,35" fill="#cdcdda" />
-              <polygon points="81,31 82,47 95,35" fill="#a2a2b0" />
-              <polygon points="82,47 95,35 105,45 91,53" fill="#878892" />
-              <polygon points="105,45 95,35 106,22" fill="#fbe5d5" />
-              <polygon points="106,22 95,35 90,16" fill="#dbd6dd" />
-          </g>
-      </svg>
-
-
-
-   <div class="laptop">
-
-      <div class="btm"></div>
-      <div class="shadow"></div>
-    </div>
-
-
-  <div class="saucer">
-
-  </div>
+ 		<h1>404</h1>
+ 		<h2><span>No signal</span> on this frequency</h2>
+ 		<p>Go back to <a href="http://alyop.herokuapp.com/profile">Profile</a>
+ 	</div>
+</div>
 
 </body>
 </html>

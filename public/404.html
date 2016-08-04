@@ -5,63 +5,97 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+ background: #f5f5f5; font-family: 'Roboto', sans-serif;}
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+.mini {
+  font-size: 1em;
+  color: #000;
+  line-height: 9em;
+  text-indent: 2.5em;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.mega, .bola{
+  line-height: 1.65em;
+  font-weight: bold;
+  font-size: 11em;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -150px;}
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+.boom {color: #f5f5f5; }
   </style>
+  <script>
+  var $container = $('.bola');
+var renderer = new THREE.WebGLRenderer({antialias: true});
+var camera = new THREE.PerspectiveCamera(80,1,0.1,10000);
+var scene = new THREE.Scene();
+
+scene.add(camera);
+renderer.setSize(300,300);
+$container.append(renderer.domElement);
+
+///////////////////////////////////////////////
+
+// Camera
+camera.position.z = 200;
+
+// Material
+var pinkMat = new THREE.MeshPhongMaterial({
+  color      :  new THREE.Color("rgb(226,35,213)"),
+  emissive   :  new THREE.Color("rgb(0,0,0)"),
+  specular   :  new THREE.Color("rgb(255,155,255)"),
+  shininess  :  100,
+  shading    :  THREE.FlatShading,
+  transparent: 1,
+  opacity    : 1
+});
+
+var L1 = new THREE.PointLight( 0xffffff, 1);
+L1.position.z = 100;
+L1.position.y = 100;
+L1.position.x = 100;
+scene.add(L1);
+
+var L2 = new THREE.PointLight( 0xffffff, 0.8);
+L2.position.z = 200;
+L2.position.y = 400;
+L2.position.x = -100;
+scene.add(L2);
+
+// IcoSphere -> THREE.IcosahedronGeometry(80, 1) 1-4
+var Ico = new THREE.Mesh(new THREE.IcosahedronGeometry(75,1), pinkMat);
+Ico.rotation.z = 0.5;
+scene.add(Ico);
+
+function update(){
+   Ico.rotation.x+=2/100;
+   Ico.rotation.y+=2/100;
+}
+
+// Render
+function render() {
+  requestAnimationFrame(render);
+  renderer.render(scene, camera);
+  update();
+}
+
+render();
+  </script>
+
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  <p class="mega">4<span class="boom">0</span>4<div class="bola">
+</div></p>
+<p class="mini">That's an error.</p>
 </body>
 </html>

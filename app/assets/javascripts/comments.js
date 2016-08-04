@@ -21,7 +21,7 @@ e.preventDefault()
 })
 
 $(document).on("submit", "#deletecomment", function (e){
-  $(this).closest('.commentandpicture').fadeOut(700);
+  $(this).closest('.commentsection').fadeOut(400);
   id = $(this).closest('.rightpanelheader').find('form').data('commtid')
   console.log(id)
 e.preventDefault()

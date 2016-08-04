@@ -4,7 +4,12 @@ $black: #343837;
 $blue: #114B5F;
 
 
-* {
+body .activitycardcontainer {
+  box-sizing: border-box;
+  font-family: 'Gotham', 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+body .actcardcontainer {
   box-sizing: border-box;
   font-family: 'Gotham', 'Helvetica Neue', 'Helvetica', sans-serif;
 }

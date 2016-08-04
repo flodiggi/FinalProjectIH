@@ -145,16 +145,22 @@
               <%= f.text_field :description, class:"form-control" %>
               </div>
               <div class="form-group">
+              <%= f.label :location, "Location:" %>
+              <%= f.text_field :location, class:"form-control" %>
+              </div>
+              <!-- <div class="form-group"> -->
               <!-- <%= f.label :starts_at, "Date:" %> -->
               <div class="form-group" >
                 <%= f.label :starts_at, "Date:" %>
                 <%= f.date_select :starts_at %>
+              </div>
+                <div class="form-group" >
                 <%= f.label :starts_at, "Time:" %>
                 <%= f.time_select :starts_at %>
               </div>
               <!-- <%= f.label :starts_at, "Time:" %>
               <%= f.time_select :starts_at, class:"form-control" %> -->
-              </div>
+              <!-- </div> -->
               <div class="form-group">
               <%= f.label :image, "Image:" %>
               <%= f.file_field :image %>

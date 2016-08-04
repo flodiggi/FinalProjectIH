@@ -6,6 +6,12 @@
 }
 
 
+$cyan: #19b7a8;
+$red: #E01A4F;
+$black: #343837;
+$blue: #114B5F;
+
+
 
 body .loginpage {
   background:
@@ -27,7 +33,7 @@ a .signupa {
   transition: .5s ease;
 }
 a:hover .signupa {
-  color: #179b77;
+  color: $blue;
 }
 
 .signupform {

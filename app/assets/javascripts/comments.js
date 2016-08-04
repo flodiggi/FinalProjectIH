@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 
 
-$(document).on("click", ".deletecommentbtn", function (e){
+$(document).on("submit", ".postcommentform", function (e){
   console.log($('#new_comment').serialize())
 e.preventDefault()
   $.ajax({
@@ -14,13 +14,14 @@ e.preventDefault()
       success: function (response) {
         console.log("success")
         $('.commentcontainer').html(response);
+        return false;
 
       }
   })
 })
 
 $(document).on("submit", "#deletecomment", function (e){
-  $(this).closest('.row').fadeOut(700);
+  $(this).closest('.commentandpicture').fadeOut(700);
   id = $(this).closest('.rightpanelheader').find('form').data('commtid')
   console.log(id)
 e.preventDefault()

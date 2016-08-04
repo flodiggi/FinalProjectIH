@@ -1,6 +1,8 @@
-$blue: #2bafb9;
-$orange: #ce5504;
-$green: #c7c741;
+$cyan: #19b7a8;
+$red: #E01A4F;
+$black: #343837;
+$blue: #114B5F;
+
 
 * {
   box-sizing: border-box;
@@ -52,9 +54,9 @@ $green: #c7c741;
 .serve {
   .calendar-icon,
   .event-details {
-    background-color: $blue;
+    background-color: $cyan;
   }
-  border-bottom: 2px solid $blue;
+  border-bottom: 2px solid $cyan;
 }
 
 .calendar-icon {

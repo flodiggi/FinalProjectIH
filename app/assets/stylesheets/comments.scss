@@ -6,7 +6,12 @@
   max-width: 100%;
   margin: 40px 0;
 }
-.comments {
+
+.container-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 
 }
 
@@ -15,9 +20,7 @@
   padding-top: 20px;
 }
 
-.commentsection {
-  max-width: 100%;
-}
+
 
 .commentform {
   margin-bottom: 0;

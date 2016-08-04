@@ -8,6 +8,12 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+ $cyan: #19b7a8;
+ $red: #E01A4F;
+ $black: #343837;
+ $blue: #114B5F;
+
+
  body {
    overflow-x: hidden;
 
@@ -30,6 +36,8 @@
       background: transparent;
       border: 0;
   }
+
+
 
 
 
@@ -119,9 +127,16 @@
     color: white;
 
   }
+  .btn-act:hover {
+    background-color: #114B5F;
+    color: #114B5F;
+
+  }
+
+
 
   .deleteactivity {
-    background-color: #b75c5c;
+    background-color: #E01A4F;
     margin-top: 40px;
 
   }
@@ -205,9 +220,38 @@
 }
 
 .newactivitybutton {
-  background-color: #48A9A6;
-  border-color: #48A9A6;
+  background-color: #19b7a8;
+  border-color: #19b7a8;
 }
+
+.newactivitybutton:hover {
+  background-color: #114B5F;
+  border-color: #114B5F;
+}
+
+.btn-black {
+  background-color: $black;
+  border-color: $cyan;
+}
+
+.btn-black:hover {
+  background-color: $blue;
+    border-color: $cyan;;
+}
+
+.btn-black:active {
+  background-color: $black;
+    border-color: $cyan;;
+}
+
+.btn-black:focus {
+  background-color: $black;
+    border-color: $cyan;
+}
+
+
+
+
 
 
 

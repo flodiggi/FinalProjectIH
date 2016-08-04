@@ -1,7 +1,7 @@
+<div class="container-flex">
   <% @activity.comments.each do |comment| %>
 
-  <div class="row row-centered">
-    <div class="container">
+
     <div class="col-sm-1"> </div>
     <div class="col-xs-12 col-sm-2">
     <div class="thumbnail">
@@ -31,10 +31,12 @@
       </div>
     </div>
     <div class="col-sm-2"> </div>
-  </div>
   <% end %>
 
-<div class="row row-centered">
+</div>
+
+
+<div class="container-flex">
   <div class="col-md-1"></div>
   <div class="col-xs-12 col-md-2">
   <div class="thumbnail">
@@ -44,18 +46,16 @@
 <div class="container col-xs-12 col-md-7">
     <div class="row commentform">
       <div class="form-group">
-        <%= form_for Comment.new, html: {class: "form", role: "form"} do |f| %>
+        <%= form_for Comment.new, html: {class: "postcommentform", role: "form"} do |f| %>
         <%= f.text_area :text, placeholder: "Say Something", class:"form-control input-lg" %>
         <%= hidden_field_tag :id, @activity.id %>
       </div>
   </div>
     <div class="row commentbuttons">
     <%= f.select :category, [ 'General', 'Supportive', 'Objection', 'Counter'], class:"btn btn-primary dropdown-toggle" , :prompt => 'Choose Category'%>
-      <%= f.submit "Submit Comment", class:"btn deletecommentbtn btn-default" %>
+      <%= f.submit "Submit Comment", class:"btn submitcommentbtn btn-default" %>
     </div>
   <% end %>
 </div>
 <div class="col-md-2"></div>
-</div>
-
 </div>

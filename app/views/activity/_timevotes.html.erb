@@ -27,7 +27,10 @@
         <% @activity.users.each do |user| %>
 
           <tr class="timevoterow"<%='id=usertimevotes' if user == current_user%>>
-            <td row="<%=user.id%>" col="0"><%= user.username %> <%= submit_tag "Vote", :class => "votesubmittime" %></td>
+            <td row="<%=user.id%>" col="0"><%= user.username %><% if user == current_user %>
+							 <%= submit_tag "Vote", :class => "votesubmittime" %>
+							 <% end %>
+						 </td>
             <% for i in 1..@activity.time_entries.length %>
               <td userid="<%=user.id%>" col="<%=i%>" actid="<%=@activity.id%>">
                 <div class="checkbox">

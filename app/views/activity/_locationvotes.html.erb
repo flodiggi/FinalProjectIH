@@ -26,7 +26,10 @@
         <% @activity.users.each do |user| %>
 
           <tr class="locvoterow" <%='id=userlocationvotes' if user == current_user%>>
-            <td row="<%=user.id%>" col="0"><%= user.username %> <%= submit_tag "Vote", :class => "votesubmitlocation" %></td>
+            <td row="<%=user.id%>" col="0"><%= user.username %><% if user == current_user %>
+							 <%= submit_tag "Vote", :class => "votesubmitlocation" %>
+							 <% end %>
+						 </td>
             <% for i in 1..@activity.location_entries.length %>
               <td userid="<%=user.id%>" col="<%=i%>" actid="<%=@activity.id%>">
                 <div class="checkbox">

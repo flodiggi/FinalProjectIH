@@ -73,11 +73,22 @@
                   <% end %>
                   <div class="">
                     <% if @activity.hosts.find_by(userid: current_user.id) && @activity.hosts.find_by(userid: user.id) == nil %>
-                    <form id="makehost", data-remote = "true" >
+                    <form class="" action="/hosts" method="post">
+                      <input type="hidden" name="userid" value="<%=user.id%>">
+                    <input type="hidden" name="actid" value="<%=@activity.id%>">
+                     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <button type="submit" class="btn">
+                      Make Host
+                   </button>
+                   </form>
+
+
+
+                    <!-- <form id="makehost", data-remote = "true" >
                       <%= hidden_field_tag :userid, user.id %>
                       <%= hidden_field_tag :actid, @activity.id %>
                     <%= submit_tag "Make Host", class: "btn btn-primary" %>
-                    </form>
+                    </form> -->
                   </div>
                   </li>
 

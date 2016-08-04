@@ -208,21 +208,22 @@ $(document).ready(function(){
 
 
 
-    $(document).on("submit", "#makehost", function (e){
-      // $(this).closest('.actcontainer').fadeOut();
-      id = $('#makehost').attr('userid')
-      console.log($('#makehost').serialize())
-    e.preventDefault()
-      $.ajax({
-          type: "POST",
-          url: '/hosts',
-          data: $('#makehost').serialize(),
-
-          success: function (response) {
-            console.log(response)
-          }
-      })
-    })
+    // $(document).on("submit", "#makehost", function (e){
+    //   $(this).closest('.actcontainer').fadeOut();
+    //   id = $('#makehost').attr('userid')
+    //   console.log(id);
+    //   console.log($('#makehost').serialize())
+    // e.preventDefault()
+    //   $.ajax({
+    //       type: "POST",
+    //       url: '/hosts',
+    //       data: $('#makehost').serialize(),
+    //
+    //       success: function (response) {
+    //         console.log(response)
+    //       }
+    //   })
+    // })
 
 
 

@@ -36,19 +36,20 @@ class ActivityController < ApplicationController
     if
     activity.name =~ /^$/
     # || activity.participants =~ /^$/
+    flash[:error] = "creation failed - missing name"
 
-    redirect_to("activity/new")
+    # redirect_to("activity/new")
     else
     activity.users << current_user
     host = Host.create(:userid => current_user.id)
     activity.hosts << host
-      if activity.starts_at != nil
+      if activity.starts_at != ""
         dateentry = DateEntry.create(:date => activity.starts_at)
         timeentry = TimeEntry.create(:time => activity.starts_at)
         activity.date_entries << dateentry
         activity.time_entries << timeentry
       end
-      if activity.location != nil
+      if activity.location != ""
         locationentry = LocationEntry.create(:location => activity.location)
         activity.location_entries << locationentry
       end

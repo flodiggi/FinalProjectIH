@@ -131,8 +131,8 @@
 
           <% if @activity.location_entries.where(votes: @activity.location_entries.maximum(:votes)).count > 1 %>
           <div class="votingresults">
+            <% sorted = @activity.location_entries.sort_by {|u| u.votes || 0}%>
             <% @activity.location_entries.each do |d| %>
-            <% sorted = @activity.location_entries.sort_by &:votes %>
             <% if d.votes == sorted.last.votes %>
             <i class="fa fa-map-marker fa-fw"></i>
             <span class="event-location"><%= d.location %></span>
@@ -144,8 +144,8 @@
 
           <% if @activity.date_entries.where(votes: @activity.date_entries.maximum(:votes)).count > 1 %>
           <div class="votingresults">
+            <% sorted = @activity.date_entries.sort_by {|u| u.votes || 0}%>
             <% @activity.date_entries.each do |d| %>
-            <% sorted = @activity.date_entries.sort_by &:votes %>
             <% if d.votes == sorted.last.votes %>
             <i class="icon-calendar"></i>
             <span class="event-time"><%= d.date.strftime("%a %d.%m.")%></span>
@@ -156,8 +156,8 @@
 
           <% if @activity.time_entries.where(votes: @activity.time_entries.maximum(:votes)).count > 1 %>
           <div class="votingresults">
+            <% sorted = @activity.time_entries.sort_by {|u| u.votes || 0} %>
             <% @activity.time_entries.each do |d| %>
-            <% sorted = @activity.time_entries.sort_by &:votes %>
             <% if d.votes == sorted.last.votes %>
             <i class="fa fa-clock-o fa-fw"></i>
             <span class="event-time"><%= d.time.strftime("%I:%M%p")%></span>

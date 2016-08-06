@@ -5,7 +5,7 @@ class LocationEntriesController < ApplicationController
 
     if params[:location] != "" && params[:location] != nil
 
-    new_location_entry = LocationEntry.create(location: params[:location], votes: 0)
+    new_location_entry = LocationEntry.create(location: params[:location].capitalize, votes: 0)
 
     @activity = Activity.find_by(id: params[:id])
     @activity.location_entries << new_location_entry
